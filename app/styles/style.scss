@@ -1,7 +1,16 @@
-$icon-font-path: "../styles/fonts/"; // Change the path to the fonts
-@import "bootstrap-sass/lib/bootstrap";
+$icon-font-path: "fonts/"; // Change the path to the fonts
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+@import "font-awesome/scss/font-awesome";
 
 /* Put your CSS here */
 html, body {
     margin: 30px 0;
+}
+
+#main {
+	/* background-image: url("../images/gui/tiny_grid/tiny_grid.png"); */
+}
+
+.navbar-default {
+	background-image: url("../images/gui/grey/grey.png");
 }
