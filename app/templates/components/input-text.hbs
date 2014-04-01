@@ -1,0 +1,10 @@
+<div class="form-group">
+	<label {{bind-attr for="textField.elementId"}}>{{label}}</label>
+	{{input 
+		value=value
+		class="form-control"
+		placeholder=label
+		viewName="textField"
+		focus-out="acceptChanges"
+		insert-newline="acceptChanges"}}
+</div>
