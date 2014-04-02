@@ -1,23 +1,43 @@
 <div class="row">
-    <div>
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Views</h3>
-                </div>
-                <ul class="list-group">
-                    {{#each item in controller}}
-                        <li class="list-group-item">
-                            {{#link-to "viewController" item}}{{item.name}}{{/link-to}}
-                        </li>
-                    {{/each}}
-                </ul>
-                <div class="panel-footer">
-                    ciao
-                </div>
-            </div>
+  <div>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Views</h3>
+          
         </div>
-        
-        {{outlet}}
+        <ul class="list-group">
+          {{#each item in controller}}
+            <li class="list-group-item">
+              {{#link-to "viewController" item}}{{item.name}}{{/link-to}}
+            </li>
+          {{/each}}
+          {{#if isCreating}}
+            <li class="list-group-item">
+              <div class="input-group">
+                {{input value=newNameViewController class="form-control" focus-out="createViewController" insert-newline="createViewController"}}
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" {{action "createViewController"}}>
+                    <i class="fa fa-save"></i> 
+                  </button>
+                  <button type="button" class="btn btn-default" {{action "setCreating" false}}>
+                    <i class="fa fa-times"></i> 
+                  </button>
+                </span>
+              </div>
+            </li>
+          {{/if}}
+        </ul>
+        <div class="panel-footer">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default" {{action "setCreating" true}}>
+              <i class="fa fa-plus"></i> 
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    {{outlet}}
+  </div>
 </div>
