@@ -2,6 +2,8 @@ App.ViewControllersController = Ember.ArrayController.extend({
   isCreating: false,
   newNameViewController: 'newView',
 
+  needs: ['uiControls'],
+
   actions: {
     setCreating: function(value) {
       this.set('isCreating', value);

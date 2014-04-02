@@ -7,7 +7,7 @@
           
         </div>
         <ul class="list-group">
-          {{#each item in controller}}
+          {{#each item in controller item-controller="viewController"}}
             <li class="list-group-item">
               {{#link-to "viewController" item}}{{item.name}}{{/link-to}}
             </li>
@@ -34,6 +34,17 @@
               <i class="fa fa-plus"></i> 
             </button>
           </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            UIControls
+        </div>
+        <div class="panel-body">
+          {{#each controllers.uiControls}}
+            {{view App.UiControlView}}
+          {{/each}}
         </div>
       </div>
     </div>

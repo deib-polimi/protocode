@@ -6,6 +6,10 @@ App.Router.map(function () {
 
       });
   	});
+
+    this.resource('uiControls', function() {
+
+    });
   });
 
   this.resource('about');
