@@ -42,7 +42,7 @@
             UIControls
         </div>
         <div class="panel-body">
-          {{#each controllers.uiControlTemplates}}
+          {{#each controllers.uiControlTemplates itemController="uiControlTemplate"}}
             {{view App.UiControlTemplateView}}
           {{/each}}
         </div>

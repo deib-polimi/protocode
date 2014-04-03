@@ -1,5 +1,12 @@
 App.UiControlTemplateView = Ember.View.extend({
-  templateName: 'views/ui_control_template_view',
-  attributeBindings: ['draggable'],
-  draggable: "true"
+  tagName: 'img',
+  classNames: ['img-thumbnail', 'control-ui-picker'],
+  attributeBindings: ['draggable', 'alt', 'src' ],  
+  draggable: "true",
+  alt: function () {
+    return this.get('context.label');
+  }.property(),
+  src: function() {
+    return this.get('context.imageSource');
+  }.property()
 });
