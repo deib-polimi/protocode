@@ -1,7 +1,17 @@
 <div class="col-md-6">
 	<div class="panel panel-primary">
 	    <div class="panel-heading">
-	        <h3 class="panel-title">{{name}}</h3>
+        <strong class="panel-title">{{name}}</strong>
+        <div class="col-xs-3 input-group pull-right">
+        	<span class="input-group-btn">
+      			<button class="btn btn-default" {{action 'decreaseZoom'}}><i class="fa fa-search-minus"></i> </button>
+      		</span>
+      		{{input type="number" value=zoomLevel class="form-control"}}
+      		<span class="input-group-btn">
+      			<button class="btn btn-default" {{action 'increaseZoom'}}><i class="fa fa-search-plus"></i> </button>
+      		</span>
+    		</div>
+      	<div class="clearfix"></div>
 	    </div>
 	    <div class="panel-body plotted">
 	    	{{view App.PhoneView}}

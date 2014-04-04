@@ -31,6 +31,7 @@ html, body {
 .device-view {
   margin-left: auto;
   margin-right: auto;
+  -moz-transform-origin: 0 0;
 }
 
 .device-view.ios.iPhone5s {
