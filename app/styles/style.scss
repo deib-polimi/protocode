@@ -17,9 +17,28 @@ html, body {
 
 .plotted {
 	background-image: url("../images/gui/tiny_grid/tiny_grid.png");
+  overflow: auto;
 }
 
 .control-ui-picker {
   height: 50px;
   width: 50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.device-view {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.device-view.ios.iPhone5s {
+  background-image: url("../images/devices/ios/iPhone_5s.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  width: 370px;
+  height: 777px;
+  padding: 114px 27px 109px 31px;
 }
