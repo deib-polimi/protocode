@@ -26,12 +26,22 @@ html, body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+}
+
+.control-ui-picker:hover {
+  transform: scale(1.2) rotate(10deg);
+  transition: transform 0.1s;
+  -webkit-transform: scale(1.2) rotate(10deg);
+  -webkit-transition: transform 0.1s;
 }
 
 .device-view {
   margin-left: auto;
   margin-right: auto;
   -moz-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
 }
 
 .device-view.ios.iPhone5s {
@@ -41,5 +51,11 @@ html, body {
   background-size: 100%;
   width: 370px;
   height: 777px;
-  padding: 114px 27px 109px 31px;
+  padding: 114px 27px 107px 31px;
+}
+
+.device-view .device-screen-view {
+  background-color: red;
+  width: 100%;
+  height: 100%;
 }

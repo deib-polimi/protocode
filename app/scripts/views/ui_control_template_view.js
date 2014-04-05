@@ -10,5 +10,10 @@ App.UiControlTemplateView = Ember.View.extend({
   
   style: function() {
     return 'background-image: url("' + this.get('context.imageSource') + '");';
-  }.property('context.imageSource')
+  }.property('context.imageSource'),
+
+
+  dragStart: function(event) {
+    event.dataTransfer.setData('uiControlType', this.get('context.type'));
+  }
 });

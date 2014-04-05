@@ -1,7 +1,7 @@
 App.ViewControllerController = Ember.ObjectController.extend({
   needs: ['editor'],
   isActive: false,
-  zoomLevel: 2,
+  zoomLevel: 1,
 
   actions: {
     increaseZoom: function() {
