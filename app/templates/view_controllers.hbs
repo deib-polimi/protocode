@@ -1,50 +1,53 @@
 <div class="row">
   <div>
     <div class="col-md-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Views</h3>
-          
-        </div>
-        <ul class="list-group">
-          {{#each item in controller item-controller="viewController"}}
-            <li class="list-group-item">
-              {{#link-to "viewController" item}}{{item.name}}{{/link-to}}
-            </li>
-          {{/each}}
-          {{#if isCreating}}
-            <li class="list-group-item">
-              <div class="input-group">
-                {{input value=newNameViewController class="form-control" focus-out="createViewController" insert-newline="createViewController"}}
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" {{action "createViewController"}}>
-                    <i class="fa fa-save"></i> 
-                  </button>
-                  <button type="button" class="btn btn-default" {{action "setCreating" false}}>
-                    <i class="fa fa-times"></i> 
-                  </button>
-                </span>
-              </div>
-            </li>
-          {{/if}}
-        </ul>
-        <div class="panel-footer">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default" {{action "setCreating" true}}>
-              <i class="fa fa-plus"></i> 
-            </button>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading" data-toggle="collapse" data-target="#collapse-views">
+            <h3 class="panel-title">
+              Views
+            </h3>  
+          </div>
+          <ul class="list-group" id="collapse-views" class="collapse in">
+            {{#each item in controller item-controller="viewController"}}
+              <li class="list-group-item">
+                {{#link-to "viewController" item}}{{item.name}}{{/link-to}}
+              </li>
+            {{/each}}
+            {{#if isCreating}}
+              <li class="list-group-item">
+                <div class="input-group">
+                  {{input value=newNameViewController class="form-control" focus-out="createViewController" insert-newline="createViewController"}}
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" {{action "createViewController"}}>
+                      <i class="fa fa-save"></i> 
+                    </button>
+                    <button type="button" class="btn btn-default" {{action "setCreating" false}}>
+                      <i class="fa fa-times"></i> 
+                    </button>
+                  </span>
+                </div>
+              </li>
+            {{/if}}
+          </ul>
+          <div class="panel-footer">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" {{action "setCreating" true}}>
+                <i class="fa fa-plus"></i> 
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-            UIControls (Drag and drop)
-        </div>
-        <div class="panel-body">
-          {{#each controllers.uiControlTemplates itemController="uiControlTemplate"}}
-            {{view App.UiControlTemplateView}}
-          {{/each}}
+        <div class="panel panel-default">
+          <div class="panel-heading" data-toggle="collapse" data-target="#collapse-ui-control">
+              UIControls (Drag and drop)
+          </div>
+          <div class="panel-body" id="collapse-ui-control" class="collapse in">
+            {{#each controllers.uiControlTemplates itemController="uiControlTemplate"}}
+              {{view App.UiControlTemplateView}}
+            {{/each}}
+          </div>
         </div>
       </div>
     </div>
