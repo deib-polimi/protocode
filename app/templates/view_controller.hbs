@@ -6,7 +6,7 @@
         	<span class="input-group-btn">
       			<button class="btn btn-default" {{action 'decreaseZoom'}}><i class="fa fa-search-minus"></i> </button>
       		</span>
-      		{{input type="number" value=zoomLevel class="form-control"}}
+      		{{input type="number" value=zoomLevel class="form-control" step="0.2" min="0.1"}}
       		<span class="input-group-btn">
       			<button class="btn btn-default" {{action 'increaseZoom'}}><i class="fa fa-search-plus"></i> </button>
       		</span>
