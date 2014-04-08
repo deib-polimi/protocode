@@ -1,14 +1,17 @@
 App.EditorController = Ember.ObjectController.extend({
-  platform: 'ios',
-  deviceModel: 'iPhone5s',
+  platform: function() {
+    if (this.get('devices')) {
+      return this.get('devices').findBy('id', this.get('deviceId')).get('platform.name');
+    }
+  }.property('deviceId'),
 
-  platforms: function() {
-    return this.store.find('platform');
-  }.property(),
+  deviceModel: function() {
+    if (this.get('devices')) {
+      return this.get('devices').findBy('id', this.get('deviceId')).get('name');
+    }
+  }.property('deviceId'),
 
-  devices: function() {
-
-  }.property('platforms'),
+  devices: null,
   
   actions: {
   }

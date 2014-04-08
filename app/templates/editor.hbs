@@ -2,12 +2,11 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        AppName
+        App name: {{name}} {{device.name}}
       </div>
       <div class="col-md-4">
         <div class="form-inline">
-          {{view Ember.Select content=platforms optionLabelPath='content.label' optionValuePath="content.id" class="form-control"}}
-          {{view Ember.Select content=devices optionLabelPath='content.label' optionValuePath="content.id" class="form-control"}}
+          {{view Ember.Select content=devices optionLabelPath='content.label' optionValuePath="content.id" class="form-control" value=deviceId}}
         </div>
       </div>
       <div class="col-md-4">
