@@ -10,7 +10,7 @@ App.DeviceView = Ember.View.extend({
   }.property('controller.controllers.editor.platform'),
   
   deviceModel: function() {
-    return this.get('controller.controllers.editor.deviceModel');
+    return this.get('controller.controllers.editor.deviceModel.name');
   }.property('controller.controllers.editor.deviceModel'),
 
   zoomLevelStyle: function() {

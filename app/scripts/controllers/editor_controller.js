@@ -1,6 +1,6 @@
 App.EditorController = Ember.ObjectController.extend({
   platform: function() {
-    return this.get('deviceModel.platform.name');
+    return this.get('deviceModel.platform');
   }.property('deviceModel'),
 
   deviceModel: function() {
