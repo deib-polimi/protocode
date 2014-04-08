@@ -1,13 +1,14 @@
 App.EditorRoute = Ember.Route.extend({
     model: function () {
-        return this.store.find('application', 1);
+        return Ember.RSVP.hash({
+          application: this.store.find('application', 1),
+          devices: this.store.find('device')
+        });
     },
     setupController: function(controller, model) {
       this._super(controller, model);
-
-      this.store.find('device').then(function(data) {
-        controller.set('devices', data);
-      });
-      
+      controller.set('model', model.application);
+      controller.set('devices', model.devices);
+      controller.set('deviceModel', model.devices.findBy('id', this.get('deviceId')));
     }
 });
