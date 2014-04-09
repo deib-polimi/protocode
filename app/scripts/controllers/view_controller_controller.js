@@ -9,6 +9,18 @@ App.ViewControllerController = Ember.ObjectController.extend({
     },
     decreaseZoom: function() {
       this.set('zoomLevel', Math.round((this.get('zoomLevel') - 0.2) * 100) / 100);
+    },
+    addUiControl: function(controlType) {
+      var button = this.store.createRecord('button', {
+        name: 'DummyButtonName',
+        title: 'Dummy Button',
+        viewController: this.get('model')
+      });
+
+      button.save();
+
+      this.get('model.buttons').addObject(button);
+
     }
   }
 });
