@@ -26,3 +26,21 @@ DS.JSONSerializer.reopen({
         }
     }
 });
+
+// Method to reload async hasMany attributes
+var get = Ember.get;
+
+DS.ManyArray.reopen({
+    reloadLinks: function() {
+        var records = get(this, 'content'),
+        store = get(this, 'store'),
+        owner = get(this, 'owner'),
+        type = get(this, 'type'),
+        name = get(this, 'name'),
+        resolver = Ember.RSVP.defer();
+
+        var meta = owner.constructor.metaForProperty(name);
+        var link = owner._data.links[meta.key];
+        store.findHasMany(owner, link, meta, resolver);
+    }
+});

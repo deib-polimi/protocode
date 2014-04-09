@@ -19,8 +19,6 @@ App.ViewControllerController = Ember.ObjectController.extend({
 
       button.save();
 
-      this.get('model.buttons').addObject(button);
-
     }
   }
 });

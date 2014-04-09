@@ -1,7 +1,14 @@
 App.Button = DS.Model.extend({
   name: DS.attr('string'),
   title: DS.attr('string'),
-  viewController: DS.belongsTo('viewController')
+  viewController: DS.belongsTo('viewController'),
+
+  didCreate: function() {
+    var self = this;
+    this.get('viewController.buttons').then(function (buttons) {
+      buttons.pushObject(self);
+    });
+  }
 });
 
 App.Button.FIXTURES = [
