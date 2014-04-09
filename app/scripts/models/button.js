@@ -3,6 +3,7 @@ App.Button = DS.Model.extend({
   title: DS.attr('string'),
   viewController: DS.belongsTo('viewController'),
 
+  // Used to reload views
   didCreate: function() {
     var self = this;
     this.get('viewController.buttons').then(function (buttons) {
