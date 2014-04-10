@@ -55,7 +55,28 @@ html, body {
 }
 
 .device-view .device-screen-view {
-  background-color: red;
+  position: relative;
+  background-color: #fff;
   width: 100%;
   height: 100%;
+}
+
+
+/* Controls */
+.control-button {
+  position: absolute;
+}
+
+.control-button a.active {
+  border: dashed 1px #007aff;
+}
+
+.control-button.ios {
+  font: 16px -apple-system-font, ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+  color: #007aff;
+  padding: 5px;
+}
+
+.control-button.ios a {
+  text-decoration: none;
 }

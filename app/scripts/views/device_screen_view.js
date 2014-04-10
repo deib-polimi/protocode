@@ -11,7 +11,7 @@ App.DeviceScreenView = Ember.View.extend({
   drop: function(event) {
     event.preventDefault();
     alert(event.dataTransfer.getData('uiControlType'));
-    this.get('controller').send('addUiControl', 'button');
+    this.get('controller').send('addUiControl', event.dataTransfer.getData('uiControlType'));
   }
 
 });
