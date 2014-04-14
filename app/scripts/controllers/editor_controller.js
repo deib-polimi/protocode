@@ -5,8 +5,5 @@ App.EditorController = Ember.ObjectController.extend({
 
   deviceModel: function() {
     return this.get('devices').findBy('id', this.get('deviceId'));
-  }.property('deviceId'),
-  
-  actions: {
-  }
+  }.property('deviceId')
 });

@@ -3,8 +3,5 @@ App.UiControlTemplateController = Ember.ObjectController.extend({
 
   imageSource: function() {
     return '/images/ui_controls/' + this.get('controllers.editor.platform') + '/' + this.get('model.nameImg');
-  }.property('controllers.editor.platform'),
-  
-  actions: {
-  }
+  }.property('controllers.editor.platform')
 });
