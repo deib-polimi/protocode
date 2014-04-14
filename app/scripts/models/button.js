@@ -1,18 +1,6 @@
-App.Button = DS.Model.extend({
-  name: DS.attr('string'),
-  title: DS.attr('string'),
-  posX: DS.attr('number'),
-  posY: DS.attr('number'),
+App.Button = App.UiControl.extend({
 
-  viewController: DS.belongsTo('viewController'),
-
-  // Used to reload views
-  didCreate: function() {
-    var self = this;
-    this.get('viewController.buttons').then(function (buttons) {
-      buttons.pushObject(self);
-    });
-  }
+  
 });
 
 App.Button.FIXTURES = [
