@@ -1,5 +1,8 @@
-App.UiControlView = Ember.View.extend({
+App.UiControlView = Ember.View.extend(App.UiMoveable, {
   templateName: 'views/ui_control_view',
+  classNames: ['ui-control'],
+  classNameBindings: ['active'],
+  attributeBindings: ['style'],
 
   uiControlType: function () {
     var controlType = this.get('context').constructor.toString();
@@ -11,7 +14,11 @@ App.UiControlView = Ember.View.extend({
         return App.ButtonView;
         break;
     }
-  }.property()
+  }.property(),
+
+  style: function() {
+    return this.get('positionStyle');
+  }.property('positionStyle')
 
 
 
