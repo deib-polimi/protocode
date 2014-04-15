@@ -4,10 +4,25 @@
           <h3 class="panel-title">{{name}}</h3>
       </div>
       <div class="panel-body">
-        {{input-text label="Name" value=name action='acceptChanges'}}
-        {{input-text label="Title" value=title action='acceptChanges'}}
-        {{input-text label="Position X [px]" value=posX action='acceptChanges' type="number"}}
-        {{input-text label="Position Y [px]" value=posY action='acceptChanges' type="number"}}
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
+          <li><a href="#profile" data-toggle="tab"><i class="fa fa-sitemap"></i></a></li>
+          <li><a href="#messages" data-toggle="tab"><i class="fa fa-tachometer"></i></a></li>
+          <li><a href="#settings" data-toggle="tab"><i class="fa fa-cogs"></i></a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+            {{input-text label="Name" value=name action='acceptChanges'}}
+            {{input-text label="Title" value=title action='acceptChanges'}}
+            {{input-text label="Position X [px]" value=posX action='acceptChanges' type="number"}}
+            {{input-text label="Position Y [px]" value=posY action='acceptChanges' type="number"}}
+          </div>
+          <div class="tab-pane fade" id="profile">...</div>
+          <div class="tab-pane fade" id="messages">...</div>
+          <div class="tab-pane fade" id="settings">...</div>
+        </div>
+        
       </div>
       <div class="panel-footer">
          <div class="btn-group">
