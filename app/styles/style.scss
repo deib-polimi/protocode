@@ -97,3 +97,20 @@ html, body {
 .control-button.ios a {
   text-decoration: none;
 }
+
+/* Alignments */
+.align-parent-top {
+  top: 0;
+}
+
+.align-parent-bottom {
+  bottom: 0;
+}
+
+.align-parent-start {
+  left: 0;
+}
+
+.align-parent-end {
+  right: 0;
+}
