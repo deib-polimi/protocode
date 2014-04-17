@@ -98,6 +98,11 @@ html, body {
   text-decoration: none;
 }
 
+.control-container {
+  border: dashed 1px #ccc;
+  border-radius: 5px;
+}
+
 /* Alignments */
 .align-parent-top {
   top: 0;

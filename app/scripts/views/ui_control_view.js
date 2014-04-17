@@ -31,8 +31,12 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
     switch (controlType) {
       case ('App.Button'):
-        console.log('chosen Button!');
         return App.ButtonView;
+        break;
+
+      case ('App.Container'):
+        console.log('chosen Container!');
+        return App.ContainerView;
         break;
     }
   }.property(),

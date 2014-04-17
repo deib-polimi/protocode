@@ -14,7 +14,8 @@ App.Button.FIXTURES = [
     alignParentBottom: true,
     alignParentStart: true,
     alignParentEnd: true,
-    viewController: 1
+    viewController: 1,
+    parentContainer: null
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ App.Button.FIXTURES = [
     alignParentBottom: false,
     alignParentStart: false,
     alignParentEnd: false,
-    viewController: 1
+    viewController: 1,
+    parentContainer: null
   }
 ];

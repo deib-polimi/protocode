@@ -18,6 +18,16 @@ App.ViewControllerRoute = Ember.Route.extend({
 
           button.save();
           break;
+
+        case 'container':
+        var button = this.store.createRecord('container', {
+          name: 'DummyContainer',
+          title: 'Dummy Container',
+          viewController: this.get('controller.model')
+        });
+
+        button.save();
+        break;
       }
       
     }

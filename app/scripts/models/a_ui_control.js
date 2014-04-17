@@ -9,6 +9,7 @@ App.UiControl = DS.Model.extend({
   alignParentEnd: DS.attr('boolean'),
 
   viewController: DS.belongsTo('viewController'),
+  parentContainer: DS.belongsTo('container'),
 
   // Used to reload views
   didCreate: function() {
