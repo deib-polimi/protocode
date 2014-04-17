@@ -69,6 +69,10 @@ html, body {
   position: absolute;
 }
 
+.ui-control.is-moving {
+  z-index: 999;
+}
+
 .inner-control {
   position: absolute;
   /*top: -10%;
@@ -101,6 +105,11 @@ html, body {
 .control-container {
   border: dashed 1px #ccc;
   border-radius: 5px;
+}
+
+/* Drag & Drop */
+.dragging-over {
+  box-shadow: 0 0 5px 5px #007aff;
 }
 
 /* Alignments */

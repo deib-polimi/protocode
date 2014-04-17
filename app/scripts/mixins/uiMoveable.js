@@ -1,5 +1,6 @@
 App.UiMoveable = Ember.Mixin.create({
   isMoving: false,
+  classNameBindings: ['isMoving'],
   
   mouseMove: function(event) {
     if (this.get('isMoving')) {

@@ -6,8 +6,8 @@ App.ViewControllerRoute = Ember.Route.extend({
     decreaseZoom: function() {
       this.set('controller.zoomLevel', Math.round((this.get('controller.zoomLevel') - 0.2) * 100) / 100);
     },
-    addUiControl: function(controlType) {
-
+    addUiControl: function(controlType, receiver) {
+      console.log('Receiver of drop event: ' + receiver.get('context.name'));
       switch (controlType) {
         case 'button':
           var button = this.store.createRecord('button', {
