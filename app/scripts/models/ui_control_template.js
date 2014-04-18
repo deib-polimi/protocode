@@ -7,7 +7,7 @@ App.UiControlTemplate = DS.Model.extend({
 });
 
 App.UiControlTemplate.FIXTURES = [
-  /* {id: 1, label: 'Ciao', nameImg: 'switch.png', type: 'switch'}, */
-  {id: 2, label: 'Button', nameImg: 'button.png', type: 'button'},
-  {id: 3, label: 'Container View', nameImg: 'container.png', type: 'container'}
+  {id: 1, label: 'Container View', nameImg: 'container.png', type: 'container'},
+  {id: 2, label: 'Button', nameImg: 'button.png', type: 'button'}
+  /* {id: 3, label: 'Ciao', nameImg: 'switch.png', type: 'switch'}, */
 ];

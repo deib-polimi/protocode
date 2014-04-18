@@ -5,11 +5,11 @@ App.UiDroppable = Ember.Mixin.create({
 
   dragEnter: function(event) {
     this.set('draggingOver', true);
+    return false;
   },
 
   dragLeave: function(event) {
     this.set('draggingOver', false);
-    return false;
   },
 
   dragOver: function(event) {

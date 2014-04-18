@@ -72,6 +72,7 @@ html, body {
 
 .ui-control.is-moving {
   z-index: 999;
+  cursor: move;
 }
 
 .inner-control {

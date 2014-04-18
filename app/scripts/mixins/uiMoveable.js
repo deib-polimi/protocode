@@ -14,6 +14,7 @@ App.UiMoveable = Ember.Mixin.create({
   mouseDown: function(event) {
     event.preventDefault();
     this.set('isMoving', true);
+    return false;
   },
 
   mouseUp: function(event) {

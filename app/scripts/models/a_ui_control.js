@@ -16,8 +16,15 @@ App.UiControl = DS.Model.extend({
   // Used to reload views
   didCreate: function() {
     var self = this;
-    this.get('viewController.uiControls').then(function (uiControls) {
-      uiControls.pushObject(self);
-    });
+    if (!this.get('parentContainer')) {
+      this.get('viewController.uiControls').then(function (uiControls) {
+        uiControls.pushObject(self);
+      });
+    }
+    else {
+      this.get('parentContainer.uiControls').then(function (uiControls) {
+        uiControls.pushObject(self);
+      });
+    }
   }
 });
