@@ -35,7 +35,6 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
         break;
 
       case ('App.Container'):
-        console.log('chosen Container!');
         return App.ContainerView;
         break;
     }

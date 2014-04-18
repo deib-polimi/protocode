@@ -20,7 +20,6 @@ App.UiDroppable = Ember.Mixin.create({
 
   drop: function(event) {
     event.preventDefault();
-    alert(event.dataTransfer.getData('uiControlType'));
     this.get('controller').send('addUiControl', event.dataTransfer.getData('uiControlType'), this);
     this.set('draggingOver', false);
 
