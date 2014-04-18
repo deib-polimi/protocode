@@ -7,6 +7,8 @@ App.UiControl = DS.Model.extend({
   alignParentBottom: DS.attr('boolean'),
   alignParentStart: DS.attr('boolean'),
   alignParentEnd: DS.attr('boolean'),
+  width: DS.attr('number'),
+  height: DS.attr('number'),
 
   viewController: DS.belongsTo('viewController'),
   parentContainer: DS.belongsTo('container'),

@@ -3,10 +3,10 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
   classNames: ['ui-control'],
   classNameBindings: [
     'active',
-    'alignParentTop:align-parent-top',
-    'alignParentBottom:align-parent-bottom',
-    'alignParentStart:align-parent-start',
-    'alignParentEnd:align-parent-end'],
+    'alignParentTop',
+    'alignParentBottom',
+    'alignParentStart',
+    'alignParentEnd'],
   attributeBindings: ['style'],
 
   alignParentTop: function() {
@@ -44,16 +44,35 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
   style: function() {
     var result = '';
 
-    if (!this.get('alignParentTop')) {
-      result += this.get('positionStyleY');
+    if (!this.get('alignParentTop') && !this.get('alignParentBottom')) {
+      result += this.get('posYStyle');
     }
 
-    if (!this.get('alignParentStart')) {
-      result += this.get('positionStyleX');
+    if (!this.get('alignParentStart') && !this.get('alignParentEnd')) {
+      result += this.get('posXStyle');
+    }
+
+    if (!this.get('alignParentTop') || !this.get('alignParentBottom')) {
+      
+      result += 'height: ' + this.get('context.height') + 'px;';
+    }
+
+    if (!this.get('alignParentStart') || !this.get('alignParentEnd')) {
+      result += 'width: ' + this.get('context.width') + 'px;';
     }
 
     return result;
-  }.property('positionStyleX', 'positionStyleY', 'context.alignParentTop', 'context.alignParentStart')
+  }.property(
+    'posXStyle',
+    'posYStyle',
+    'context.alignParentTop',
+    'context.alignParentBottom',
+    'context.alignParentStart',
+    'context.alignParentEnd',
+    'context.width',
+    'context.height')
+
+
 
 
 

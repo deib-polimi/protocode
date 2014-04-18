@@ -21,11 +21,11 @@ App.UiMoveable = Ember.Mixin.create({
     this.set('isMoving', false);
   },
 
-  positionStyleX: function() {
+  posXStyle: function() {
     return 'left: ' + this.get('context.posX') + 'px;';
   }.property('context.posX'),
 
-  positionStyleY: function() {
+  posYStyle: function() {
     return 'top: ' + this.get('context.posY') + 'px;';
   }.property('context.posY'),
 

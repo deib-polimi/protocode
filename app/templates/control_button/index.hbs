@@ -7,7 +7,7 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
           <li><a href="#profile" data-toggle="tab"><i class="fa fa-arrows"></i></a></li>
-          <li><a href="#messages" data-toggle="tab"><i class="fa fa-sitemap"></i></a></li>
+          <li><a href="#messages" data-toggle="tab"><i class="fa fa-expand"></i></a></li>
           <li><a href="#settings" data-toggle="tab"><i class="fa fa-cogs"></i></a></li>
         </ul>
 
@@ -37,7 +37,10 @@
             {{input-text label="Position X [px]" value=posX action='acceptChanges' type="number"}}
             {{input-text label="Position Y [px]" value=posY action='acceptChanges' type="number"}}
           </div>
-          <div class="tab-pane fade" id="messages">...</div>
+          <div class="tab-pane fade" id="messages">
+            {{input-text label="Width [px]" value=width action='acceptChanges' type="number"}}
+            {{input-text label="Height [px]" value=height action='acceptChanges' type="number"}}
+          </div>
           <div class="tab-pane fade" id="settings">...</div>
         </div>
         
