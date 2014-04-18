@@ -11,7 +11,7 @@ App.UiControl = DS.Model.extend({
   height: DS.attr('number'),
 
   viewController: DS.belongsTo('viewController'),
-  parentContainer: DS.belongsTo('container'),
+  parentContainer: DS.belongsTo('container', {inverse: 'uiControls'}),
 
   // Used to reload views
   didCreate: function() {
