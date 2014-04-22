@@ -12,6 +12,18 @@ App.UiControl = DS.Model.extend({
 
   viewController: DS.belongsTo('viewController'),
   parentContainer: DS.belongsTo('container', {inverse: 'uiControls'}),
+  alignTop: DS.belongsTo('uiControl', {inverse: 'revAlignTop'}),
+  revAlignTop: DS.belongsTo('uiControl'),
+
+  siblings: function() {
+    var parentContainer = this.get('parentContainer');
+
+    if (parentContainer != null) {
+      return parentContainer.get('uiControls');
+    }
+
+    return this.get('viewController.uiControls');
+  }.property('parentContainer'),
 
   // Used to reload views
   didCreate: function() {
