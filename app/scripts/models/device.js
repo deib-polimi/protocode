@@ -1,7 +1,7 @@
 App.Device = DS.Model.extend({
   name: DS.attr('string'),
   label: DS.attr('string'),
-  platform: DS.attr('string')
+  platform: DS.attr('string'),
 });
 
 App.Device.FIXTURES = [
