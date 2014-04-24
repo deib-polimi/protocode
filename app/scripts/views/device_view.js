@@ -6,12 +6,12 @@ App.DeviceView = Ember.View.extend({
   templateName: 'views/device_view',
 
   platform: function () {
-    return this.get('controller.controllers.editor.platform');
-  }.property('controller.controllers.editor.platform'),
+    return this.get('controller.controllers.editor.device.platform');
+  }.property('controller.controllers.editor.device'),
   
   deviceModel: function() {
-    return this.get('controller.controllers.editor.deviceModel.name');
-  }.property('controller.controllers.editor.deviceModel'),
+    return this.get('controller.controllers.editor.device.name');
+  }.property('controller.controllers.editor.device'),
 
   zoomLevelStyle: function() {
     var zoomLevel = this.get('context.zoomLevel');
