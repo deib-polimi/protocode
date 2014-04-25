@@ -27,22 +27,21 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
     return this.get('context.alignParentEnd');
   }.property('context.alignParentEnd'), 
 
+  top: function() {
+    return this.get('context.top') / this.get('device.screenHeight') * this.get('device.cssHeight');
+  }.property('context.top'),
+
+  bottom: function() {
+    return this.get('context.bottom') / this.get('device.screenHeight') * this.get('device.cssHeight');
+  }.property('top',
+    'context.height'),
+
   start: function() {
     return this.get('context.start') / this.get('device.screenWidth') * this.get('device.cssWidth');
   }.property('context.start'),
 
-  top: function() {
-    return this.get('context.top') / this.get('device.screenWidth') * this.get('device.cssWidth');
-  }.property('context.top'),
-
-  bottom: function() {
-    return this.get('top') + $(this.get('element')).outerHeight(true);
-    // TODO: add padding and margin properties to trigger this
-  }.property('top',
-    'context.height'),
-
   end: function() {
-    return this.get('start') + $(this.get('element')).outerWidth(true);
+    return this.get('context.end') / this.get('device.screenWidth') * this.get('device.cssWidth');
   }.property(
     'start',
     'context.width'),
