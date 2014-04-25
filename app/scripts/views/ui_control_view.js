@@ -9,6 +9,8 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
     'alignParentEnd'],
   attributeBindings: ['style'],
 
+  device: Ember.computed.alias('controller.controllers.editor.device'),
+
   alignParentTop: function() {
     return this.get('context.alignParentTop');
   }.property('context.alignParentTop'), 
@@ -24,6 +26,14 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
   alignParentEnd: function() {
     return this.get('context.alignParentEnd');
   }.property('context.alignParentEnd'), 
+
+  start: function() {
+    return this.get('context.start') / this.get('device.screenWidth') * this.get('device.cssWidth');
+  }.property('context.start'),
+
+  top: function() {
+    return this.get('context.top') / this.get('device.screenWidth') * this.get('device.cssWidth');
+  }.property('context.top'),
 
   bottom: function() {
     return this.get('top') + $(this.get('element')).outerHeight(true);
@@ -65,11 +75,11 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
     */
 
     if (this.get('context.top') != null) {
-      result += 'top: ' + this.get('context.top') + 'px; ';
+      result += 'top: ' + this.get('top') + 'px; ';
     }
 
     if (this.get('context.start') != null) {
-      result += 'left: ' + this.get('context.start') + 'px; ';
+      result += 'left: ' + this.get('start') + 'px; ';
     }
 
     if (!this.get('alignParentTop') || !this.get('alignParentBottom')) {

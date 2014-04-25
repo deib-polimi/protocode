@@ -37,19 +37,59 @@ App.UiControl = DS.Model.extend({
       return this.get('alignTop.top');
     }
     else if (this.get('alignParentTop')) {
-      return 0;
+
+      if (this.get('parentContainer') != null) {
+        return this.get('parentContainer.top');
+      }
+      else {
+        return 0;
+      }
+
     }
     else if (this.get('alignParentBottom')) {
-      return null;
+
+      if (this.get('parentContainer') != null) {
+        return this.get('parentContainer.bottom') - this.get('height');
+      }
+      else {
+        return this.get('parentContainer.application.device.screenHeight') - this.get('height');
+      }
+
     }
     else {
       return this.get('posY');
     }
   }.property(
     'posY',
+    'height',
     'alignTop.top',
     'alignParentTop',
-    'alignParentBottom'),
+    'alignParentBottom',
+    'parentContainer'),
+
+  bottom: function() {
+    if (this.get('alignBottom')) {
+      return this.get('alignBottom.bottom');
+    }
+    else if (this.get('alignParentBottom')) {
+
+      if (this.get('parentContainer') != null) {
+        return this.get('parentContainer.bottom');
+      }
+      else {
+        return this.get('parentContainer.application.device.screenHeight');
+      }
+      
+    }
+    else {
+      return this.get('top') + this.get('height');
+    }
+  }.property(
+    'alignBottom',
+    'alignParentBottom',
+    'top',
+    'height',
+    'parentContainer'),
 
   start: function() {
     if (this.get('alignStart')) {
@@ -59,16 +99,33 @@ App.UiControl = DS.Model.extend({
       return 0;
     }
     else if (this.get('alignParentEnd')) {
-      return null;
+      return this.get('parentContainer.application.device.screenWidth') - this.get('width');
     }
     else {
       return this.get('posX');
     }
   }.property(
     'posX',
+    'width',
     'alignStart.start',
     'alignParentStart',
     'alignParentEnd'),
+
+  end: function() {
+    if (this.get('alignEnd')) {
+      return this.get('alignEnd.end');
+    }
+    else if (this.get('alignParentEnd')) {
+      return this.get('parentContainer.application.device.screenWidth');
+    }
+    else {
+      return this.get('start') + this.get('width');
+    }
+  }.property(
+    'alignEnd',
+    'alignParentEnd',
+    'start',
+    'width'),
 
   // Used to reload views
   didCreate: function() {

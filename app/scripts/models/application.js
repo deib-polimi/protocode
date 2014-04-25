@@ -1,6 +1,7 @@
 App.Application = DS.Model.extend({
   name: DS.attr('string'),
-  device: DS.belongsTo('device')
+  device: DS.belongsTo('device'),
+  viewControllers: DS.hasMany('viewController')
 });
 
 App.Application.FIXTURES = [
