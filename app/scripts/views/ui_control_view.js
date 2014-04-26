@@ -2,11 +2,11 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
   templateName: 'views/ui_control_view',
   classNames: ['ui-control'],
   classNameBindings: [
-    'active',
-    'alignParentTop',
+    'active'
+    /*'alignParentTop',
     'alignParentBottom',
     'alignParentStart',
-    'alignParentEnd'],
+    'alignParentEnd'*/],
   attributeBindings: ['style'],
 
   device: Ember.computed.alias('controller.controllers.editor.device'),
@@ -33,8 +33,7 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
   bottom: function() {
     return this.get('context.bottom') / this.get('device.screenHeight') * this.get('device.cssHeight');
-  }.property('top',
-    'context.height'),
+  }.property('context.bottom'),
 
   start: function() {
     return this.get('context.start') / this.get('device.screenWidth') * this.get('device.cssWidth');
@@ -42,10 +41,15 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
   end: function() {
     return this.get('context.end') / this.get('device.screenWidth') * this.get('device.cssWidth');
-  }.property(
-    'start',
-    'context.width'),
+  }.property('context.end'),
 
+  computedWidth: function() {
+    return this.get('context.computedWidth') / this.get('device.screenWidth') * this.get('device.cssWidth');
+  }.property('context.computedWidth'),
+
+  computedHeight: function() {
+    return this.get('context.computedHeight') / this.get('device.screenHeight') * this.get('device.cssHeight');
+  }.property('context.computedHeight'),
 
   uiControlType: function () {
     var controlType = this.get('context').constructor.toString();
@@ -73,14 +77,12 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
     }
     */
 
-    if (this.get('context.top') != null) {
-      result += 'top: ' + this.get('top') + 'px; ';
-    }
-
-    if (this.get('context.start') != null) {
-      result += 'left: ' + this.get('start') + 'px; ';
-    }
-
+    result += 'top: ' + this.get('top') + 'px; ';    
+    result += 'left: ' + this.get('start') + 'px; ';
+    result += 'height: ' + this.get('computedHeight') + 'px;';
+    result += 'width: ' + this.get('computedWidth') + 'px;';
+    
+    /*
     if (!this.get('alignParentTop') || !this.get('alignParentBottom')) {
       
       result += 'height: ' + this.get('context.height') + 'px;';
@@ -88,7 +90,7 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
     if (!this.get('alignParentStart') || !this.get('alignParentEnd')) {
       result += 'width: ' + this.get('context.width') + 'px;';
-    }
+    } */
 
     return result;
   }.property(

@@ -68,7 +68,8 @@ App.UiControl = DS.Model.extend({
     'alignParentTop',
     'alignBottom.bottom',
     'alignParentBottom',
-    'parentContainer.height'),
+    'parentContainer.height',
+    'viewController.application.device.screenHeight'),
 
   bottom: function() {
     if (this.get('alignBottom')) {
@@ -85,14 +86,15 @@ App.UiControl = DS.Model.extend({
       
     }
     else {
-      return this.get('top') + this.get('height');
+      return this.get('top') + parseFloat(this.get('height'));
     }
   }.property(
     'alignBottom.bottom',
     'alignParentBottom',
     'top',
     'height',
-    'parentContainer.height'),
+    'parentContainer.height',
+    'viewController.application.device.screenHeight'),
 
   start: function() {
     if (this.get('alignStart')) {
@@ -124,7 +126,8 @@ App.UiControl = DS.Model.extend({
     'alignStart.start',
     'alignEnd.end',
     'alignParentStart',
-    'alignParentEnd'),
+    'alignParentEnd',
+    'viewController.application.device.screenWidth'),
 
   end: function() {
     if (this.get('alignEnd')) {
@@ -141,14 +144,27 @@ App.UiControl = DS.Model.extend({
 
     }
     else {
-      return this.get('start') + this.get('width');
+      return this.get('start') + parseFloat(this.get('width'));
     }
   }.property(
     'alignEnd',
     'alignParentEnd',
     'start',
     'parentContainer',
-    'width'),
+    'width',
+    'viewController.application.device.screenWidth'),
+
+  computedWidth: function() {
+    return this.get('end') - this.get('start');
+  }.property(
+    'start',
+    'end'),
+
+  computedHeight: function() {
+    return this.get('bottom') - this.get('top');
+  }.property(
+    'top',
+    'bottom'),
 
   // Used to reload views
   didCreate: function() {
