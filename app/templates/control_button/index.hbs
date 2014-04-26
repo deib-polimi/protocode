@@ -35,7 +35,9 @@
               </div>
             </div>
             {{input-select label="Align with top" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignTop prompt="Select sibling"}}
+            {{input-select label="Align with bottom" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignBottom prompt="Select sibling"}}
             {{input-select label="Align with start" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignStart prompt="Select sibling"}}
+            {{input-select label="Align with end" content=siblings optionLabelPath="content.name" optionValuePath="content" selection=alignEnd prompt="Select sibling"}}
             {{input-text label="Position X [px]" value=posX action='acceptChanges' type="number"}}
             {{input-text label="Position Y [px]" value=posY action='acceptChanges' type="number"}}
           </div>

@@ -16,11 +16,17 @@ App.UiControl = DS.Model.extend({
   alignTop: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignTop'}),
   revAlignTop: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignTop'}),
 
+  alignBottom: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignBottom'}),
+  revAlignBottom: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignBottom'}),
+
   belowTo: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revBelowTo'}),
   revBelowTo: DS.hasMany('uiControl', {polymorphic: true, inverse: 'belowTo'}),
 
   alignStart: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignStart'}),
   revAlignStart: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignStart'}),
+
+  alignEnd: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignEnd'}),
+  revAlignEnd: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignEnd'}),
 
   siblings: function() {
     var parentContainer = this.get('parentContainer');
@@ -38,6 +44,9 @@ App.UiControl = DS.Model.extend({
     }
     else if (this.get('alignParentTop')) {
       return 0;
+    }
+    else if (this.get('alignBottom')) {
+      return this.get('alignBottom.bottom') - this.get('height');
     }
     else if (this.get('alignParentBottom')) {
 
@@ -57,8 +66,9 @@ App.UiControl = DS.Model.extend({
     'height',
     'alignTop.top',
     'alignParentTop',
+    'alignBottom.bottom',
     'alignParentBottom',
-    'parentContainer'),
+    'parentContainer.height'),
 
   bottom: function() {
     if (this.get('alignBottom')) {
@@ -78,11 +88,11 @@ App.UiControl = DS.Model.extend({
       return this.get('top') + this.get('height');
     }
   }.property(
-    'alignBottom',
+    'alignBottom.bottom',
     'alignParentBottom',
     'top',
     'height',
-    'parentContainer'),
+    'parentContainer.height'),
 
   start: function() {
     if (this.get('alignStart')) {
@@ -90,6 +100,9 @@ App.UiControl = DS.Model.extend({
     }
     else if (this.get('alignParentStart')) {
       return 0;
+    }
+    else if (this.get('alignEnd')) {
+      return this.get('alignEnd.end') - this.get('width');
     }
     else if (this.get('alignParentEnd')) {
 
@@ -109,6 +122,7 @@ App.UiControl = DS.Model.extend({
     'width',
     'parentContainer',
     'alignStart.start',
+    'alignEnd.end',
     'alignParentStart',
     'alignParentEnd'),
 
