@@ -1,6 +1,6 @@
 App.Button = App.UiControl.extend({
-
-  
+  width: DS.attr('number', {defaultValue: 125}),
+  height: DS.attr('number', {defaultValue: 30})
 });
 
 App.Button.FIXTURES = [
