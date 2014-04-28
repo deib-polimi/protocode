@@ -19,28 +19,47 @@ App.UiControl = DS.Model.extend({
   alignBottom: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignBottom'}),
   revAlignBottom: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignBottom'}),
 
-  belowTo: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revBelowTo'}),
-  revBelowTo: DS.hasMany('uiControl', {polymorphic: true, inverse: 'belowTo'}),
-
   alignStart: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignStart'}),
   revAlignStart: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignStart'}),
 
   alignEnd: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignEnd'}),
   revAlignEnd: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignEnd'}),
 
-  siblings: function() {
+
+  above: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAbove'}),
+  revAbove: DS.hasMany('uiControl', {polymorphic: true, inverse: 'above'}),
+
+  below: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revBelow'}),
+  revBelow: DS.hasMany('uiControl', {polymorphic: true, inverse: 'below'}),
+
+  toStartOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revToStartOf'}),
+  revToStartOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toStartOf'}),
+
+  toEndOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revToEndOf'}),
+  revToEndOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toEndOf'}),
+
+  sameLevelControls: function() {
     var parentContainer = this.get('parentContainer');
 
     if (parentContainer != null) {
       return parentContainer.get('uiControls');
     }
-
+    
     return this.get('viewController.uiControls');
-  }.property('parentContainer'),
+  }.property(
+    'parentContainer.uiControls.@each',
+    'viewController.uiControls.@each'),
+
+  siblings: function() {
+    return this.get('sameLevelControls').without(this);
+  }.property('sameLevelControls'),
 
   top: function() {
     if (this.get('alignTop')) {
       return this.get('alignTop.top');
+    }
+    else if (this.get('belowTo')) {
+      return this.get('belowTo.bottom');
     }
     else if (this.get('alignParentTop')) {
       return 0;
@@ -58,6 +77,9 @@ App.UiControl = DS.Model.extend({
       }
 
     }
+    else if (this.get('above')) {
+      return this.get('bottom') - this.get('height');
+    }
     else {
       return this.get('posY');
     }
@@ -68,6 +90,9 @@ App.UiControl = DS.Model.extend({
     'alignParentTop',
     'alignBottom.bottom',
     'alignParentBottom',
+    'belowTo.bottom',
+    'above',
+    'bottom',
     'parentContainer.height',
     'viewController.application.device.screenHeight'),
 
@@ -85,6 +110,9 @@ App.UiControl = DS.Model.extend({
       }
       
     }
+    else if (this.get('above')) {
+      return this.get('above.top');
+    }
     else {
       return this.get('top') + parseFloat(this.get('height'));
     }
@@ -94,11 +122,15 @@ App.UiControl = DS.Model.extend({
     'top',
     'height',
     'parentContainer.height',
+    'above.top',
     'viewController.application.device.screenHeight'),
 
   start: function() {
     if (this.get('alignStart')) {
       return this.get('alignStart.start');
+    }
+    else if (this.get('toEndOf')) {
+      return this.get('toEndOf.end');
     }
     else if (this.get('alignParentStart')) {
       return 0;
@@ -116,6 +148,9 @@ App.UiControl = DS.Model.extend({
       }
 
     }
+    else if (this.get('toStartOf')) {
+      return this.get('end') - this.get('width');
+    }
     else {
       return this.get('posX');
     }
@@ -124,9 +159,12 @@ App.UiControl = DS.Model.extend({
     'width',
     'parentContainer',
     'alignStart.start',
+    'toEndOf.end',
     'alignEnd.end',
     'alignParentStart',
     'alignParentEnd',
+    'toStartOf',
+    'end',
     'viewController.application.device.screenWidth'),
 
   end: function() {
@@ -143,6 +181,9 @@ App.UiControl = DS.Model.extend({
       }
 
     }
+    else if (this.get('toStartOf')) {
+      return this.get('toStartOf.start');
+    }
     else {
       return this.get('start') + parseFloat(this.get('width'));
     }
@@ -151,6 +192,7 @@ App.UiControl = DS.Model.extend({
     'alignParentEnd',
     'start',
     'parentContainer',
+    'toStartOf.start',
     'width',
     'viewController.application.device.screenWidth'),
 

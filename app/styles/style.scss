@@ -78,6 +78,10 @@ html, body {
   position: absolute;
 }
 
+.ui-control:hover {
+  cursor: pointer;
+}
+
 .ui-control.is-moving {
   z-index: 999;
   cursor: move;
