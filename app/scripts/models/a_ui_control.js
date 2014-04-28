@@ -58,8 +58,8 @@ App.UiControl = DS.Model.extend({
     if (this.get('alignTop')) {
       return this.get('alignTop.top');
     }
-    else if (this.get('belowTo')) {
-      return this.get('belowTo.bottom');
+    else if (this.get('below')) {
+      return this.get('below.bottom');
     }
     else if (this.get('alignParentTop')) {
       return 0;
@@ -90,7 +90,7 @@ App.UiControl = DS.Model.extend({
     'alignParentTop',
     'alignBottom.bottom',
     'alignParentBottom',
-    'belowTo.bottom',
+    'below.bottom',
     'above',
     'bottom',
     'parentContainer.height',
