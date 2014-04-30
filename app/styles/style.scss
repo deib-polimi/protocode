@@ -119,12 +119,19 @@ html, body {
 
 .inner-control.active {
   border: dashed 1px #007aff;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 
 .control-button {
+  display: flex;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-button .control-content {
+
 }
 
 .control-button.ios {
@@ -149,6 +156,17 @@ html, body {
 /*** Ui Controls -> Android ***/
 .ui-control .android {
   font: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+}
+
+.control-button.android {
+  background-color: #cecece;
+  border-bottom: solid 1px #979797;
+  border-top: solid 1px #dfdfdf;
+  border-left: solid 1px #c8c8c8;
+  border-right: solid 1px #c8c8c8;
+  border-radius: 1px;
+  box-shadow: 0px 1px 1px 0 #c4c4c4;
+  text-align: center;
 }
 
 /* Drag & Drop */
