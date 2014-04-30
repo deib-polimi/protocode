@@ -29,27 +29,27 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
   top: function() {
     return this.get('context.top') / this.get('device.screenHeight') * this.get('device.cssHeight');
-  }.property('context.top'),
+  }.property('context.top', 'device'),
 
   bottom: function() {
     return this.get('context.bottom') / this.get('device.screenHeight') * this.get('device.cssHeight');
-  }.property('context.bottom'),
+  }.property('context.bottom', 'device'),
 
   start: function() {
     return this.get('context.start') / this.get('device.screenWidth') * this.get('device.cssWidth');
-  }.property('context.start'),
+  }.property('context.start', 'device'),
 
   end: function() {
     return this.get('context.end') / this.get('device.screenWidth') * this.get('device.cssWidth');
-  }.property('context.end'),
+  }.property('context.end', 'device'),
 
   computedWidth: function() {
     return this.get('context.computedWidth') / this.get('device.screenWidth') * this.get('device.cssWidth');
-  }.property('context.computedWidth'),
+  }.property('context.computedWidth', 'device'),
 
   computedHeight: function() {
     return this.get('context.computedHeight') / this.get('device.screenHeight') * this.get('device.cssHeight');
-  }.property('context.computedHeight'),
+  }.property('context.computedHeight', 'device'),
 
   uiControlType: function () {
     var controlType = this.get('context').constructor.toString();

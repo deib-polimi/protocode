@@ -19,5 +19,14 @@ App.Device.FIXTURES = [
     cssWidth: 312,
     cssHeight: 556
   },
-  {id: 2, name: 'Nexus', label: 'Nexus 5', platform: 'android'}
+  {
+    id: 2,
+    name: 'Nexus5',
+    label: 'Nexus 5',
+    platform: 'android',
+    screenWidth: 388.31460674,
+    screenHeight: 690.33707866,
+    cssWidth: 353,
+    cssHeight: 624
+  }
 ];
