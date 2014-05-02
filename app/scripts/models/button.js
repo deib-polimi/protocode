@@ -1,6 +1,7 @@
 App.Button = App.UiControl.extend({
   width: DS.attr('number', {defaultValue: 125}),
-  height: DS.attr('number', {defaultValue: 30})
+  height: DS.attr('number', {defaultValue: 30}),
+  clickListener: DS.belongsTo('clickListener')
 });
 
 App.Button.FIXTURES = [
@@ -17,7 +18,8 @@ App.Button.FIXTURES = [
     width: 90,
     height: 30,
     viewController: 1,
-    parentContainer: null
+    parentContainer: null,
+    clickListener: null
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ App.Button.FIXTURES = [
     width: 80,
     height: 30,
     viewController: 1,
-    parentContainer: null
+    parentContainer: null,
+    clickListener: null
   }
 ];
