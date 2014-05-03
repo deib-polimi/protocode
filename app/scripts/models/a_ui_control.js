@@ -70,10 +70,10 @@ App.UiControl = DS.Model.extend({
     else if (this.get('alignParentBottom')) {
 
       if (this.get('parentContainer') != null) {
-        return this.get('parentContainer.height') - this.get('height');
+        return this.get('bottom') - this.get('height');
       }
       else {
-        return this.get('viewController.application.device.screenHeight') - this.get('height');
+        return this.get('bottom') - this.get('height');
       }
 
     }
@@ -92,9 +92,7 @@ App.UiControl = DS.Model.extend({
     'alignParentBottom',
     'below.bottom',
     'above',
-    'bottom',
-    'parentContainer.height',
-    'viewController.application.device.screenHeight'),
+    'bottom'),
 
   bottom: function() {
     if (this.get('alignBottom')) {
@@ -106,6 +104,12 @@ App.UiControl = DS.Model.extend({
         return this.get('parentContainer.height');
       }
       else {
+        // Check tab bar for menu in iOS
+        if (this.get('viewController.application.device.platform') == 'ios' &&
+          this.get('viewController.application.menu.menuItems.length') > 0) {
+          return this.get('viewController.application.device.screenHeight') - 49;
+        }
+
         return this.get('viewController.application.device.screenHeight');
       }
       
