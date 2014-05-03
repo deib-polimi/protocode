@@ -2,3 +2,7 @@
 {{#each uiControls}}
   {{view App.UiControlView}}
 {{/each}}
+
+{{#if hasMenu}}
+  {{view App.MenuView}}
+{{/if}}
