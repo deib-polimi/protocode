@@ -1,5 +1,6 @@
 App.MenuItem = DS.Model.extend({
   title: DS.attr('string'),
+  name: DS.attr('name'),
   menuItems: DS.belongsTo('navigation')
 });
 
