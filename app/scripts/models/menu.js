@@ -1,5 +1,5 @@
 App.Menu = DS.Model.extend({
-  menuItems: DS.hasMany('menuItem')
+  menuItems: DS.hasMany('menuItem', {inverse: 'parentMenu'})
 });
 
 App.Menu.FIXTURES = [

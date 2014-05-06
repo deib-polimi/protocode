@@ -1,3 +1,3 @@
-App.MenuItemController = Ember.ObjectController.extend({
+App.AppMenuItemController = Ember.ObjectController.extend({
 
 });
