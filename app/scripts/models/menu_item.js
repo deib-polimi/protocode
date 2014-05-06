@@ -1,9 +1,18 @@
 App.MenuItem = DS.Model.extend({
   title: DS.attr('string'),
-  name: DS.attr('name'),
-  menuItems: DS.belongsTo('navigation'),
-  parentMenu: DS.belongsTo('menu', {inverse: 'menuItems'})
+  name: DS.attr('string'),
+  parentMenu: DS.belongsTo('menu', {inverse: 'menuItems'}),
+
+  // Used to reload menuItems
+  didCreate: function() {
+    var self = this;
+    this.get('parentMenu.menuItems').then(function (menuItems) {
+      menuItems.pushObject(self);
+    });
+  }
 });
+
+
 
 App.MenuItem.FIXTURES = [
   {

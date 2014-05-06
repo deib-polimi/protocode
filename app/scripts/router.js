@@ -8,7 +8,7 @@ App.Router.map(function () {
         });
         this.resource('controlContainer', {path: '/container/:container_id'}, function () {
         });
-        this.resource('appMenu', {path: '/menu/:menu_item_id'}, function () {
+        this.resource('appMenu', {path: '/menu/:menu_id'}, function () {
         });
         this.resource('appMenuItem', {path: '/menuItem/:menu_item_id'}, function () {
         });
