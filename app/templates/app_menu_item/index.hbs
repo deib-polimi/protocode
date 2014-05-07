@@ -4,7 +4,11 @@
           <h3 class="panel-title">{{name}}</h3>
       </div>
       <div class="panel-body">
-        <ul class="nav nav-tabs">
+        {{#link-to 'appMenu' parentMenu class="btn btn-default btn-block"}}
+          <i class="fa fa-pencil-square-o"></i> Edit menu
+        {{/link-to}}
+
+        <ul class="nav nav-tabs spacer">
           <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
           <li><a href="#position" data-toggle="tab"><i class="fa fa-arrows"></i></a></li>
           <li><a href="#dimension" data-toggle="tab"><i class="fa fa-expand"></i></a></li>
@@ -21,15 +25,11 @@
           </div>
           <div class="tab-pane fade" id="settings">...</div>
         </div>
-
-        {{#link-to 'appMenu' parentMenu class="btn btn-default btn-block"}}
-          <i class="fa fa-pencil-square-o"></i> Edit menu
-        {{/link-to}}
         
       </div>
       <div class="panel-footer">
          <div class="btn-group">
-            <button type="button" class="btn btn-default" {{action "deleteViewController"}}>
+            <button type="button" class="btn btn-default" {{action "delete"}}>
               <i class="fa fa-trash-o"></i> 
             </button>
           </div>
