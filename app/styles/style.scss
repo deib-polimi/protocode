@@ -195,6 +195,56 @@ html, body {
 /*** Ui Controls -> iOS ***/
 
 
+/*** Menus -> Android ***/
+.app-menu.android:before {
+  content: $fa-var-bars;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: block;
+  position: absolute;
+  top: -25px;
+  right: 0;
+  text-decoration: inherit;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 30px;
+  text-align: right;
+}
+
+.app-menu.android {
+  font: "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+  display: block;
+  position: absolute;
+  top: 33px;
+  right: 5px;
+  width: auto;
+  height: auto;
+
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.app-menu-item.android {
+  display: none;
+  position: relative;
+  min-width: 100px;
+  min-height: auto;
+  padding: 7px;
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.app-menu-item.android:last-child {
+  border-bottom: none;
+}
+
+.app-menu.android:hover .app-menu-item.android {
+  display: block;
+}
+
+.app-menu-item.android:hover {
+  display: block;
+}
+
 /*** Ui Controls -> Android ***/
 .ui-control .android {
   font: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
