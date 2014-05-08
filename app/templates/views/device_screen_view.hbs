@@ -1,8 +1,12 @@
 {{#link-to "viewController" model tagName="div" class="expanded-area"}}{{/link-to}}
+
 {{#each uiControls}}
   {{view App.UiControlView}}
 {{/each}}
 
+<div class="status-bar"></div>
+<div class="action-bar">{{name}}</div>
 {{#if hasMenu}}
   {{view App.MenuvView}}
 {{/if}}
+<div class="command-bar"></div>

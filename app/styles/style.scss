@@ -193,7 +193,56 @@ html, body {
 
 
 /*** Ui Controls -> iOS ***/
+/*** ScreenView -> iOS ***/
+.ios .device-screen-view .action-bar {
+  display: none;
+}
+.ios .device-screen-view .status-bar {
+  
+}
 
+.ios .device-screen-view .command-bar {
+  display: none;
+}
+
+/*** ScreenView -> Android ***/
+.android .device-screen-view {
+  font: 15px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+}
+
+.android .device-screen-view .action-bar {
+  position: absolute;
+  width: 100%;
+  top: 25px;
+  left: 0;
+  height: 43px;
+  line-height: 43px;
+  background-color: #dddddd;
+  border-bottom: solid 1px #d2d2d2, solid 1px #b7b7b7;
+  background-repeat: no-repeat;
+  padding-left: 8px;
+}
+.android .device-screen-view .status-bar {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 25px;
+  background-image: url("../images/ui_controls/android/status_bar.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.android .device-screen-view .command-bar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 47px;
+  background-image: url("../images/ui_controls/android/command_bar.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
 
 /*** Menus -> Android ***/
 .app-menu.android:before {
@@ -203,20 +252,20 @@ html, body {
   font-style: normal;
   display: block;
   position: absolute;
-  top: -25px;
+  top: -32px;
   right: 0;
   text-decoration: inherit;
   padding-right: 10px;
   padding-left: 10px;
-  height: 30px;
+  height: 40px;
+  width: 40px;
   text-align: right;
 }
 
 .app-menu.android {
-  font: "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
   display: block;
   position: absolute;
-  top: 33px;
+  top: 69px;
   right: 5px;
   width: auto;
   height: auto;
@@ -230,7 +279,8 @@ html, body {
   min-width: 100px;
   min-height: auto;
   padding: 7px;
-  border-bottom: solid 1px #dfdfdf;
+  background-color: #efefef;
+  border-bottom: solid 1px #e2e2e2;
 }
 
 .app-menu-item.android:last-child {
