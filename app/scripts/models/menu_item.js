@@ -2,6 +2,7 @@ App.MenuItem = DS.Model.extend({
   title: DS.attr('string'),
   name: DS.attr('string'),
   parentMenu: DS.belongsTo('menu', {inverse: 'menuItems'}),
+  navigation: DS.belongsTo('navigation'),
 
   // Used to reload menuItems
   didCreate: function() {

@@ -28,7 +28,7 @@ App.Device.FIXTURES = [
     name: 'Nexus5',
     label: 'Nexus 5',
     platform: 'android',
-    viewTop: 75,
+    viewTop: 73,
     viewBottom: 638,
     screenWidth: 388.31460674,
     screenHeight: 690.33707866,
