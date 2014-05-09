@@ -77,27 +77,27 @@ App.UiControl = DS.Model.extend({
       return this.get('viewController.application.device.viewTop');
     }
     else if (this.get('alignBottom')) {
-      return this.get('alignBottom.bottom') - this.get('height');
+      return this.get('alignBottom.bottom') - this.get('outerHeight');
     }
     else if (this.get('alignParentBottom')) {
 
       if (this.get('parentContainer') != null) {
-        return this.get('bottom') - this.get('height');
+        return this.get('bottom') - this.get('outerHeight');
       }
       else {
-        return this.get('bottom') - this.get('height');
+        return this.get('bottom') - this.get('outerHeight');
       }
 
     }
     else if (this.get('above')) {
-      return this.get('bottom') - this.get('height');
+      return this.get('bottom') - this.get('outerHeight');
     }
     else {
       return this.get('posY');
     }
   }.property(
     'posY',
-    'height',
+    'outerHeight',
     'alignTop.top',
     'alignParentTop',
     'alignBottom.bottom',
@@ -131,13 +131,13 @@ App.UiControl = DS.Model.extend({
       return this.get('above.top');
     }
     else {
-      return this.get('top') + parseFloat(this.get('height'));
+      return this.get('top') + parseFloat(this.get('outerHeight'));
     }
   }.property(
     'alignBottom.bottom',
     'alignParentBottom',
     'top',
-    'height',
+    'outerHeight',
     'parentContainer.height',
     'above.top',
     'viewController.application.device.viewBottom'),
@@ -153,27 +153,27 @@ App.UiControl = DS.Model.extend({
       return 0;
     }
     else if (this.get('alignEnd')) {
-      return this.get('alignEnd.end') - this.get('width');
+      return this.get('alignEnd.end') - this.get('outerWidth');
     }
     else if (this.get('alignParentEnd')) {
 
       if (this.get('parentContainer') != null) {
-        return this.get('parentContainer.width') - this.get('width');
+        return this.get('parentContainer.width') - this.get('outerWidth');
       }
       else {
-        return this.get('viewController.application.device.screenWidth') - this.get('width');
+        return this.get('viewController.application.device.screenWidth') - this.get('outerWidth');
       }
 
     }
     else if (this.get('toStartOf')) {
-      return this.get('end') - this.get('width');
+      return this.get('end') - this.get('outerWidth');
     }
     else {
       return this.get('posX');
     }
   }.property(
     'posX',
-    'width',
+    'outerWidth',
     'parentContainer',
     'alignStart.start',
     'toEndOf.end',
@@ -202,7 +202,7 @@ App.UiControl = DS.Model.extend({
       return this.get('toStartOf.start');
     }
     else {
-      return this.get('start') + parseFloat(this.get('width'));
+      return this.get('start') + parseFloat(this.get('outerWidth'));
     }
   }.property(
     'alignEnd',
@@ -210,20 +210,64 @@ App.UiControl = DS.Model.extend({
     'start',
     'parentContainer',
     'toStartOf.start',
-    'width',
+    'outerWidth',
     'viewController.application.device.screenWidth'),
 
   computedWidth: function() {
-    return this.get('end') - this.get('start');
+    return  parseFloat(this.get('end')) -
+            parseFloat(this.get('start')) -
+            parseFloat(this.get('marginStart')) -
+            parseFloat(this.get('paddingStart')) -  
+            parseFloat(this.get('paddingEnd')) - 
+            parseFloat(this.get('marginEnd'));
   }.property(
     'start',
-    'end'),
+    'end',
+    'marginStart',
+    'paddingStart',
+    'paddingEnd',
+    'marginEnd'),
 
   computedHeight: function() {
-    return this.get('bottom') - this.get('top');
+    return  parseFloat(this.get('bottom')) -
+            parseFloat(this.get('top')) -
+            parseFloat(this.get('marginTop')) -
+            parseFloat(this.get('paddingTop')) -  
+            parseFloat(this.get('paddingBottom')) - 
+            parseFloat(this.get('marginBottom'));
   }.property(
     'top',
-    'bottom'),
+    'bottom',
+    'marginTop',
+    'paddingTop',
+    'paddingBottom',
+    'marginBottom'),
+
+  outerWidth: function() {
+    return  parseFloat(this.get('marginStart')) +
+            parseFloat(this.get('paddingStart')) +  
+            parseFloat(this.get('width')) +
+            parseFloat(this.get('paddingEnd')) + 
+            parseFloat(this.get('marginEnd'));
+  }.property(
+    'marginStart',
+    'paddingStart',
+    'width',
+    'paddingEnd',
+    'marginEnd'),
+
+  outerHeight: function() {
+    return  parseFloat(this.get('marginTop')) +
+            parseFloat(this.get('paddingTop')) +  
+            parseFloat(this.get('height')) +
+            parseFloat(this.get('paddingBottom')) + 
+            parseFloat(this.get('marginBottom'));
+  }.property(
+    'marginTop',
+    'paddingTop',
+    'height',
+    'paddingBottom',
+    'marginBottom'),
 
   // Used to reload views
   didCreate: function() {
