@@ -1,14 +1,26 @@
 App.UiControl = DS.Model.extend({
-  name: DS.attr('string'),
-  title: DS.attr('string'),
-  posX: DS.attr('number'),
-  posY: DS.attr('number'),
-  alignParentTop: DS.attr('boolean'),
-  alignParentBottom: DS.attr('boolean'),
-  alignParentStart: DS.attr('boolean'),
-  alignParentEnd: DS.attr('boolean'),
-  width: DS.attr('number'),
-  height: DS.attr('number'),
+  name:               DS.attr('string'),
+  title:              DS.attr('string'),
+  posX:               DS.attr('number'),
+  posY:               DS.attr('number'),
+
+  paddingTop:         DS.attr('number'),
+  paddingBottom:      DS.attr('number'),
+  paddingStart:       DS.attr('number'),
+  paddingEnd:         DS.attr('number'),
+
+  marginTop:          DS.attr('number'),
+  marginBottom:       DS.attr('number'),
+  marginStart:        DS.attr('number'),
+  marginEnd:          DS.attr('number'),
+
+  alignParentTop:     DS.attr('boolean'),
+  alignParentBottom:  DS.attr('boolean'),
+  alignParentStart:   DS.attr('boolean'),
+  alignParentEnd:     DS.attr('boolean'),
+
+  width:              DS.attr('number'),
+  height:             DS.attr('number'),
 
   viewController: DS.belongsTo('viewController'),
   parentContainer: DS.belongsTo('container', {inverse: 'uiControls'}),
