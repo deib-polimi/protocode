@@ -98,6 +98,8 @@ html, body {
 
 .ui-control {
   position: absolute;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 .ui-control:hover {

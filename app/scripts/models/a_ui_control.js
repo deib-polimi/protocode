@@ -217,8 +217,6 @@ App.UiControl = DS.Model.extend({
     return  parseFloat(this.get('end')) -
             parseFloat(this.get('start')) -
             parseFloat(this.get('marginStart')) -
-            parseFloat(this.get('paddingStart')) -  
-            parseFloat(this.get('paddingEnd')) - 
             parseFloat(this.get('marginEnd'));
   }.property(
     'start',
@@ -232,8 +230,6 @@ App.UiControl = DS.Model.extend({
     return  parseFloat(this.get('bottom')) -
             parseFloat(this.get('top')) -
             parseFloat(this.get('marginTop')) -
-            parseFloat(this.get('paddingTop')) -  
-            parseFloat(this.get('paddingBottom')) - 
             parseFloat(this.get('marginBottom'));
   }.property(
     'top',
@@ -245,9 +241,7 @@ App.UiControl = DS.Model.extend({
 
   outerWidth: function() {
     return  parseFloat(this.get('marginStart')) +
-            parseFloat(this.get('paddingStart')) +  
             parseFloat(this.get('width')) +
-            parseFloat(this.get('paddingEnd')) + 
             parseFloat(this.get('marginEnd'));
   }.property(
     'marginStart',
@@ -258,9 +252,7 @@ App.UiControl = DS.Model.extend({
 
   outerHeight: function() {
     return  parseFloat(this.get('marginTop')) +
-            parseFloat(this.get('paddingTop')) +  
             parseFloat(this.get('height')) +
-            parseFloat(this.get('paddingBottom')) + 
             parseFloat(this.get('marginBottom'));
   }.property(
     'marginTop',

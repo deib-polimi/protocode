@@ -47,8 +47,8 @@ App.Button.FIXTURES = [
     alignParentBottom: false,
     alignParentStart: false,
     alignParentEnd: false,
-    width: 80,
-    height: 30,
+    width: 100,
+    height: 50,
     viewController: 1,
     parentContainer: null,
     clickListener: null
