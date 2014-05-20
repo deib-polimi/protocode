@@ -140,11 +140,6 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
   computeHorizontalAxis: function(value) {
     return value / this.get('device.screenWidth') * this.get('device.cssWidth');
-
   }
-
-
-
-
 
 });

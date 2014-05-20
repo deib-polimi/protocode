@@ -93,7 +93,8 @@ App.UiControl = DS.Model.extend({
       return this.get('bottom') - this.get('outerHeight');
     }
     else {
-      return this.get('posY');
+      // Offset of top bar
+      return this.get('posY') + this.get('viewController.application.device.viewTop');
     }
   }.property(
     'posY',

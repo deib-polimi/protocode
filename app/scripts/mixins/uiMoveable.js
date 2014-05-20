@@ -10,7 +10,7 @@ App.UiMoveable = Ember.Mixin.create({
       var element = this.get('element');
       var parentOffset = $(this.get('parentView.element')).offset();
       this.set('context.posX', (event.pageX - parentOffset.left - this.get('offsetMouseX')) / this.get('controller.zoomLevel') * this.get('device.screenWidth') / this.get('device.cssWidth'));
-      this.set('context.posY', (event.pageY - parentOffset.top - this.get('offsetMouseY')) / this.get('controller.zoomLevel') * this.get('device.screenHeight') / this.get('device.cssHeight'));
+      this.set('context.posY', (event.pageY - parentOffset.top - this.get('offsetMouseY')) / this.get('controller.zoomLevel') * this.get('device.screenHeight') / this.get('device.cssHeight') - this.get('device.viewTop'));
     }
   },
 
@@ -27,18 +27,5 @@ App.UiMoveable = Ember.Mixin.create({
   mouseUp: function(event) {
     event.preventDefault();
     this.set('isMoving', false);
-  },
-
-  posXStyle: function() {
-    return 'left: ' + this.get('context.posX') + 'px;';
-  }.property('context.posX'),
-
-  posYStyle: function() {
-    return 'top: ' + this.get('context.posY') + 'px;';
-  }.property('context.posY'),
-
-  // Not to use
-  positionStyle: function() {
-    return 'top: ' + this.get('context.posY') + 'px; left: ' + this.get('context.posX') + 'px;';
-  }.property('context.posX', 'context.posY')
+  }
 });
