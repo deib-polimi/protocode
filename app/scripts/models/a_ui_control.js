@@ -1,23 +1,23 @@
 App.UiControl = DS.Model.extend({
   name:               DS.attr('string'),
   title:              DS.attr('string'),
-  posX:               DS.attr('number'),
-  posY:               DS.attr('number'),
+  posX:               DS.attr('number', {defaultValue: 0}),
+  posY:               DS.attr('number', {defaultValue: 0}),
 
-  paddingTop:         DS.attr('number'),
-  paddingBottom:      DS.attr('number'),
-  paddingStart:       DS.attr('number'),
-  paddingEnd:         DS.attr('number'),
+  paddingTop:         DS.attr('number', {defaultValue: 0}),
+  paddingBottom:      DS.attr('number', {defaultValue: 0}),
+  paddingStart:       DS.attr('number', {defaultValue: 0}),
+  paddingEnd:         DS.attr('number', {defaultValue: 0}),
 
-  marginTop:          DS.attr('number'),
-  marginBottom:       DS.attr('number'),
-  marginStart:        DS.attr('number'),
-  marginEnd:          DS.attr('number'),
+  marginTop:          DS.attr('number', {defaultValue: 0}),
+  marginBottom:       DS.attr('number', {defaultValue: 0}),
+  marginStart:        DS.attr('number', {defaultValue: 0}),
+  marginEnd:          DS.attr('number', {defaultValue: 0}),
 
-  alignParentTop:     DS.attr('boolean'),
-  alignParentBottom:  DS.attr('boolean'),
-  alignParentStart:   DS.attr('boolean'),
-  alignParentEnd:     DS.attr('boolean'),
+  alignParentTop:     DS.attr('boolean', {defaultValue: false}),
+  alignParentBottom:  DS.attr('boolean', {defaultValue: false}),
+  alignParentStart:   DS.attr('boolean', {defaultValue: false}),
+  alignParentEnd:     DS.attr('boolean', {defaultValue: false}),
 
   width:              DS.attr('number'),
   height:             DS.attr('number'),
@@ -94,7 +94,7 @@ App.UiControl = DS.Model.extend({
     }
     else {
       // Offset of top bar
-      return this.get('posY') + this.get('viewController.application.device.viewTop');
+      return parseFloat(this.get('posY')) + this.get('viewController.application.device.viewTop');
     }
   }.property(
     'posY',
@@ -170,7 +170,7 @@ App.UiControl = DS.Model.extend({
       return this.get('end') - this.get('outerWidth');
     }
     else {
-      return this.get('posX');
+      return parseFloat(this.get('posX'));
     }
   }.property(
     'posX',

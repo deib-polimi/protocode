@@ -1,7 +1,7 @@
-App.ButtonView = Ember.View.extend({
+App.UiButtonView = Ember.View.extend({
   tagName: 'div',
   classNames: ['control-button', 'expanded'],
   classNameBindings: ['controller.controllers.editor.device.platform'],
-  templateName: 'views/button_view'
+  templateName: 'views/ui_button_view'
 
 });
