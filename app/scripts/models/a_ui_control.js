@@ -19,8 +19,8 @@ App.UiControl = DS.Model.extend({
   alignParentStart:   DS.attr('boolean', {defaultValue: false}),
   alignParentEnd:     DS.attr('boolean', {defaultValue: false}),
 
-  width:              DS.attr('number'),
-  height:             DS.attr('number'),
+  width:              DS.attr('number', {defaultValue: 130}),
+  height:             DS.attr('number', {defaultValue: 40}),
 
   viewController: DS.belongsTo('viewController'),
   parentContainer: DS.belongsTo('container', {inverse: 'uiControls'}),
