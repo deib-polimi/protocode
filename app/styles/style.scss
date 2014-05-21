@@ -134,7 +134,7 @@ html, body {
 }
 
 
-.control-button {
+.control-button, .control-label {
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -146,9 +146,7 @@ html, body {
 }
 
 .control-button.ios {
-  font: 16px -apple-system-font, ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
   color: $ios-primary-color;
-  padding: 5px;
 }
 
 .control-button.ios a {
@@ -162,6 +160,20 @@ html, body {
   border: dashed 1px #ccc;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.ios .control-edit-text {
+  border: solid 1px $ios-border-color;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.ios .control-edit-text .control-content {
+  padding: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 
@@ -198,6 +210,10 @@ html, body {
 
 /*** Ui Controls -> iOS ***/
 /*** ScreenView -> iOS ***/
+.ios .device-screen-view {
+  font: 14px -apple-system-font, ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+}
+
 .ios .device-screen-view .action-bar {
   display: none;
 }

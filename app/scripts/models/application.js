@@ -10,6 +10,6 @@ App.Application.FIXTURES = [
     id: 1,
     name: 'NewApp',
     menu: 1,
-    device: 2
+    device: 1
   }
 ];

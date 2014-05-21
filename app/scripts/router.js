@@ -8,6 +8,8 @@ App.Router.map(function () {
         });
         this.resource('controlContainer', {path: '/container/:container_id'}, function () {
         });
+        this.resource('controlEditText', {path: '/editText/:editText_id'}, function () {
+        });
         this.resource('controlLabel', {path: '/label/:label_id'}, function () {
         });
         this.resource('appMenu', {path: '/menu/:menu_id'}, function () {

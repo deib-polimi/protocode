@@ -21,7 +21,6 @@ App.ViewControllerRoute = Ember.Route.extend({
             title: 'Dummy Button',
             viewController: this.get('controller.model')
           });
-
           break;
 
         case 'container':
@@ -30,7 +29,14 @@ App.ViewControllerRoute = Ember.Route.extend({
             title: 'Dummy Container',
             viewController: this.get('controller.model')
           });
+          break;
 
+        case 'editText':
+          var uiControl = this.store.createRecord('editText', {
+            name: 'DummyTextEdit',
+            title: 'Dummy Text Edit',
+            viewController: this.get('controller.model')
+          });
           break;
 
         case 'label':
@@ -39,7 +45,6 @@ App.ViewControllerRoute = Ember.Route.extend({
             title: 'Dummy Label',
             viewController: this.get('controller.model')
           });
-
           break;
       }
 

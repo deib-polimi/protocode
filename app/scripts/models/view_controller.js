@@ -13,7 +13,8 @@ App.ViewController.FIXTURES = [
     uiControls: [
       {id: 1, type: 'button'},
       {id: 2, type: 'button'},
-      {id: 3, type: 'label'}
+      {id: 3, type: 'label'},
+      {id: 4, type: 'editText'}
     ],
     application: 1
   },

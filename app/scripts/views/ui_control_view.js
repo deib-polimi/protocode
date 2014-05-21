@@ -20,12 +20,16 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
         return App.UiButtonView;
         break;
 
-      case ('App.Label'):
-        return App.UiLabelView;
-        break;
-
       case ('App.Container'):
         return App.UiContainerView;
+        break;
+
+      case ('App.EditText'):
+        return App.UiEditTextView;
+        break;
+
+      case ('App.Label'):
+        return App.UiLabelView;
         break;
     }
   }.property(),
