@@ -1,6 +1,6 @@
 App.UiControl = DS.Model.extend({
   name:               DS.attr('string'),
-  title:              DS.attr('string'),
+  
   posX:               DS.attr('number', {defaultValue: 0}),
   posY:               DS.attr('number', {defaultValue: 0}),
 
@@ -74,7 +74,15 @@ App.UiControl = DS.Model.extend({
       return this.get('below.bottom');
     }
     else if (this.get('alignParentTop')) {
-      return this.get('viewController.application.device.viewTop');
+
+      if (this.get('parentContainer') != null) {
+        return 0;
+      }
+      else {
+        // Offset of top bar
+        return this.get('viewController.application.device.viewTop');
+      }
+
     }
     else if (this.get('alignBottom')) {
       return this.get('alignBottom.bottom') - this.get('outerHeight');
@@ -93,8 +101,15 @@ App.UiControl = DS.Model.extend({
       return this.get('bottom') - this.get('outerHeight');
     }
     else {
-      // Offset of top bar
-      return parseFloat(this.get('posY')) + this.get('viewController.application.device.viewTop');
+
+      if (this.get('parentContainer') != null) {
+        return parseFloat(this.get('posY'));
+      }
+      else {
+        // Offset of top bar
+        return parseFloat(this.get('posY')) + this.get('viewController.application.device.viewTop');
+      }
+      
     }
   }.property(
     'posY',

@@ -1,7 +1,9 @@
 App.Button = App.UiControl.extend({
-  width: DS.attr('number', {defaultValue: 125}),
-  height: DS.attr('number', {defaultValue: 30}),
-  clickListener: DS.belongsTo('clickListener')
+  title:          DS.attr('string'),
+  clickListener:  DS.belongsTo('clickListener'),
+
+  width:          DS.attr('number', {defaultValue: 125}),
+  height:         DS.attr('number', {defaultValue: 30})
 });
 
 App.Button.FIXTURES = [

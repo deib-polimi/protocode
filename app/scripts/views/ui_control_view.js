@@ -11,6 +11,25 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
 
   device: Ember.computed.alias('controller.controllers.editor.device'),
 
+  uiControlType: function () {
+    var controlType = this.get('context').constructor.toString();
+    console.log('Choose view for: ' + controlType);
+
+    switch (controlType) {
+      case ('App.Button'):
+        return App.UiButtonView;
+        break;
+
+      case ('App.Label'):
+        return App.UiLabelView;
+        break;
+
+      case ('App.Container'):
+        return App.UiContainerView;
+        break;
+    }
+  }.property(),
+
   alignParentTop: function() {
     return this.get('context.alignParentTop');
   }.property('context.alignParentTop'), 
@@ -84,21 +103,6 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
   computedHeight: function() {
     return this.computeVerticalAxis(this.get('context.computedHeight'));
   }.property('context.computedHeight', 'device'),
-
-  uiControlType: function () {
-    var controlType = this.get('context').constructor.toString();
-    console.log('Choose view for: ' + controlType);
-
-    switch (controlType) {
-      case ('App.Button'):
-        return App.UiButtonView;
-        break;
-
-      case ('App.Container'):
-        return App.UiContainerView;
-        break;
-    }
-  }.property(),
 
   style: function() {
     var result = '';

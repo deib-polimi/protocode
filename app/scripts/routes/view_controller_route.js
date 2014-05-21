@@ -25,13 +25,22 @@ App.ViewControllerRoute = Ember.Route.extend({
           break;
 
         case 'container':
-        var uiControl = this.store.createRecord('container', {
-          name: 'DummyContainer',
-          title: 'Dummy Container',
-          viewController: this.get('controller.model')
-        });
+          var uiControl = this.store.createRecord('container', {
+            name: 'DummyContainer',
+            title: 'Dummy Container',
+            viewController: this.get('controller.model')
+          });
 
-        break;
+          break;
+
+        case 'label':
+          var uiControl = this.store.createRecord('label', {
+            name: 'DummyLabel',
+            title: 'Dummy Label',
+            viewController: this.get('controller.model')
+          });
+
+          break;
       }
 
       if (receiver.get('context').constructor.toString() == 'App.Container') {

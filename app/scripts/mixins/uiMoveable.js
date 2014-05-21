@@ -9,8 +9,15 @@ App.UiMoveable = Ember.Mixin.create({
     if (this.get('isMoving')) {
       var element = this.get('element');
       var parentOffset = $(this.get('parentView.element')).offset();
-      this.set('context.posX', (event.pageX - parentOffset.left - this.get('offsetMouseX')) / this.get('controller.zoomLevel') * this.get('device.screenWidth') / this.get('device.cssWidth'));
-      this.set('context.posY', (event.pageY - parentOffset.top - this.get('offsetMouseY')) / this.get('controller.zoomLevel') * this.get('device.screenHeight') / this.get('device.cssHeight') - this.get('device.viewTop'));
+      var posX = (event.pageX - parentOffset.left - this.get('offsetMouseX')) / this.get('controller.zoomLevel') * this.get('device.screenWidth') / this.get('device.cssWidth');
+      var posY = (event.pageY - parentOffset.top - this.get('offsetMouseY')) / this.get('controller.zoomLevel') * this.get('device.screenHeight') / this.get('device.cssHeight');
+
+      if (this.get('context.parentContainer') == null) {
+        posY -= this.get('device.viewTop');
+      }
+
+      this.set('context.posX', posX);
+      this.set('context.posY', posY);
     }
   },
 
