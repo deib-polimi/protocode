@@ -145,6 +145,8 @@ html, body {
 
 }
 
+/********************************** iOS **********************************/
+
 .control-button.ios {
   color: $ios-primary-color;
 }
@@ -229,6 +231,7 @@ html, body {
   display: none;
 }
 
+/********************************** Android **********************************/
 /*** ScreenView -> Android ***/
 .android .device-screen-view {
   font: 15px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
@@ -341,24 +344,34 @@ html, body {
   text-align: center;
 }
 
+.android .control-edit-text {
+  position: relative;
+  border-bottom: solid 1px $android-normal-edit-text-color;
+  overflow: visible;
+}
+
+  .android .control-edit-text:after {
+    content: "";
+    position: absolute;
+    border-left: solid 1px $android-normal-edit-text-color;
+    border-right: solid 1px $android-normal-edit-text-color;
+    height: 4px;
+    width: 100%;
+    bottom: 0;
+  }
+
+.android .control-edit-text .control-content {
+  padding: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.android .control-edit-text .control-content .placeholder {
+  color: $ios-placeholder-color;
+}
+
 /* Drag & Drop */
 .dragging-over {
   box-shadow: 0 0 5px 5px #007aff;
-}
-
-/* Alignments */
-.align-parent-top {
-  top: 0;
-}
-
-.align-parent-bottom {
-  bottom: 0;
-}
-
-.align-parent-start {
-  left: 0;
-}
-
-.align-parent-end {
-  right: 0;
 }
