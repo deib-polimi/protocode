@@ -1,0 +1,36 @@
+<div class="col-md-3">
+  <div class="panel panel-info">
+      <div class="panel-heading">
+          <h3 class="panel-title">{{name}}</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
+          <li><a href="#position" data-toggle="tab"><i class="fa fa-arrows"></i></a></li>
+          <li><a href="#dimension" data-toggle="tab"><i class="fa fa-expand"></i></a></li>
+          <li><a href="#settings" data-toggle="tab"><i class="fa fa-cogs"></i></a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+            {{input-text label="Name" value=name action='acceptChanges'}}
+            {{input-text label="HTML file name" value=htmlFileName action='acceptChanges'}}
+          </div>
+          <div class="tab-pane fade" id="position">
+            {{partial "partials/ui_control_position"}}
+          </div>
+          <div class="tab-pane fade" id="dimension">
+            {{partial "partials/ui_control_dimension"}}
+          </div>
+          <div class="tab-pane fade" id="settings">...</div>
+        </div>
+        
+      </div>
+      <div class="panel-footer">
+         <div class="btn-group">
+            <button type="button" class="btn btn-default" {{action "deleteViewController"}}>
+              <i class="fa fa-trash-o"></i> 
+            </button>
+          </div>
+      </div>
+  </div>
+</div>

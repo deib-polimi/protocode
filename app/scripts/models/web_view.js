@@ -1,0 +1,32 @@
+App.WebView = App.UiControl.extend({
+  htmlFileName:    DS.attr('string'),
+
+  width:    DS.attr('number', {defaultValue: 300}),
+  height:   DS.attr('number', {defaultValue: 200})
+});
+
+App.WebView.FIXTURES = [
+  {
+    id: 5,
+    name: 'WebView1',
+    htmlFileName: 'newHtmlFile',
+    posX: 30,
+    posY: 270,
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingStart: 8,
+    paddingEnd: 8,
+    marginTop: 0,
+    marginBottom: 0,
+    marginStart: 0,
+    marginEnd: 0,
+    alignParentTop: false,
+    alignParentBottom: false,
+    alignParentStart: false,
+    alignParentEnd: false,
+    width: 200,
+    height: 100,
+    viewController: 1,
+    parentContainer: null
+  }
+];

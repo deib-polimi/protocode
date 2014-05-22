@@ -134,7 +134,7 @@ html, body {
 }
 
 
-.control-button, .control-label {
+.control-button, .control-label, .control-web-view {
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -180,6 +180,18 @@ html, body {
 
 .ios .control-edit-text .control-content .placeholder {
   color: $ios-placeholder-color;
+}
+
+.ios .control-web-view {
+  background-color: rgba($ios-web-view-background-color, 0.4);
+  border: solid 1px $ios-web-view-border-color;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.ios .control-web-view .control-content:after {
+  content: "UIWebView";
+  color: #fff;
+  margin: auto;
 }
 
 
@@ -277,6 +289,18 @@ html, body {
   background-repeat: no-repeat;
 }
 
+.android .control-web-view {
+  background-color: rgba($android-web-view-background-color, 0.4);
+  border: solid 1px $ios-web-view-border-color;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.android .control-web-view .control-content:after {
+  content: "WebView";
+  color: #fff;
+  margin: auto;
+}
+
 /*** Menus -> Android ***/
 .app-menu.android:before {
   content: $fa-var-bars;
@@ -330,7 +354,7 @@ html, body {
 
 /*** Ui Controls -> Android ***/
 .ui-control .android {
-  font: 16px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
+  font: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 }
 
 .control-button.android {
@@ -361,7 +385,7 @@ html, body {
   }
 
 .android .control-edit-text .control-content {
-  padding: 5px;
+  padding: 5px 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

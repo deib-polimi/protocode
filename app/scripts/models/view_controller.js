@@ -14,7 +14,8 @@ App.ViewController.FIXTURES = [
       {id: 1, type: 'button'},
       {id: 2, type: 'button'},
       {id: 3, type: 'label'},
-      {id: 4, type: 'editText'}
+      {id: 4, type: 'editText'},
+      {id: 5, type: 'webView'}
     ],
     application: 1
   },
