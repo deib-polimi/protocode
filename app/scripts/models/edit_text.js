@@ -1,8 +1,9 @@
 App.EditText = App.UiControl.extend({
-  title:    DS.attr('string'),
+  title:        DS.attr('string', {defaultValue: ''}),
+  placeholder:  DS.attr('string', {defaultValue: ''}),
 
-  width:    DS.attr('number', {defaultValue: 125}),
-  height:   DS.attr('number', {defaultValue: 30})
+  width:        DS.attr('number', {defaultValue: 125}),
+  height:       DS.attr('number', {defaultValue: 30})
 });
 
 App.EditText.FIXTURES = [

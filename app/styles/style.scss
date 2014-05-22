@@ -176,6 +176,10 @@ html, body {
   text-overflow: ellipsis;
 }
 
+.ios .control-edit-text .control-content .placeholder {
+  color: $ios-placeholder-color;
+}
+
 
 /*** Menus -> iOS ***/
 .app-menu.ios {
