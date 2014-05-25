@@ -183,7 +183,7 @@ html, body {
 }
 
 .ios .control-web-view {
-  background-color: rgba($ios-web-view-background-color, 0.4);
+  background-color: rgba($ios-web-view-background-color, $control-view-background-opacity);
   border: solid 1px $ios-web-view-border-color;
   box-shadow: 0 0 0 1px #fff;
 }
@@ -195,7 +195,7 @@ html, body {
 }
 
 .ios .control-image-view {
-  background-color: rgba($ios-web-view-background-color, 0.4);
+  background-color: rgba($ios-web-view-background-color, $control-view-background-opacity);
   border: solid 1px $ios-web-view-border-color;
   box-shadow: 0 0 0 1px #fff;
 }
@@ -302,7 +302,7 @@ html, body {
 }
 
 .android .control-web-view {
-  background-color: rgba($android-web-view-background-color, 0.4);
+  background-color: rgba($android-web-view-background-color, $control-view-background-opacity);
   border: solid 1px $ios-web-view-border-color;
   box-shadow: 0 0 0 1px #fff;
 }
@@ -314,13 +314,15 @@ html, body {
 }
 
 .android .control-image-view {
-  background-color: rgba($android-web-view-background-color, 0.4);
+  background-color: rgba($android-web-view-background-color, $control-view-background-opacity);
   border: solid 1px $ios-web-view-border-color;
   box-shadow: 0 0 0 1px #fff;
 }
 
 .android .control-image-view .control-content:after {
-  content: "ImageView";
+  font-size: 25px;
+  font-family: FontAwesome;
+  content: $fa-var-picture-o;
   color: #fff;
   margin: auto;
 }
