@@ -1,12 +1,22 @@
 App.ImageView = App.UiControl.extend({
+  sourceType: DS.belongsTo('sourceType', {inverse: 'parentControl'}),
 
   width:    DS.attr('number', {defaultValue: 300}),
-  height:   DS.attr('number', {defaultValue: 200})
+  height:   DS.attr('number', {defaultValue: 200}),
+
+  didCreate: function() {
+    this._super();
+    
+    var sourceType = this.store.createRecord('sourceType');
+    this.set('sourceType', sourceType);
+    this.save();
+  }
 });
 
 App.ImageView.FIXTURES = [
   {
     id: 6,
+    sourceType: 1,
     name: 'ImageView1',
     posX: 200,
     posY: 300,
