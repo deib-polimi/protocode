@@ -35,6 +35,10 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
       case ('App.WebView'):
         return App.UiWebViewView;
         break;
+
+      case ('App.ImageView'):
+        return App.UiImageViewView;
+        break;
     }
   }.property(),
 

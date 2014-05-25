@@ -134,7 +134,7 @@ html, body {
 }
 
 
-.control-button, .control-label, .control-web-view {
+.control-button, .control-label, .control-web-view, .control-image-view {
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -190,6 +190,18 @@ html, body {
 
 .ios .control-web-view .control-content:after {
   content: "UIWebView";
+  color: #fff;
+  margin: auto;
+}
+
+.ios .control-image-view {
+  background-color: rgba($ios-web-view-background-color, 0.4);
+  border: solid 1px $ios-web-view-border-color;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.ios .control-image-view .control-content:after {
+  content: "UIImageView";
   color: #fff;
   margin: auto;
 }
@@ -297,6 +309,18 @@ html, body {
 
 .android .control-web-view .control-content:after {
   content: "WebView";
+  color: #fff;
+  margin: auto;
+}
+
+.android .control-image-view {
+  background-color: rgba($android-web-view-background-color, 0.4);
+  border: solid 1px $ios-web-view-border-color;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.android .control-image-view .control-content:after {
+  content: "ImageView";
   color: #fff;
   margin: auto;
 }
