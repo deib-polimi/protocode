@@ -310,7 +310,9 @@ html, body {
 }
 
 .android .control-web-view .control-content:after {
-  content: "WebView";
+  font-size: $control-icon-font-size;
+  font-family: FontAwesome;
+  content: $fa-var-globe;
   color: #fff;
   margin: auto;
 }
