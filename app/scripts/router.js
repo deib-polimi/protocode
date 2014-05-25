@@ -14,6 +14,8 @@ App.Router.map(function () {
         });
         this.resource('controlLabel', {path: '/label/:label_id'}, function () {
         });
+        this.resource('controlVideoView', {path: '/videoView/:videoView_id'}, function () {
+        });
         this.resource('controlWebView', {path: '/webView/:webView_id'}, function () {
         });
         this.resource('appMenu', {path: '/menu/:menu_id'}, function () {

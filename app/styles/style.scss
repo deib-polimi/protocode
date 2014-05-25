@@ -134,7 +134,7 @@ html, body {
 }
 
 
-.control-button, .control-label, .control-web-view, .control-image-view {
+.control-button, .control-label, .control-web-view, .control-image-view, .control-video-view {
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -182,7 +182,7 @@ html, body {
   color: $ios-placeholder-color;
 }
 
-.ios .control-web-view {
+.ios .control-web-view, .ios .control-image-view, .ios .control-video-view {
   background-color: rgba($ios-web-view-background-color, $control-view-background-opacity);
   border: solid 1px $ios-web-view-border-color;
   box-shadow: 0 0 0 1px #fff;
@@ -194,11 +194,6 @@ html, body {
   margin: auto;
 }
 
-.ios .control-image-view {
-  background-color: rgba($ios-web-view-background-color, $control-view-background-opacity);
-  border: solid 1px $ios-web-view-border-color;
-  box-shadow: 0 0 0 1px #fff;
-}
 
 .ios .control-image-view .control-content:after {
   content: "UIImageView";
@@ -206,6 +201,13 @@ html, body {
   margin: auto;
 }
 
+.ios .control-video-view .control-content:after {
+  font-size: $control-icon-font-size;
+  font-family: FontAwesome;
+  content: $fa-var-video-camera;
+  color: #fff;
+  margin: auto;
+}
 
 /*** Menus -> iOS ***/
 .app-menu.ios {
@@ -301,7 +303,7 @@ html, body {
   background-repeat: no-repeat;
 }
 
-.android .control-web-view {
+.android .control-web-view, .android .control-image-view, .android .control-video-view {
   background-color: rgba($android-web-view-background-color, $control-view-background-opacity);
   border: solid 1px $ios-web-view-border-color;
   box-shadow: 0 0 0 1px #fff;
@@ -313,16 +315,18 @@ html, body {
   margin: auto;
 }
 
-.android .control-image-view {
-  background-color: rgba($android-web-view-background-color, $control-view-background-opacity);
-  border: solid 1px $ios-web-view-border-color;
-  box-shadow: 0 0 0 1px #fff;
-}
-
 .android .control-image-view .control-content:after {
-  font-size: 25px;
+  font-size: $control-icon-font-size;
   font-family: FontAwesome;
   content: $fa-var-picture-o;
+  color: #fff;
+  margin: auto;
+}
+
+.android .control-video-view .control-content:after {
+  font-size: $control-icon-font-size;
+  font-family: FontAwesome;
+  content: $fa-var-video-camera;
   color: #fff;
   margin: auto;
 }
