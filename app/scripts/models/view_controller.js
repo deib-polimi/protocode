@@ -24,6 +24,9 @@ App.ViewController.FIXTURES = [
 	{
     id: 2,
     name: 'SecondView',
+    uiControls: [
+      {id: 8, type: 'listView'}
+    ],
     application: 1
   }
 ];

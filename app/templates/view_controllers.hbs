@@ -17,7 +17,7 @@
             {{#if isCreating}}
               <li class="list-group-item">
                 <div class="input-group">
-                  {{input value=newNameViewController class="form-control" focus-out="createViewController" insert-newline="createViewController"}}
+                  {{focus-input value=newNameViewController class="form-control" focus-out="createViewController" insert-newline="createViewController"}}
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default" {{action "createViewController"}}>
                       <i class="fa fa-save"></i> 

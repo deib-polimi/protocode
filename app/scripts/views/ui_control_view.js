@@ -36,6 +36,10 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
         return App.UiLabelView;
         break;
 
+      case ('App.ListView'):
+        return App.UiListViewView;
+        break;
+
       case ('App.VideoView'):
         return App.UiVideoViewView;
         break;

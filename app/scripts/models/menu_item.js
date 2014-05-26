@@ -6,6 +6,8 @@ App.MenuItem = DS.Model.extend({
 
   // Used to reload menuItems
   didCreate: function() {
+    this._super();
+    
     var self = this;
     this.get('parentMenu.menuItems').then(function (menuItems) {
       menuItems.pushObject(self);

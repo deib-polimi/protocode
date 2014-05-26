@@ -19,7 +19,7 @@ App.AppMenuIndexController = Ember.ObjectController.extend({
 
       menuItem.set('parentMenu', this.get('model'));
 
-      this.set('newNameViewController', 'newView');
+      this.set('newNameMenuItem', 'newMenuItem');
       this.set('isCreating', false);
 
       menuItem.save();
