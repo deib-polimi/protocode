@@ -25,7 +25,8 @@ App.ViewController.FIXTURES = [
     id: 2,
     name: 'SecondView',
     uiControls: [
-      {id: 8, type: 'listView'}
+      {id: 8, type: 'listView'},
+      {id: 9, type: 'gridView'}
     ],
     application: 1
   }

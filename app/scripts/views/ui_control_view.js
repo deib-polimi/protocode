@@ -28,6 +28,10 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
         return App.UiEditTextView;
         break;
 
+      case ('App.GridView'):
+        return App.UiGridViewView;
+        break;
+
       case ('App.ImageView'):
         return App.UiImageViewView;
         break;

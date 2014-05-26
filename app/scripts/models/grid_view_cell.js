@@ -1,0 +1,24 @@
+App.GridViewCell = DS.Model.extend({
+  name:           DS.attr('string', {defaultValue: 'GridView1'}),
+  title:          DS.attr('string', {defaultValue: 'Grid View'}),
+  parentGridView: DS.belongsTo('gridView', {inverse: 'gridViewCells'}),
+
+  // Used to reload menuItems
+  didCreate: function() {
+    this._super();
+    
+    var self = this;
+    this.get('parentGridView.gridViewCells').then(function (gridViewCells) {
+      gridViewCells.pushObject(self);
+    });
+  }
+});
+
+App.GridViewCell.FIXTURES = [
+  {
+    id: 1,
+    name: 'GridViewCell1',
+    title: 'Grid View Cell 1',
+    parentGridView: 9
+  }
+];

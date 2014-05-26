@@ -10,6 +10,10 @@ App.Router.map(function () {
         });
         this.resource('controlEditText', {path: '/editText/:editText_id'}, function () {
         });
+        this.resource('controlGridView', {path: '/gridView/:gridView_id'}, function () {
+        });
+        this.resource('controlGridViewCell', {path: '/gridViewCell/:gridViewCell_id'}, function () {
+        });
         this.resource('controlImageView', {path: '/imageView/:imageView_id'}, function () {
         });
         this.resource('controlLabel', {path: '/label/:label_id'}, function () {
