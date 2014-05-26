@@ -13,6 +13,7 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
+            <label>List view cells</label>
             <ul class="list-group" id="collapse-views" >
               {{#each item in listViewCells}}
                 <li class="list-group-item">
@@ -22,7 +23,7 @@
               {{#if isCreating}}
                 <li class="list-group-item">
                   <div class="input-group">
-                    {{focus-input value=newNameListViewCell class="form-control" focus-out="createListViewCell" insert-newline="createListViewCell"}}
+                    {{focus-input value=newNameListViewCell class="form-control" insert-newline="createListViewCell"}}
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" {{action "createListViewCell"}}>
                         <i class="fa fa-save"></i> 
@@ -35,11 +36,9 @@
                 </li>
               {{/if}}
             </ul>
-            <div class="btn-group">
-            <button type="button" class="btn btn-default" {{action "setCreating" true}}>
-              <i class="fa fa-plus"></i> Add list item
+            <button type="button" class="btn btn-default btn-block" {{action "setCreating" true}}>
+              <i class="fa fa-plus"></i> Add list view cell
             </button>
-          </div>
           </div>
           <div class="tab-pane fade" id="position">
             {{partial "partials/ui_control_position"}}

@@ -5,6 +5,10 @@ App.ControlListViewIndexController = App.UiControlController.extend(App.ClickLis
   newNameListViewCell: 'newMenuItem',
 
    actions: {
+    abortCreation: function() {
+      this.set('isCreating', false);
+    },
+
     setCreating: function(value) {
       this.set('isCreating', value);
     },
@@ -25,6 +29,8 @@ App.ControlListViewIndexController = App.UiControlController.extend(App.ClickLis
       this.set('isCreating', false);
 
       listViewCell.save();
+
+      this.set('isCreating', true);
     }
   }
   

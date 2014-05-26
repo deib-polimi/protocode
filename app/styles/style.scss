@@ -146,12 +146,18 @@ html, body {
 }
 
 .control-list-view:hover {
-  border: solid 1px #ccc;
+  box-shadow: 0 0 0 1px #ccc;
   border-radius: 5px; 
 }
 
 .control-list-view-cell {
   position: relative;
+}
+
+.control-list-view-cell .control-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .control-button .control-content {
@@ -220,6 +226,18 @@ html, body {
   content: $fa-var-video-camera;
   color: #fff;
   margin: auto;
+}
+
+.ios .control-list-view-cell {
+  height: 40px;
+  padding: 5px 0;
+  line-height: 30px;
+  margin-left: 14px;
+  left: 0;
+  right: 0;
+  width: auto;
+  border-bottom: solid 1px $ios-list-view-cell-border-color;
+  font-size: $ios-list-view-cell-border-font-size;
 }
 
 /*** Menus -> iOS ***/
@@ -438,6 +456,17 @@ html, body {
 
 .android .control-edit-text .control-content .placeholder {
   color: $ios-placeholder-color;
+}
+
+.android .control-list-view-cell {
+  height: 44px;
+  padding: 7px 0 7px 5px;
+  line-height: 30px;
+  left: 0;
+  right: 0;
+  width: auto;
+  border-bottom: solid 1px $android-list-view-cell-border-color;
+  font-size: $android-list-view-cell-border-font-size;
 }
 
 /* Drag & Drop */
