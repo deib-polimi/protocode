@@ -16,7 +16,7 @@
             <ul class="list-group" id="collapse-views" >
               {{#each item in listViewCells}}
                 <li class="list-group-item">
-                  {{#link-to "appMenuItem" item}}{{item.name}}{{/link-to}}
+                  {{#link-to "controlListViewCell" item}}{{item.name}}{{/link-to}}
                 </li>
               {{/each}}
               {{#if isCreating}}

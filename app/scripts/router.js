@@ -16,6 +16,8 @@ App.Router.map(function () {
         });
         this.resource('controlListView', {path: '/listView/:listView_id'}, function () {
         });
+        this.resource('controlListViewCell', {path: '/listViewCell/:listViewCell_id'}, function () {
+        });
         this.resource('controlVideoView', {path: '/videoView/:videoView_id'}, function () {
         });
         this.resource('controlWebView', {path: '/webView/:webView_id'}, function () {
