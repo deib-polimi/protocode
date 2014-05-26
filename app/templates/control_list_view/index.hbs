@@ -13,6 +13,7 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
+            {{input-select label="Click listener" content=controllers.viewControllers.model optionLabelPath="content.name" optionValuePath="content" selection=navigationTarget prompt="Navigate to:"}}
             <label>List view cells</label>
             <ul class="list-group" id="collapse-views" >
               {{#each item in listViewCells}}

@@ -1,6 +1,6 @@
 App.Button = App.UiControl.extend({
   title:          DS.attr('string', {defaultValue: 'DummyButtonName'}),
-  clickListener:  DS.belongsTo('clickListener', {defaultValue: 'Dummy Button'}),
+  clickListener:  DS.belongsTo('clickListener'),
 
   width:          DS.attr('number', {defaultValue: 125}),
   height:         DS.attr('number', {defaultValue: 30})
