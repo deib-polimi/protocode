@@ -279,6 +279,7 @@ App.UiControl = DS.Model.extend({
 
   // Used to reload views
   didCreate: function() {
+    this.set('name', this.constructor.toString() + this.get('id'));
     var self = this;
     if (!this.get('parentContainer')) {
       this.get('viewController.uiControls').then(function (uiControls) {

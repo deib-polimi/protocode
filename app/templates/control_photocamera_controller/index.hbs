@@ -13,9 +13,7 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
-            {{#each imageViews}}
-              {{name}}{{id}}
-            {{/each}}
+            {{input-select label="Image View" content=imageViews optionLabelPath="content.name" optionValuePath="content" selection=imageView prompt="Select image view"}}
           </div>
           <div class="tab-pane fade" id="position">
             {{partial "partials/ui_control_position"}}

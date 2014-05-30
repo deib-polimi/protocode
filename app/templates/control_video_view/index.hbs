@@ -12,6 +12,7 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
+            {{input-text label="Name" value=name action='acceptChanges'}}
             {{input-text label="Hardware file" value=sourceType.hardwareFile action='acceptChanges'}}
             {{input-text label="Local file" value=sourceType.localFile action='acceptChanges'}}
             {{input-text label="Remote file" value=sourceType.remoteFile action='acceptChanges'}}
