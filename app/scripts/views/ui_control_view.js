@@ -44,6 +44,14 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
         return App.UiListViewView;
         break;
 
+      case ('App.PhotocameraController'):
+        return App.UiPhotocameraControllerView;
+        break;
+
+      case ('App.VideocameraController'):
+        return App.UiVideocameraControllerView;
+        break;
+
       case ('App.VideoView'):
         return App.UiVideoViewView;
         break;
