@@ -16,6 +16,10 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
     console.log('Choose view for: ' + controlType);
 
     switch (controlType) {
+      case ('App.AudioPlayer'):
+        return App.UiAudioPlayerView;
+        break;
+
       case ('App.Button'):
         return App.UiButtonView;
         break;
