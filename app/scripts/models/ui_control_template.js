@@ -18,6 +18,7 @@ App.UiControlTemplate.FIXTURES = [
   {id: 9, label: 'List View', nameImg: 'listview.png', type: 'listView'},
   {id: 10, label: 'Grid View', nameImg: 'gridview.png', type: 'gridView'},
   {id: 11, label: 'Photocamera Controller', nameImg: 'photocameracontroller.png', type: 'photocameraController'},
-  {id: 12, label: 'Videocamera Controller', nameImg: 'videocameracontroller.png', type: 'videocameraController'}
+  {id: 12, label: 'Videocamera Controller', nameImg: 'videocameracontroller.png', type: 'videocameraController'},
+  {id: 13, label: 'Audio Recorder', nameImg: 'audiorecorder.png', type: 'audioRecorder'}
   /* {id: 50, label: 'Ciao', nameImg: 'switch.png', type: 'switch'}, */
 ];
