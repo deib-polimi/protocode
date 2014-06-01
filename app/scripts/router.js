@@ -6,6 +6,8 @@ App.Router.map(function () {
         this.resource('dispatchUiControl', {path: '/uiControl/:ui_control_id'});
         this.resource('controlAudioPlayer', {path: '/audioPlayer/:audioPlayer_id'}, function () {
         });
+        this.resource('controlAudioRecorder', {path: '/audioRecorder/:audioRecorder_id'}, function () {
+        });
         this.resource('controlButton', {path: '/button/:button_id'}, function () {
         });
         this.resource('controlContainer', {path: '/container/:container_id'}, function () {

@@ -20,6 +20,10 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
         return App.UiAudioPlayerView;
         break;
 
+      case ('App.AudioRecorder'):
+        return App.UiAudioRecorderView;
+        break;
+
       case ('App.Button'):
         return App.UiButtonView;
         break;
