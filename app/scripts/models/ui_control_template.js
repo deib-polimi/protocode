@@ -14,7 +14,7 @@ App.UiControlTemplate.FIXTURES = [
   {id: 5, label: 'Web View', nameImg: 'webview.png', type: 'webView'},
   {id: 6, label: 'Image View', nameImg: 'imageview.png', type: 'imageView'},
   {id: 7, label: 'Video View', nameImg: 'videoview.png', type: 'videoView'},
-  {id: 8, label: 'Audio Player', nameImg: 'audioPlayer.png', type: 'audioPlayer'},
+  {id: 8, label: 'Audio Player', nameImg: 'audioplayer.png', type: 'audioPlayer'},
   {id: 9, label: 'List View', nameImg: 'listview.png', type: 'listView'},
   {id: 10, label: 'Grid View', nameImg: 'gridview.png', type: 'gridView'},
   {id: 11, label: 'Photocamera Controller', nameImg: 'photocameracontroller.png', type: 'photocameraController'},

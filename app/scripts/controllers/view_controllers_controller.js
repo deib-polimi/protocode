@@ -2,7 +2,7 @@ App.ViewControllersController = Ember.ArrayController.extend({
   isCreating: false,
   newNameViewController: 'newView',
 
-  needs: ['uiControlTemplates'],
+  needs: ['uiControlTemplates', 'editor'],
 
   actions: {
     setCreating: function(value) {
@@ -14,8 +14,10 @@ App.ViewControllersController = Ember.ArrayController.extend({
 
       if (!name.trim()) { return; }
 
+      // Application model is in editor.model
       var viewController = this.store.createRecord('viewController', {
-        name: name
+        name: name,
+        application: this.get('controllers.editor.model')
       });
 
       this.set('newNameViewController', 'newView');
