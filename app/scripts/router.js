@@ -41,6 +41,10 @@ App.Router.map(function () {
       });
   	});
 
+    this.resource('model', function () {
+
+    });
+
     this.resource('uiControls', function() {
 
     });
