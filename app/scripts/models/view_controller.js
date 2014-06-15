@@ -2,10 +2,11 @@ var attr = DS.attr;
 
 App.ViewController = DS.Model.extend({
 	name: attr('string'),
-  uiControls: DS.hasMany('uiControl', {async: true, polymorphic: true}),
-  application: DS.belongsTo('application')
+  uiControls: DS.hasMany('uiControl', {polymorphic: true}),
+  application: DS.belongsTo('application', {inverse: 'viewControllers'})
 });
 
+/*
 App.ViewController.FIXTURES = [
 	{
     id: 1,
@@ -30,4 +31,4 @@ App.ViewController.FIXTURES = [
     ],
     application: 1
   }
-];
+];*/

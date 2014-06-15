@@ -6,6 +6,7 @@ App.EditText = App.UiControl.extend({
   height:       DS.attr('number', {defaultValue: 30})
 });
 
+/*
 App.EditText.FIXTURES = [
   {
     id: 4,
@@ -30,4 +31,4 @@ App.EditText.FIXTURES = [
     viewController: 1,
     parentContainer: null
   }
-];
+];*/

@@ -18,6 +18,8 @@ App.ViewControllerRoute = Ember.Route.extend({
         viewController: this.get('controller.model')
       });
 
+      this.get('controller.model').save();
+
       /*
       switch (controlType) {
         case 'button':
@@ -56,6 +58,7 @@ App.ViewControllerRoute = Ember.Route.extend({
 
       if (receiver.get('context').constructor.toString() == 'App.Container') {
         uiControl.set('parentContainer', receiver.get('context'));
+        receiver.get('context').save();
       }
 
       uiControl.save();

@@ -11,19 +11,24 @@ App.ViewControllersController = Ember.ArrayController.extend({
 
   	createViewController: function() {
   		var name = this.get('newNameViewController');
+      var app = this.get('controllers.editor.model');
 
       if (!name.trim()) { return; }
 
       // Application model is in editor.model
-      var viewController = this.store.createRecord('viewController', {
+      this.store.createRecord('viewController', {
         name: name,
-        application: this.get('controllers.editor.model')
+        application: app
+      }).save().then(function (viewController) {
+        app.get('viewControllers').addObject(viewController);
+        app.save();
       });
 
       this.set('newNameViewController', 'newView');
       this.set('isCreating', false);
 
-      viewController.save();
+      
+      
   	}
   }
 });

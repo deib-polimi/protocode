@@ -1,8 +1,8 @@
 App.GridView = App.UiControl.extend({
-  gridViewCells:    DS.hasMany('gridViewCell', {async: true, inverse: 'parentGridView'}),
+  gridViewCells:    DS.hasMany('gridViewCell', {inverse: 'parentGridView'}),
   clickListener:    DS.belongsTo('clickListener')
 });
-
+/*
 App.GridView.FIXTURES = [
   {
     id: 9,
@@ -27,4 +27,4 @@ App.GridView.FIXTURES = [
     viewController: 2,
     parentContainer: null
   }
-];
+];*/

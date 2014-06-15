@@ -12,7 +12,7 @@ App.ImageView = App.UiControl.extend({
     this.save();
   }
 });
-
+/*
 App.ImageView.FIXTURES = [
   {
     id: 6,
@@ -37,4 +37,4 @@ App.ImageView.FIXTURES = [
     viewController: 1,
     parentContainer: null
   }
-];
+];*/

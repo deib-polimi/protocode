@@ -5,6 +5,7 @@ App.WebView = App.UiControl.extend({
   height:   DS.attr('number', {defaultValue: 200})
 });
 
+/*
 App.WebView.FIXTURES = [
   {
     id: 5,
@@ -29,4 +30,4 @@ App.WebView.FIXTURES = [
     viewController: 1,
     parentContainer: null
   }
-];
+];*/

@@ -5,7 +5,7 @@ App.Label = App.UiControl.extend({
   width:    DS.attr('number', {defaultValue: 125}),
   height:   DS.attr('number', {defaultValue: 30})
 });
-
+/*
 App.Label.FIXTURES = [
   {
     id: 3,
@@ -30,4 +30,4 @@ App.Label.FIXTURES = [
     viewController: 1,
     parentContainer: null
   }
-];
+];*/

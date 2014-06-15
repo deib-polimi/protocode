@@ -5,7 +5,7 @@ App.Button = App.UiControl.extend({
   width:          DS.attr('number', {defaultValue: 125}),
   height:         DS.attr('number', {defaultValue: 30})
 });
-
+/*
 App.Button.FIXTURES = [
   {
     id: 1,
@@ -55,4 +55,4 @@ App.Button.FIXTURES = [
     parentContainer: null,
     clickListener: null
   }
-];
+];*/

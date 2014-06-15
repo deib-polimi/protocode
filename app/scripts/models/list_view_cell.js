@@ -13,7 +13,7 @@ App.ListViewCell = DS.Model.extend({
     });
   }
 });
-
+/*
 App.ListViewCell.FIXTURES = [
   {
     id: 1,
@@ -21,4 +21,4 @@ App.ListViewCell.FIXTURES = [
     title: 'List View Cell 1',
     parentListView: 8
   }
-];
+];*/

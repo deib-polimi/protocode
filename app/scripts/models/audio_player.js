@@ -9,5 +9,6 @@ App.AudioPlayer = App.UiControl.extend({
     this.save();
   }
 });
-
+/*
 App.AudioPlayer.FIXTURES = [];
+*/

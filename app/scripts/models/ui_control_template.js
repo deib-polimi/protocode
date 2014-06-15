@@ -6,6 +6,7 @@ App.UiControlTemplate = DS.Model.extend({
   type: attr('string')
 });
 
+/*
 App.UiControlTemplate.FIXTURES = [
   {id: 1, label: 'Container View', nameImg: 'container.png', type: 'container'},
   {id: 2, label: 'Button', nameImg: 'button.png', type: 'button'},
@@ -20,5 +21,4 @@ App.UiControlTemplate.FIXTURES = [
   {id: 11, label: 'Photocamera Controller', nameImg: 'photocameracontroller.png', type: 'photocameraController'},
   {id: 12, label: 'Videocamera Controller', nameImg: 'videocameracontroller.png', type: 'videocameraController'},
   {id: 13, label: 'Audio Recorder', nameImg: 'audiorecorder.png', type: 'audioRecorder'}
-  /* {id: 50, label: 'Ciao', nameImg: 'switch.png', type: 'switch'}, */
-];
+];*/

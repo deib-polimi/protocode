@@ -1,7 +1,10 @@
 App.EditorRoute = Ember.Route.extend({
     model: function () {
+      
         return Ember.RSVP.hash({
-          application: this.store.find('application', 1),
+          application: this.store.find('application').then(function(dataArray) {
+            return dataArray.objectAt(0);
+          }),
           devices: this.store.find('device')
         });
     },

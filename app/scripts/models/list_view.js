@@ -1,8 +1,8 @@
 App.ListView = App.UiControl.extend({
-  listViewCells:    DS.hasMany('listViewCell', {async: true, inverse: 'parentListView'}),
+  listViewCells:    DS.hasMany('listViewCell', {inverse: 'parentListView'}),
   clickListener:    DS.belongsTo('clickListener')
 });
-
+/*
 App.ListView.FIXTURES = [
   {
     id: 8,
@@ -27,4 +27,4 @@ App.ListView.FIXTURES = [
     viewController: 2,
     parentContainer: null
   }
-];
+];*/

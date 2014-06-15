@@ -14,6 +14,7 @@ App.GridViewCell = DS.Model.extend({
   }
 });
 
+/*
 App.GridViewCell.FIXTURES = [
   {
     id: 1,
@@ -21,4 +22,4 @@ App.GridViewCell.FIXTURES = [
     title: 'Grid View Cell 1',
     parentGridView: 9
   }
-];
+];*/

@@ -11,6 +11,7 @@ require('scripts/components/*');
 require('scripts/router');
 
 // Fix for hasMany that aren't reloaded after save
+
 DS.JSONSerializer.reopen({
     serializeHasMany : function(record, json, relationship) {
         var key = relationship.key;
@@ -29,6 +30,7 @@ DS.JSONSerializer.reopen({
 });
 
 // Method to reload async hasMany attributes
+/*
 var get = Ember.get;
 
 DS.ManyArray.reopen({
@@ -44,4 +46,4 @@ DS.ManyArray.reopen({
         var link = owner._data.links[meta.key];
         store.findHasMany(owner, link, meta, resolver);
     }
-});
+});*/

@@ -9,7 +9,7 @@ App.Device = DS.Model.extend({
   cssWidth: DS.attr('number'),
   cssHeight: DS.attr('number')
 });
-
+/*
 App.Device.FIXTURES = [
   {
     id: 1,
@@ -36,4 +36,4 @@ App.Device.FIXTURES = [
     cssWidth: 353,
     cssHeight: 624
   }
-];
+];*/

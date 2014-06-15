@@ -13,6 +13,7 @@ App.VideoView = App.UiControl.extend({
   }
 });
 
+/*
 App.VideoView.FIXTURES = [
   {
     id: 7,
@@ -37,4 +38,4 @@ App.VideoView.FIXTURES = [
     viewController: 1,
     parentContainer: null
   }
-];
+];*/

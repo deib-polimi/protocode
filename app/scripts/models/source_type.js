@@ -14,7 +14,7 @@ App.SourceType = DS.Model.extend({
 });
 
 
-
+/*
 App.SourceType.FIXTURES = [
   {
     id: 1, 
@@ -23,4 +23,4 @@ App.SourceType.FIXTURES = [
     remoteFile: 'remoteFile1',
     parentControl: {id: 6, type: 'imageView'}
   }
-];
+];*/
