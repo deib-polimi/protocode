@@ -2,8 +2,8 @@ App.ApplicationRoute = Ember.Route.extend({
   // admittedly, this should be in IndexRoute and not in the
   // top level ApplicationRoute; we're in transition... :-)
   model: function () {
-    return 0;
-    //return this.store.findAll('viewController');
+    //return 0;
+    return this.store.findAll('viewController');
   },
 
   actions: {
@@ -49,14 +49,14 @@ App.ApplicationRoute = Ember.Route.extend({
           });
         });
 
-      /*this.store.findAll('viewController').then(
+      this.store.findAll('viewController').then(
         function (data) {
-          data.forEach(function (uiControlTemplate) {
+          data.forEach(function (viewController) {
             Ember.run.once(this, function () {
-            uiControlTemplate.destroyRecord();
+            viewController.destroyRecord();
           });
           });
-        });*/
+        });
 
       this.store.find('uiControl').then(function (array) {
         array.forEach(function (data) {
@@ -71,7 +71,6 @@ App.ApplicationRoute = Ember.Route.extend({
     createApp: function () {
       var self = this;
 
-      this.store.createRecord('viewController').save();
       this.store.createRecord('device', {
         name: 'iPhone5s',
         label: 'iPhone 5s',

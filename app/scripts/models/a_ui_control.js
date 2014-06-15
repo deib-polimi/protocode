@@ -25,30 +25,30 @@ App.UiControl = DS.Model.extend({
   viewController: DS.belongsTo('viewController'),
   parentContainer: DS.belongsTo('container', {inverse: 'uiControls'}),
 
-  alignTop: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignTop'}),
-  revAlignTop: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignTop'}),
+  alignTop: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revAlignTop: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignTop'}),
 
-  alignBottom: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignBottom'}),
-  revAlignBottom: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignBottom'}),
+  alignBottom: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revAlignBottom: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignBottom'}),
 
-  alignStart: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignStart'}),
-  revAlignStart: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignStart'}),
+  alignStart: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revAlignStart: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignStart'}),
 
-  alignEnd: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAlignEnd'}),
-  revAlignEnd: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignEnd'}),
+  alignEnd: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revAlignEnd: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignEnd'}),
 
 
-  above: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revAbove'}),
-  revAbove: DS.hasMany('uiControl', {polymorphic: true, inverse: 'above'}),
+  above: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revAbove: DS.hasMany('uiControl', {polymorphic: true, inverse: 'above'}),
 
-  below: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revBelow'}),
-  revBelow: DS.hasMany('uiControl', {polymorphic: true, inverse: 'below'}),
+  below: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revBelow: DS.hasMany('uiControl', {polymorphic: true, inverse: 'below'}),
 
-  toStartOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revToStartOf'}),
-  revToStartOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toStartOf'}),
+  toStartOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revToStartOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toStartOf'}),
 
-  toEndOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: 'revToEndOf'}),
-  revToEndOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toEndOf'}),
+  toEndOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
+  //revToEndOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toEndOf'}),
 
   sameLevelControls: function() {
     var parentContainer = this.get('parentContainer');
@@ -281,7 +281,7 @@ App.UiControl = DS.Model.extend({
   didCreate: function() {
     this.set('name', this.constructor.toString() + this.get('id'));
     
-    /*
+    
     var self = this;
     if (this.get('parentContainer')) {
       var uiControls = this.get('parentContainer.uiControls');
@@ -290,10 +290,13 @@ App.UiControl = DS.Model.extend({
     }
     
     else {
-      var uiControls = this.get('viewController.uiControls');
-      uiControls.pushObject(self);
-      uiControls.save();
-    }*/
+      var viewController = this.get('viewController');
+      viewController.get('uiControls').then(function (uiControls) {
+        uiControls.pushObject(self);
+        viewController.save();
+      });
+      
+    }
 
   }
 });
