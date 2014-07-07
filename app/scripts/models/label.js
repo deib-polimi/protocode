@@ -3,7 +3,14 @@ App.Label = App.UiControl.extend({
   title:    DS.attr('string', {defaultValue: 'Dummy Label'}),
 
   width:    DS.attr('number', {defaultValue: 125}),
-  height:   DS.attr('number', {defaultValue: 30})
+  height:   DS.attr('number', {defaultValue: 30}),
+
+  toXml: function(xmlDoc) {
+    var label = xmlDoc.createElement('labels');
+    this.decorateXml(label);
+    label.setAttribute('title', this.get('title'));
+    return label;
+  }
 });
 /*
 App.Label.FIXTURES = [

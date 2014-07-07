@@ -3,7 +3,18 @@ var attr = DS.attr;
 App.ViewController = DS.Model.extend({
 	name: attr('string'),
   uiControls: DS.hasMany('uiControl', {polymorphic: true, async: true}),
-  application: DS.belongsTo('application', {inverse: 'viewControllers'})
+  application: DS.belongsTo('application', {inverse: 'viewControllers'}),
+
+  toXml: function(xmlDoc) {
+    var viewController = xmlDoc.createElement('viewControllers');
+    viewController.setAttribute('name', this.get('name'));
+
+    this.get('uiControls').map(function (uiControl) {
+      viewController.appendChild(uiControl.toXml(xmlDoc));
+    });
+    
+    return viewController;
+  }
 });
 
 /*

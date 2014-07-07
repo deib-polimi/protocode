@@ -3,7 +3,14 @@ App.Button = App.UiControl.extend({
   clickListener:  DS.belongsTo('clickListener'),
 
   width:          DS.attr('number', {defaultValue: 125}),
-  height:         DS.attr('number', {defaultValue: 30})
+  height:         DS.attr('number', {defaultValue: 30}),
+
+  toXml: function(xmlDoc) {
+    var button = xmlDoc.createElement('buttons');
+    this.decorateXml(button);
+    button.setAttribute('title', this.get('title'));
+    return button;
+  }
 });
 /*
 App.Button.FIXTURES = [

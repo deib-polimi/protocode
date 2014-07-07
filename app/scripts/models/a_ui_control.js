@@ -26,29 +26,15 @@ App.UiControl = DS.Model.extend({
   parentContainer: DS.belongsTo('container', {inverse: 'uiControls'}),
 
   alignTop: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revAlignTop: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignTop'}),
-
   alignBottom: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revAlignBottom: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignBottom'}),
-
   alignStart: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revAlignStart: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignStart'}),
-
   alignEnd: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revAlignEnd: DS.hasMany('uiControl', {polymorphic: true, inverse: 'alignEnd'}),
 
 
   above: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revAbove: DS.hasMany('uiControl', {polymorphic: true, inverse: 'above'}),
-
   below: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revBelow: DS.hasMany('uiControl', {polymorphic: true, inverse: 'below'}),
-
   toStartOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revToStartOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toStartOf'}),
-
   toEndOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
-  //revToEndOf: DS.hasMany('uiControl', {polymorphic: true, inverse: 'toEndOf'}),
 
   sameLevelControls: function() {
     var parentContainer = this.get('parentContainer');
@@ -297,6 +283,46 @@ App.UiControl = DS.Model.extend({
       });
       
     }
+  },
 
+  decorateXml: function(xmlElem) {
+    xmlElem.setAttribute('name', this.get('name'));
+
+    xmlElem.setAttribute('posX', this.get('posX'));
+    xmlElem.setAttribute('posY', this.get('posY'));
+
+    xmlElem.setAttribute('paddingTop', this.get('paddingTop'));
+    xmlElem.setAttribute('paddingBottom', this.get('paddingBottom'));
+    xmlElem.setAttribute('paddingStart', this.get('paddingStart'));
+    xmlElem.setAttribute('paddingEnd', this.get('paddingEnd'));
+
+    xmlElem.setAttribute('marginTop', this.get('marginTop'));
+    xmlElem.setAttribute('marginBottom', this.get('marginBottom'));
+    xmlElem.setAttribute('marginStart', this.get('marginStart'));
+    xmlElem.setAttribute('marginEnd', this.get('marginEnd'));
+
+    xmlElem.setAttribute('alignParentTop', this.get('alignParentTop'));
+    xmlElem.setAttribute('alignParentBottom', this.get('alignParentBottom'));
+    xmlElem.setAttribute('alignParentStart', this.get('alignParentStart'));
+    xmlElem.setAttribute('alignParentEnd', this.get('alignParentEnd'));
+
+    xmlElem.setAttribute('width', this.get('width'));
+    xmlElem.setAttribute('height', this.get('height'));
+
+    xmlElem.setAttribute('viewController', this.get('viewController.name'));
+    xmlElem.setAttribute('parentContainer', this.get('parentContainer.name'));
+
+    xmlElem.setAttribute('alignTop', this.get('alignTop.name'));
+    xmlElem.setAttribute('alignBottom', this.get('alignBottom.name'));
+    xmlElem.setAttribute('alignStart', this.get('alignStart.name'));
+    xmlElem.setAttribute('alignEnd', this.get('alignEnd.name'));
+
+    xmlElem.setAttribute('above', this.get('above.name'));
+    xmlElem.setAttribute('below', this.get('below.name'));
+    xmlElem.setAttribute('toStartOf', this.get('toStartOf.name'));
+    xmlElem.setAttribute('toEndOf', this.get('toEndOf.name'));
+
+    return xmlElem;
   }
+
 });

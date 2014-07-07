@@ -7,8 +7,23 @@ App.Application = DS.Model.extend({
   toXml: function() {
     var xmlDocType = document.implementation.createDocumentType('appModel', 'MODEL', '<?xml version="1.0" encoding="ASCII"?>');
     var xmlDoc = document.implementation.createDocument('appModelXml', null, xmlDocType);
-    var elem = xmlDoc.createElement("metamodel:Application");
-    xmlDoc.appendChild(elem);
+
+    var appModel = xmlDoc.createElement('metamodel:Application');
+    appModel.setAttribute('xmi:version', '2.0');
+    appModel.setAttribute('xmlns:xmi', 'http://www.omg.org/XMI');
+    appModel.setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+    appModel.setAttribute('xmlns:metamodel', 'http://metamodel/1.0');
+    appModel.setAttribute('xsi:schemaLocation', 'http://metamodel/1.0 ../metamodel/metamodel.ecore');
+    appModel.setAttribute('name', 'Valtellina');
+    appModel.setAttribute('companyIdentifier', 'it.polimi');
+
+    var viewControllers = this.get('viewControllers');
+
+    viewControllers.map(function(item) {
+      appModel.appendChild(item.toXml(xmlDoc));
+    });
+
+    xmlDoc.appendChild(appModel);
     return xmlDoc;
   }
 });
