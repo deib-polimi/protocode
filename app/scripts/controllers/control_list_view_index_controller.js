@@ -1,4 +1,4 @@
-App.ControlListViewIndexController = App.UiControlController.extend(App.ClickListenable, {
+App.ControlListViewIndexController = Ember.ObjectController.extend(App.ClickListenable, App.Saveable, {
   needs: ['viewControllers'],
 
   isCreating: false,

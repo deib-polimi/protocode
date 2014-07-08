@@ -7,10 +7,8 @@ App.ListViewCell = DS.Model.extend({
   didCreate: function() {
     this._super();
     
-    var self = this;
-    this.get('parentListView.listViewCells').then(function (listViewCells) {
-      listViewCells.pushObject(self);
-    });
+    this.get('parentListView.listViewCells').pushObject(this)
+    this.get('parentListView').save();
   },
 
   toXml: function(xmlDoc) {

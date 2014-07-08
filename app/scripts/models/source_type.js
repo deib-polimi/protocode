@@ -4,14 +4,6 @@ App.SourceType = DS.Model.extend({
   remoteFile: DS.attr('string'),
   parentControl: DS.belongsTo('uiControl', {inverse: 'sourceType', polymorphic: true}),
 
-  // Used to reload menuItems
-  didCreate: function() {
-    var self = this;
-    this.get('parentControl.sourceType').then(function (uiControl) {
-      uiControl.pushObject(self);
-    });
-  },
-
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('sourceType');
     this.decorateXml(elem);

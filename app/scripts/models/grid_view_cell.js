@@ -7,10 +7,8 @@ App.GridViewCell = DS.Model.extend({
   didCreate: function() {
     this._super();
     
-    var self = this;
-    this.get('parentGridView.gridViewCells').then(function (gridViewCells) {
-      gridViewCells.pushObject(self);
-    });
+    this.get('parentGridView.gridViewCells').pushObject(this);
+    this.get('parentGridView').save();
   },
 
   toXml: function(xmlDoc) {
