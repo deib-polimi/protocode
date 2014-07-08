@@ -1,5 +1,5 @@
 App.PhotocameraController = App.UiControl.extend({
-  imageView: DS.belongsTo('imageView'),
+  imageView: DS.belongsTo('imageView', {inverse: null}),
 
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('photocameraController');

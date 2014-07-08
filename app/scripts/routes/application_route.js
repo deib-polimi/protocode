@@ -9,59 +9,45 @@ App.ApplicationRoute = Ember.Route.extend({
   actions: {
 
     deleteApp: function () {
-      this.store.find('device').then(
-        function (data) {
-          data.forEach(function (device) {
+      var self = this;
+
+      var models = [
+        'application',
+        'audioPlayer',
+        'audioRecorder',
+        'button',
+        'clickListener',
+        'container',
+        'device',
+        'editText',
+        'gridView',
+        'gridViewCell',
+        'imageView',
+        'label',
+        'listView',
+        'listViewCell',
+        'menu',
+        'menuItem',
+        'navigation',
+        'photocameraController',
+        'platform',
+        'sourceType',
+        'uiControlTemplate',
+        'videoView',
+        'videocameraController',
+        'viewController',
+        'webView',
+        'uiControl'
+      ];
+
+      models.map(function (model) {
+        console.log(model);
+        self.store.findAll(model).then(function (array) {
+          array.forEach(function (data) {
             Ember.run.once(this, function () {
-              device.destroyRecord();
+              data.deleteRecord();
+              data.save();
             });
-
-          });
-        });
-
-      this.store.find('menu').then(
-        function (menus) {
-          menus.forEach(function (menu) {
-            Ember.run.once(this, function () {
-              menu.destroyRecord();
-            });
-          });
-        });
-
-      this.store.find('application').then(
-        function (data) {
-          data.forEach(function (appToDelete) {
-            Ember.run.once(this, function () {
-              appToDelete.destroyRecord();
-            });
-          });
-
-
-        });
-
-
-      this.store.find('uiControlTemplate').then(
-        function (data) {
-          data.forEach(function (uiControlTemplate) {
-            Ember.run.once(this, function () {
-              uiControlTemplate.destroyRecord();
-            });
-          });
-        });
-
-      this.store.findAll('viewController').then(
-        function (data) {
-          data.forEach(function (viewController) {
-            Ember.run.once(this, function () {
-            viewController.destroyRecord();
-          });
-          });
-        });
-
-      this.store.find('uiControl').then(function (array) {
-        array.forEach(function (data) {
-          Ember.run.once(this, function () {
-            data.destroyRecord();
           });
         });
       });
@@ -82,18 +68,19 @@ App.ApplicationRoute = Ember.Route.extend({
         cssWidth: 312,
         cssHeight: 556
       }).save().then(function (device) {
-        self.store.createRecord('menu').save().then(function (newMenu) {
-          self.store.createRecord('application', {
-            id: 'newAppId'
-          }).save().then(function (app) {
-            app.set('device', device);
-            app.set('menu', newMenu);
-            app.save();
-            newMenu.save();
-            device.save();
+        self.store.createRecord('menu').save().then(
+          function (newMenu) {
+            self.store.createRecord('application', {
+              id: 'newAppId'
+            }).save().then(function (app) {
+              app.set('device', device);
+              app.set('menu', newMenu);
+              app.save();
+              newMenu.save();
+              device.save();
+            });
+
           });
-          
-        });
       });
       this.store.createRecord('device', {
         name: 'Nexus5',

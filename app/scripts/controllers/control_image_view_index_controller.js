@@ -1,3 +1,3 @@
-App.ControlImageViewController = Ember.ObjectController.extend(App.Saveable, {
+App.ControlImageViewIndexController = Ember.ObjectController.extend(App.Saveable, {
   
 });
