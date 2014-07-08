@@ -10,6 +10,21 @@ App.MenuItem = DS.Model.extend({
     
     var self = this;
     this.get('parentMenu.menuItems').pushObject(self);
+  },
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('menuItems');
+
+    elem.setAttribute('title', this.get('title'));
+    elem.setAttribute('name', this.get('name'));
+
+    var navigation = this.get('navigation')
+
+    if (navigation) {
+      elem.appendChild(navigation.toXml(xmlDoc));
+    }
+    
+    return elem;
   }
 });
 

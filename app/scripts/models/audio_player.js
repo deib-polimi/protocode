@@ -7,6 +7,19 @@ App.AudioPlayer = App.UiControl.extend({
     var sourceType = this.store.createRecord('sourceType');
     this.set('sourceType', sourceType);
     this.save();
+  },
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('audioPlayer');
+    this.decorateXml(elem);
+
+    var sourceType = this.get('sourceType');
+
+    if (sourceType != null) {
+      elem.appendChild(sourceType.toXml(xmlDoc));
+    }
+    
+    return elem;
   }
 });
 /*

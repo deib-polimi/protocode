@@ -309,18 +309,34 @@ App.UiControl = DS.Model.extend({
     xmlElem.setAttribute('width', this.get('width'));
     xmlElem.setAttribute('height', this.get('height'));
 
-    xmlElem.setAttribute('viewController', this.get('viewController.name'));
-    xmlElem.setAttribute('parentContainer', this.get('parentContainer.name'));
+    //xmlElem.setAttribute('viewController', this.get('viewController.name'));
+    //xmlElem.setAttribute('parentContainer', this.get('parentContainer.name'));
 
-    xmlElem.setAttribute('alignTop', this.get('alignTop.name'));
-    xmlElem.setAttribute('alignBottom', this.get('alignBottom.name'));
-    xmlElem.setAttribute('alignStart', this.get('alignStart.name'));
-    xmlElem.setAttribute('alignEnd', this.get('alignEnd.name'));
+    if (this.get('alignTop')) {
+      xmlElem.setAttribute('alignTop', this.get('alignTop.name'));
+    }
+    if (this.get('alignBottom')) {
+      xmlElem.setAttribute('alignBottom', this.get('alignBottom.name'));
+    }
+    if (this.get('alignStart')) {
+      xmlElem.setAttribute('alignStart', this.get('alignStart.name'));
+    }
+    if (this.get('alignEnd')) {
+      xmlElem.setAttribute('alignEnd', this.get('alignEnd.name'));
+    }
 
-    xmlElem.setAttribute('above', this.get('above.name'));
-    xmlElem.setAttribute('below', this.get('below.name'));
-    xmlElem.setAttribute('toStartOf', this.get('toStartOf.name'));
-    xmlElem.setAttribute('toEndOf', this.get('toEndOf.name'));
+    if (this.get('above')) {
+      xmlElem.setAttribute('above', this.get('above.name'));
+    }
+    if (this.get('below')) {
+      xmlElem.setAttribute('below', this.get('below.name'));
+    }
+    if (this.get('toStartOf')) {
+      xmlElem.setAttribute('toStartOf', this.get('toStartOf.name'));
+    }
+    if (this.get('toEndOf')) {
+      xmlElem.setAttribute('toEndOf', this.get('toEndOf.name'));
+    }
 
     return xmlElem;
   }

@@ -3,7 +3,17 @@ App.EditText = App.UiControl.extend({
   placeholder:  DS.attr('string', {defaultValue: ''}),
 
   width:        DS.attr('number', {defaultValue: 125}),
-  height:       DS.attr('number', {defaultValue: 30})
+  height:       DS.attr('number', {defaultValue: 30}),
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('editTexts');
+    this.decorateXml(elem);
+    
+    elem.setAttribute('title', this.get('title'));
+    elem.setAttribute('placeholder', this.get('placeholder'));
+    
+    return elem;
+  }
 });
 
 /*

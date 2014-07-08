@@ -2,7 +2,16 @@ App.WebView = App.UiControl.extend({
   htmlFileName:    DS.attr('string'),
 
   width:    DS.attr('number', {defaultValue: 300}),
-  height:   DS.attr('number', {defaultValue: 200})
+  height:   DS.attr('number', {defaultValue: 200}),
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('webViews');
+    this.decorateXml(elem);
+
+    elem.setAttribute('htmlFileName', this.get('htmlFileName'));
+    
+    return elem;
+  }
 });
 
 /*

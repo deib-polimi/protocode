@@ -9,6 +9,13 @@ App.Button = App.UiControl.extend({
     var button = xmlDoc.createElement('buttons');
     this.decorateXml(button);
     button.setAttribute('title', this.get('title'));
+
+    var clickListener = this.get('clickListener');
+
+    if (clickListener != null) {
+        button.appendChild(clickListener.toXml(xmlDoc));
+    }
+    
     return button;
   }
 });

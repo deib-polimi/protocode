@@ -10,6 +10,17 @@ App.SourceType = DS.Model.extend({
     this.get('parentControl.sourceType').then(function (uiControl) {
       uiControl.pushObject(self);
     });
+  },
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('sourceType');
+    this.decorateXml(elem);
+    
+    elem.setAttribute('hardwareFile', this.get('hardwareFile'));
+    elem.setAttribute('localFile', this.get('localFile'));
+    elem.setAttribute('remoteFile', this.get('remoteFile'));
+    
+    return elem;
   }
 });
 

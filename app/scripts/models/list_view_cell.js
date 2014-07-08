@@ -11,6 +11,14 @@ App.ListViewCell = DS.Model.extend({
     this.get('parentListView.listViewCells').then(function (listViewCells) {
       listViewCells.pushObject(self);
     });
+  },
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('listViewCells');
+
+    elem.setAttribute('title', this.get('title'));
+    
+    return elem;
   }
 });
 /*

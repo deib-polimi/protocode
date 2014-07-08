@@ -11,6 +11,14 @@ App.GridViewCell = DS.Model.extend({
     this.get('parentGridView.gridViewCells').then(function (gridViewCells) {
       gridViewCells.pushObject(self);
     });
+  },
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('gridViewCells');
+
+    elem.setAttribute('title', this.get('title'));
+    
+    return elem;
   }
 });
 

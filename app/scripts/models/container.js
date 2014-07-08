@@ -4,5 +4,20 @@ App.Container = App.UiControl.extend({
   width:        DS.attr('number', {defaultValue: 200}),
   height:       DS.attr('number', {defaultValue: 100}),
 
-  uiControls:   DS.hasMany('uiControl', {polymorphic: true, inverse: 'parentContainer'})
+  uiControls:   DS.hasMany('uiControl', {polymorphic: true, inverse: 'parentContainer'}),
+
+  toXml: function(xmlDoc) {
+    var elem = xmlDoc.createElement('container');
+    this.decorateXml(elem);
+    
+    elem.setAttribute('title', this.get('title'));
+
+    var uiControls = this.get('uiControls');
+
+    uiControls.map(function(item) {
+      elem.appendChild(item.toXml(xmlDoc));
+    });
+    
+    return elem;
+  }
 });
