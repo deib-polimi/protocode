@@ -1,4 +1,4 @@
-App.ControlVideoViewIndexController = Ember.ObjectController.extend(App.Saveable, {
+App.ControlVideoViewIndexController = App.UiControlController.extend({
   actions: {
     acceptChanges: function() {
       this._super();

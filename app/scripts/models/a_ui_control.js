@@ -49,7 +49,11 @@ App.UiControl = DS.Model.extend({
     'viewController.uiControls.@each'),
 
   siblings: function() {
-    return this.get('sameLevelControls').without(this);
+    if (this.get('sameLevelControls') != null) {
+      return this.get('sameLevelControls').without(this);
+    }
+
+    return null;
   }.property('sameLevelControls'),
 
   top: function() {
@@ -274,7 +278,6 @@ App.UiControl = DS.Model.extend({
       uiControls.pushObject(self);
       this.get('parentContainer').save(); 
     }
-    
     else {
       var viewController = this.get('viewController');
       viewController.get('uiControls').then(function (uiControls) {

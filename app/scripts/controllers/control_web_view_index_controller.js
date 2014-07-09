@@ -1,3 +1,3 @@
-App.ControlWebViewIndexController = Ember.ObjectController.extend(App.Saveable, {
+App.ControlWebViewIndexController = App.UiControlController.extend({
   
 });

@@ -1,4 +1,4 @@
-App.ControlPhotocameraControllerIndexController = Ember.ObjectController.extend(App.Saveable, {
+App.ControlPhotocameraControllerIndexController = App.UiControlController.extend({
   actions: {
     acceptChanges: function() {
       this._super();

@@ -1,5 +1,5 @@
 App.ImageView = App.UiControl.extend({
-  sourceType: DS.belongsTo('sourceType', {inverse: 'parentControl'}),
+  sourceType: DS.belongsTo('sourceType', {inverse: null}),
 
   width:    DS.attr('number', {defaultValue: 300}),
   height:   DS.attr('number', {defaultValue: 200}),

@@ -1,4 +1,4 @@
-App.ControlGridViewIndexController = Ember.ObjectController.extend(App.ClickListenable, App.Saveable, {
+App.ControlGridViewIndexController = App.UiControlController.extend(App.ClickListenable, {
   needs: ['viewControllers'],
 
   isCreating: false,

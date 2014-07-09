@@ -6,7 +6,6 @@ App.SourceType = DS.Model.extend({
 
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('sourceType');
-    this.decorateXml(elem);
     
     elem.setAttribute('hardwareFile', this.get('hardwareFile'));
     elem.setAttribute('localFile', this.get('localFile'));

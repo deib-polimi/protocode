@@ -1,3 +1,3 @@
-App.ControlLabelIndexController = Ember.ObjectController.extend(App.Saveable, {
+App.ControlLabelIndexController = App.UiControlController.extend({
   
 });
