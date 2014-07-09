@@ -9,10 +9,10 @@ App.ClickListenable = Ember.Mixin.create({
         var clickListener = this.get('clickListener');
         if (clickListener != null) {
           var navigation = clickListener.get('navigation');
-          navigation.deleteRecord();
-          navigation.save();
-          clickListener.deleteRecord();
-          clickListener.save();
+          navigation.destroyRecord();
+          clickListener.destroyRecord();
+          this.set('clickListener', null);
+          this.get('model').save();
         }
       }
       else {
@@ -33,8 +33,15 @@ App.ClickListenable = Ember.Mixin.create({
         }
         else {
           var navigation = clickListener.get('navigation');
+
+          if (navigation == null) {
+            navigation = this.store.createRecord('navigation', {destination: value});
+            clickListener.set('navigation', navigation);
+          }
+
           navigation.set('destination', value);
-          navigation.save()
+          navigation.save();
+          clickListener.save();
         }
       }
 
