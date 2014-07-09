@@ -4,6 +4,7 @@
           <h3 class="panel-title">{{name}}</h3>
       </div>
       <div class="panel-body">
+        {{partial "partials/first_commands"}}
         {{#link-to 'appMenu' parentMenu class="btn btn-default btn-block"}}
           <i class="fa fa-pencil-square-o"></i> Edit menu
         {{/link-to}}
