@@ -2,23 +2,26 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
   actions: {
     deleteUiControl: function() {
-      var self = this;
+      var controlToDelete = this.get('model');
+
       if (this.get('parentContainer')) {
         var uiControls = this.get('parentContainer.uiControls');
-        uiControls.removeObject(self);
+        uiControls.removeObject(controlToDelete);
         this.get('parentContainer').save(); 
       }
       
       else {
         var viewController = this.get('viewController');
         viewController.get('uiControls').then(function (uiControls) {
-          uiControls.removeObject(self);
+          uiControls.removeObject(controlToDelete);
           viewController.save();
         });
         
       }
-      this.get('model').deleteRecord();
-      this.get('model').save();
+
+      controlToDelete.deleteRecord();
+      controlToDelete.save();
+      
       this.transitionToRoute('/editor/viewControllers');
     }
   }

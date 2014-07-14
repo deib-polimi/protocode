@@ -6,9 +6,9 @@ App.Label = App.UiControl.extend({
   height:   DS.attr('number', {defaultValue: 30}),
 
   toXml: function(xmlDoc) {
-    var label = xmlDoc.createElement('labels');
+    var label = xmlDoc.createElement('textViews');
     this.decorateXml(label);
-    label.setAttribute('title', this.get('title'));
+    label.setAttribute('content', this.get('title'));
     return label;
   }
 });

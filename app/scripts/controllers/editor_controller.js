@@ -7,7 +7,7 @@ App.EditorController = Ember.ObjectController.extend({
         var blob = new Blob(
           [vkbeautify.xml(xmlString)],
           {type: "application/xml;charset=ASCII"});
-        saveAs(blob, "metamodel.xml");
+        saveAs(blob, "protocode.xmi");
       }
     }
 });

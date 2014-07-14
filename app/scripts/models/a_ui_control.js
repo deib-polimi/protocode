@@ -269,7 +269,7 @@ App.UiControl = DS.Model.extend({
 
   // Used to reload views
   didCreate: function() {
-    this.set('name', this.constructor.toString() + this.get('id'));
+    this.set('name', this.get('id').replace(/[0-9]/g, '') + this.constructor.toString().split(".")[1]);
     
     
     var self = this;
@@ -289,7 +289,7 @@ App.UiControl = DS.Model.extend({
   },
 
   decorateXml: function(xmlElem) {
-    xmlElem.setAttribute('name', this.get('name'));
+    xmlElem.setAttribute('id', this.get('name'));
 
     xmlElem.setAttribute('posX', this.get('posX'));
     xmlElem.setAttribute('posY', this.get('posY'));
