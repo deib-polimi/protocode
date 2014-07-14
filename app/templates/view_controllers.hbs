@@ -11,7 +11,12 @@
           <ul class="list-group" id="collapse-views" class="collapse in">
             {{#each item in controller item-controller="viewController"}}
               <li class="list-group-item">
-                {{#link-to "viewController" item}}{{item.name}}{{/link-to}}
+                {{#link-to "viewController" item}}
+                  {{#if item.launcher}}
+                    <i class="fa fa-home"></i>
+                  {{/if}}
+                  {{item.name}}
+                {{/link-to}}
               </li>
             {{/each}}
             {{#if isCreating}}

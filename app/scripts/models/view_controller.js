@@ -2,12 +2,14 @@ var attr = DS.attr;
 
 App.ViewController = DS.Model.extend({
 	name: attr('string'),
+  launcher: attr('boolean'),
   uiControls: DS.hasMany('uiControl', {polymorphic: true, async: true}),
   application: DS.belongsTo('application', {inverse: 'viewControllers'}),
 
   toXml: function(xmlDoc) {
     var viewController = xmlDoc.createElement('viewControllers');
     viewController.setAttribute('name', this.get('name'));
+    viewController.setAttribute('launcher', this.get('launcher'));
 
     this.get('uiControls').map(function (uiControl) {
       viewController.appendChild(uiControl.toXml(xmlDoc));

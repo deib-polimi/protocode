@@ -25,9 +25,7 @@ App.ViewControllersController = Ember.ArrayController.extend({
       });
 
       this.set('newNameViewController', 'newView');
-      this.set('isCreating', false);
-
-      
+      this.set('isCreating', false); 
       
   	}
   }
