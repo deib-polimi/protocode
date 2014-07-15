@@ -1,5 +1,5 @@
 App.GridView = App.UiControl.extend({
-  gridViewCells:    DS.hasMany('gridViewCell', {inverse: 'parentGridView'}),
+  gridViewCells:    DS.hasMany('gridViewCell', {async:true, inverse: 'parentGridView'}),
   clickListener:    DS.belongsTo('clickListener'),
 
   height:             DS.attr('number', {defaultValue: 200}), 

@@ -1,5 +1,5 @@
 App.ListView = App.UiControl.extend({
-  listViewCells:    DS.hasMany('listViewCell', {inverse: 'parentListView'}),
+  listViewCells:    DS.hasMany('listViewCell', {async:true, inverse: 'parentListView'}),
   clickListener:    DS.belongsTo('clickListener'),
 
   height:             DS.attr('number', {defaultValue: 200}), 
