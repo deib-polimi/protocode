@@ -1,5 +1,5 @@
 App.AudioPlayer = App.UiControl.extend({
-  sourceType: DS.belongsTo('sourceType', {inverse: 'parentControl'}),
+  sourceType: DS.belongsTo('sourceType', {inverse: null}),
 
   didCreate: function() {
     this._super();

@@ -1,3 +1,3 @@
-App.ControlImageViewIndexController = App.UiControlController.extend({
+App.ControlImageViewIndexController = App.UiControlController.extend(App.WithSourceType, {
   
 });

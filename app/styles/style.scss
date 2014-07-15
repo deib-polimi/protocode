@@ -138,7 +138,10 @@ html, body {
   display: flex;
   overflow: hidden;
   align-items: center;
-  //justify-content: center;
+}
+
+.control-web-view, .control-image-view, .control-video-view {
+  justify-content: center;
 }
 
 .control-list-view {

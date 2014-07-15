@@ -9,6 +9,7 @@ App.VideoView = App.UiControl.extend({
     
     var sourceType = this.store.createRecord('sourceType');
     this.set('sourceType', sourceType);
+    sourceType.save();
     this.save();
   },
 
