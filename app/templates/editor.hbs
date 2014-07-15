@@ -2,11 +2,23 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        App name: {{name}} {{device.name}} {{device.platform}}
+        <div class="input-group">
+          <span class="input-group-addon">App name:</span> 
+           {{input 
+              value=name
+              class="form-control"
+              placeholder="name"
+              type="text"
+              focus-out="acceptChanges"
+              insert-newline="acceptChanges"}}
+        </div>
       </div>
       <div class="col-md-4">
         <div class="form-inline">
-          {{view Ember.Select content=devices optionLabelPath='content.label' optionValuePath="content" class="form-control" value=device}}
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span> 
+             {{view Ember.Select content=devices optionLabelPath='content.label' optionValuePath="content" class="form-control" value=device}}
+          </div>
         </div>
       </div>
       <div class="col-md-4">

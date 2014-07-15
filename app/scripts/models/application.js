@@ -14,7 +14,7 @@ App.Application = DS.Model.extend({
     appModel.setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
     appModel.setAttribute('xmlns:metamodel', 'http://metamodel/1.0');
     appModel.setAttribute('xsi:schemaLocation', 'http://metamodel/1.0 ../metamodel/metamodel.ecore');
-    appModel.setAttribute('name', 'Valtellina');
+    appModel.setAttribute('name', this.get('name'));
     appModel.setAttribute('companyIdentifier', 'it.polimi');
 
     var viewControllers = this.get('viewControllers');

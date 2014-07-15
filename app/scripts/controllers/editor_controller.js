@@ -1,4 +1,4 @@
-App.EditorController = Ember.ObjectController.extend({
+App.EditorController = Ember.ObjectController.extend(App.Saveable, {
 
     actions: {
       generateAppModel: function() {
