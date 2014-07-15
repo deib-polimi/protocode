@@ -2,6 +2,8 @@ App.GridView = App.UiControl.extend({
   gridViewCells:    DS.hasMany('gridViewCell', {inverse: 'parentGridView'}),
   clickListener:    DS.belongsTo('clickListener'),
 
+  height:             DS.attr('number', {defaultValue: 200}), 
+
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('gridViews');
     this.decorateXml(elem);

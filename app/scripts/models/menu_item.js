@@ -9,7 +9,12 @@ App.MenuItem = DS.Model.extend({
     this._super();
     
     var self = this;
-    this.get('parentMenu.menuItems').pushObject(self);
+    
+    this.get('parentMenu.menuItems').then(function (menuItems) {
+      menuItems.pushObject(self);
+    });
+
+    this.get('parentMenu').save();
   },
 
   toXml: function(xmlDoc) {

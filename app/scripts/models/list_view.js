@@ -2,6 +2,8 @@ App.ListView = App.UiControl.extend({
   listViewCells:    DS.hasMany('listViewCell', {inverse: 'parentListView'}),
   clickListener:    DS.belongsTo('clickListener'),
 
+  height:             DS.attr('number', {defaultValue: 200}), 
+
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('listViews');
     this.decorateXml(elem);

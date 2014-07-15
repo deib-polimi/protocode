@@ -3,7 +3,7 @@ App.Deletable = Ember.Mixin.create({
     delete: function() {
       this.get('model').deleteRecord();
       this.get('model').save();
-      this.transitionToRoute('/editor/viewControllers');
+      this.transitionToRoute('viewController');
     }
   }
 });

@@ -22,7 +22,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
       controlToDelete.deleteRecord();
       controlToDelete.save();
       
-      this.transitionToRoute('/editor/viewControllers');
+      this.transitionToRoute('viewController');
     }
   }
 
