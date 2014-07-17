@@ -14,8 +14,6 @@ App.MenuItem = DS.Model.extend({
       menuItems.pushObject(self);
     });
 
-    
-
     this.get('parentMenu').save();
   },
 
