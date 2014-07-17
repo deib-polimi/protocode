@@ -1,6 +1,7 @@
 App.AppMenuIndexController = Ember.ObjectController.extend({
   isCreating: false,
   newNameMenuItem: 'newMenuItem',
+  needs: ['viewController'],
 
   actions: {
     setCreating: function(value) {
@@ -12,10 +13,17 @@ App.AppMenuIndexController = Ember.ObjectController.extend({
 
       if (!name.trim()) { return; }
 
+      var navigation = this.store.createRecord('navigation', {
+        destination: this.get('controllers.viewController.model')
+      });
+
+      navigation.save();
+
       var menuItem = this.store.createRecord('menuItem', {
         name: name,
         title: name,
-        parentMenu: this.get('model')
+        parentMenu: this.get('model'),
+        navigation: navigation
       });
 
       this.set('newNameMenuItem', 'newMenuItem');

@@ -14,6 +14,8 @@ App.MenuItem = DS.Model.extend({
       menuItems.pushObject(self);
     });
 
+    
+
     this.get('parentMenu').save();
   },
 
@@ -21,7 +23,7 @@ App.MenuItem = DS.Model.extend({
     var elem = xmlDoc.createElement('menuItems');
 
     elem.setAttribute('title', this.get('title'));
-    elem.setAttribute('name', this.get('name'));
+    elem.setAttribute('id', this.get('name'));
 
     var navigation = this.get('navigation')
 

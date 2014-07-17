@@ -2,7 +2,7 @@ var attr = DS.attr;
 
 App.ViewController = DS.Model.extend({
 	name: attr('string'),
-  launcher: attr('boolean'),
+  launcher: attr('boolean', {defaultValue: false}),
   uiControls: DS.hasMany('uiControl', {polymorphic: true, async: true}),
   application: DS.belongsTo('application', {inverse: 'viewControllers'}),
 

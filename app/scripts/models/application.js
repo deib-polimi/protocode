@@ -23,6 +23,8 @@ App.Application = DS.Model.extend({
       appModel.appendChild(item.toXml(xmlDoc));
     });
 
+    appModel.appendChild(this.get('menu').toXml(xmlDoc));
+
     xmlDoc.appendChild(appModel);
     return xmlDoc;
   }
