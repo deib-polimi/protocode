@@ -5,7 +5,11 @@ App.EditorRoute = Ember.Route.extend({
           application: this.store.find('application').then(function(dataArray) {
             return dataArray.objectAt(0);
           }),
-          devices: this.store.find('device')
+          devices: this.store.find('device'),
+          // Used to fetch all parts
+          navigations: this.store.find('navigation'),
+          clickListeners: this.store.find('clickListener'),
+          sourceTypes: this.store.find('sourceType'),
         });
     },
     setupController: function(controller, model) {
