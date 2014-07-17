@@ -7,15 +7,24 @@ App.ViewController = DS.Model.extend({
   application: DS.belongsTo('application', {inverse: 'viewControllers'}),
 
   toXml: function(xmlDoc) {
-    var viewController = xmlDoc.createElement('viewControllers');
-    viewController.setAttribute('name', this.get('name'));
-    viewController.setAttribute('launcher', this.get('launcher'));
-
-    this.get('uiControls').map(function (uiControl) {
-      viewController.appendChild(uiControl.toXml(xmlDoc));
-    });
+    var self = this;
     
-    return viewController;
+    var promise = new Promise(function (resolve, reject) {
+      var viewController = xmlDoc.createElement('viewControllers');
+      viewController.setAttribute('name', self.get('name'));
+      viewController.setAttribute('launcher', self.get('launcher'));
+
+      self.get('uiControls').then(function (uiControls) {
+        uiControls.map(function (uiControl) {
+          viewController.appendChild(uiControl.toXml(xmlDoc));
+        });
+      
+        resolve(viewController);
+      });
+    });
+
+    return promise;
+    
   }
 });
 
