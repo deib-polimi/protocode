@@ -1,5 +1,5 @@
 App.Navigation = DS.Model.extend({
-  destination: DS.belongsTo('viewController'),
+  destination: DS.belongsTo('viewController', {inverse: null}),
 
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('navigation');

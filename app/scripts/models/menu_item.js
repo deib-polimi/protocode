@@ -2,7 +2,7 @@ App.MenuItem = DS.Model.extend({
   title: DS.attr('string'),
   name: DS.attr('string'),
   parentMenu: DS.belongsTo('menu', {inverse: 'menuItems'}),
-  navigation: DS.belongsTo('navigation'),
+  navigation: DS.belongsTo('navigation', {inverse: null}),
 
   // Used to reload menuItems
   didCreate: function() {
@@ -27,7 +27,7 @@ App.MenuItem = DS.Model.extend({
 
     var navigation = this.get('navigation')
 
-    if (navigation) {
+    if (navigation != null) {
       elem.appendChild(navigation.toXml(xmlDoc));
     }
     

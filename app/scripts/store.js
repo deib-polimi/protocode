@@ -25,53 +25,27 @@ App.ApplicationSerializer = DS.LSSerializer.extend({
   },
 
   serializeHasMany: function(record, json, relationship) {
-      var key = relationship.key,
-          relationshipType = DS.RelationshipChange.determineRelationshipType(record.constructor, relationship);
+    var key = relationship.key,
+        relationshipType = DS.RelationshipChange.determineRelationshipType(record.constructor, relationship);
 
-      if (relationshipType === 'manyToNone' ||
-          relationshipType === 'manyToMany' ||
-          relationshipType === 'manyToOne') {
-        if (!relationship.options.polymorphic) {
-          json[key] = record.get(key).mapBy('id');
-        }
-        else {
-          json[key] = record.get(key).map(function (value) {
-            return {
-              id: value.get('id'),
-              type: value.constructor.typeKey
-            }
-          });
-        }
-        
+    if (relationshipType === 'manyToNone' ||
+        relationshipType === 'manyToMany' ||
+        relationshipType === 'manyToOne') {
+      if (!relationship.options.polymorphic) {
+        json[key] = record.get(key).mapBy('id');
       }
-      console.log(json);
-    },
-
-    extractSingle: function(store, type, payload) {
-      if (payload && payload._embedded) {
-        for (var relation in payload._embedded) {
-          var relType = type.typeForRelationship(relation);
-          var typeName = relType.typeKey,
-              embeddedPayload = payload._embedded[relation];
-
-          if (embeddedPayload) {
-            if (Ember.isArray(embeddedPayload)) {
-              store.pushMany(typeName, embeddedPayload);
-            } else {
-              store.push(typeName, embeddedPayload);
-            }
+      else {
+        json[key] = record.get(key).map(function (value) {
+          return {
+            id: value.get('id'),
+            type: value.constructor.typeKey
           }
-        }
-
-        delete payload._embedded;
+        });
       }
-
-      return this.normalize(type, payload);
+      
     }
-
-  
-
-
+    console.log(json);
+  }
 });
 App.ApplicationAdapter = DS.LSAdapter.extend({
     namespace: 'protocode'
