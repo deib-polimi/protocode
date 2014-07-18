@@ -138,9 +138,6 @@ html, body {
   display: flex;
   overflow: hidden;
   align-items: center;
-}
-
-.control-web-view, .control-image-view, .control-video-view {
   justify-content: center;
 }
 
@@ -451,6 +448,10 @@ html, body {
   border-radius: 2px;
   box-shadow: 0px 1px 1px 0 #c4c4c4;
   text-align: center;
+}
+
+.android .control-label {
+  font-size: 10px;
 }
 
 .android .control-edit-text {
