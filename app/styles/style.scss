@@ -326,6 +326,13 @@ html, body {
   padding-left: 8px;
 }
 
+.android .device-screen-view .action-bar .bar-content {
+  margin-left: 10px;
+  padding-left: 60px;
+  background: url('../images/ui_controls/android/ic_launcher.png') no-repeat transparent;
+  background-size: auto 93%;
+}
+
 .android .device-screen-view .action-bar:before {
   border-bottom: solid 1px #d2d2d2;
   padding-bottom: 1px;
