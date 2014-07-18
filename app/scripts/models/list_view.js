@@ -5,20 +5,29 @@ App.ListView = App.UiControl.extend({
   height:             DS.attr('number', {defaultValue: 200}), 
 
   toXml: function(xmlDoc) {
-    var elem = xmlDoc.createElement('listViews');
-    this.decorateXml(elem);
-
-    var clickListener = this.get('clickListener');
-
-    if (clickListener != null) {
-        elem.appendChild(clickListener.toXml(xmlDoc));
-    }
-
-    this.get('listViewCells').map(function(item) {
-      elem.appendChild(item.toXml(xmlDoc));
-    });
+    var self = this;
     
-    return elem;
+    var promise = new Promise(function (resolve, reject) {
+      var elem = xmlDoc.createElement('listViews');
+      self.decorateXml(elem);
+
+      var clickListener = self.get('clickListener');
+
+      if (clickListener != null) {
+          elem.appendChild(clickListener.toXml(xmlDoc));
+      }
+
+      self.get('listViewCells').then(function (listViewCells) {
+        
+        listViewCells.map(function(item) {
+          elem.appendChild(item.toXml(xmlDoc));
+        });
+
+        resolve(elem);
+      });
+    });
+
+    return promise;
   }
 });
 /*

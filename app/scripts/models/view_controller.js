@@ -15,11 +15,18 @@ App.ViewController = DS.Model.extend({
       viewController.setAttribute('launcher', self.get('launcher'));
 
       self.get('uiControls').then(function (uiControls) {
-        uiControls.map(function (uiControl) {
-          viewController.appendChild(uiControl.toXml(xmlDoc));
-        });
-      
-        resolve(viewController);
+
+        Promise.all(uiControls.map(function (uiControl) {
+          return uiControl.toXml(xmlDoc);
+        })).then(function (uiControlXmls) {
+          
+          uiControlXmls.map(function (xml) {
+            viewController.appendChild(xml);
+          });
+
+          resolve(viewController);
+
+        });  
       });
     });
 
