@@ -3,15 +3,125 @@
 {{input-text label="Height [dp]" value=height action='acceptChanges' type="number"}}
 
 <!-- Padding -->
-<p>Padding</p>
-{{input-text label="Top" value=paddingTop action='acceptChanges' type="number"}}
-{{input-text label="Bottom" value=paddingBottom action='acceptChanges' type="number"}}
-{{input-text label="Start" value=paddingStart action='acceptChanges' type="number"}}
-{{input-text label="End" value=paddingEnd action='acceptChanges' type="number"}}
+<p><strong>Padding</strong></p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-caret-up"></i></span>
+      {{input 
+        value=paddingTop
+        class="form-control input-sm"
+        placeholder="Top"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-caret-left"></i></span>
+      {{input 
+        value=paddingStart
+        class="form-control input-sm"
+        placeholder="Start"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="input-group">
+      {{input 
+        value=paddingEnd
+        class="form-control input-sm"
+        placeholder="End"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+      <span class="input-group-addon"><i class="fa fa-caret-right"></i></span>
+    </div>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-caret-down"></i></span>
+      {{input 
+        value=paddingBottom
+        class="form-control input-sm"
+        placeholder="Bottom"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+    </div>
+  </div>
+</div>
 
 <!-- Margin -->
-<p>Margin</p>
-{{input-text label="Top" value=marginTop action='acceptChanges' type="number"}}
-{{input-text label="Bottom" value=marginBottom action='acceptChanges' type="number"}}
-{{input-text label="Start" value=marginStart action='acceptChanges' type="number"}}
-{{input-text label="End" value=marginEnd action='acceptChanges' type="number"}}
+<p><strong>Margin</strong></p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-caret-up"></i></span>
+      {{input 
+        value=marginTop
+        class="form-control input-sm"
+        placeholder="Top"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-caret-left"></i></span>
+      {{input 
+        value=marginStart
+        class="form-control input-sm"
+        placeholder="Start"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="input-group">
+      {{input 
+        value=marginEnd
+        class="form-control input-sm"
+        placeholder="End"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+      <span class="input-group-addon"><i class="fa fa-caret-right"></i></span>
+    </div>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-caret-down"></i></span>
+      {{input 
+        value=marginBottom
+        class="form-control input-sm"
+        placeholder="Bottom"
+        type="number"
+        viewName="textField"
+        focus-out="acceptChanges"
+        insert-newline="acceptChanges"}}
+    </div>
+  </div>
+</div>
