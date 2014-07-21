@@ -266,7 +266,7 @@ html, body {
   flex-flow: row no-wrap;
   justify-content: space-around;
   align-content: center;
-  align-items: center;
+  align-items: flex-end;
   background-color: #f8f8f8;
   width: 100%;
   height: 48px;
@@ -281,6 +281,7 @@ html, body {
   align-self: auto;
   min-width: 0;
   min-height: auto;
+  font-size: 11px;
 }
 
 .app-menu-item.ios .control-content {
