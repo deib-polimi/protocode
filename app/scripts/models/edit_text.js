@@ -5,8 +5,10 @@ App.EditText = App.UiControl.extend({
   width:        DS.attr('number', {defaultValue: 125}),
   height:       DS.attr('number', {defaultValue: 30}),
 
+  xmlName:        'editTexts',
+
   toXml: function(xmlDoc) {
-    var elem = xmlDoc.createElement('editTexts');
+    var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);
     
     elem.setAttribute('title', this.get('title'));

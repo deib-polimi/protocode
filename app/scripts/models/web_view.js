@@ -4,8 +4,10 @@ App.WebView = App.UiControl.extend({
   width:    DS.attr('number', {defaultValue: 300}),
   height:   DS.attr('number', {defaultValue: 200}),
 
+  xmlName:  'webViews',
+
   toXml: function(xmlDoc) {
-    var elem = xmlDoc.createElement('webViews');
+    var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);
 
     elem.setAttribute('htmlFileName', this.get('htmlFileName'));

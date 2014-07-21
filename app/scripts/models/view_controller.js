@@ -6,11 +6,13 @@ App.ViewController = DS.Model.extend({
   uiControls: DS.hasMany('uiControl', {polymorphic: true, async: true}),
   application: DS.belongsTo('application', {inverse: 'viewControllers'}),
 
+  xmlName:      'viewControllers',
+
   toXml: function(xmlDoc) {
     var self = this;
     
     var promise = new Promise(function (resolve, reject) {
-      var viewController = xmlDoc.createElement('viewControllers');
+      var viewController = xmlDoc.createElement(self.get('xmlName'));
       viewController.setAttribute('name', self.get('name'));
       viewController.setAttribute('launcher', self.get('launcher'));
 
@@ -30,8 +32,11 @@ App.ViewController = DS.Model.extend({
       });
     });
 
-    return promise;
-    
+    return promise; 
+  },
+
+  getRefPath: function(path) {
+    return '//@' + this.get('xmlName') + '[name=\'' + this.get('name') + '\']' + path;
   }
 });
 

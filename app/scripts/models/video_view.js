@@ -4,6 +4,8 @@ App.VideoView = App.UiControl.extend({
   width:    DS.attr('number', {defaultValue: 300}),
   height:   DS.attr('number', {defaultValue: 200}),
 
+  xmlName:  'videoViews',
+
   didCreate: function() {
     this._super();
     
@@ -14,7 +16,7 @@ App.VideoView = App.UiControl.extend({
   },
 
   toXml: function(xmlDoc) {
-    var elem = xmlDoc.createElement('videoViews');
+    var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);
 
     var sourceType = this.get('sourceType');

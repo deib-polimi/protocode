@@ -2,13 +2,15 @@ App.ListView = App.UiControl.extend({
   listViewCells:    DS.hasMany('listViewCell', {async:true, inverse: 'parentListView'}),
   clickListener:    DS.belongsTo('clickListener'),
 
-  height:             DS.attr('number', {defaultValue: 200}), 
+  height:           DS.attr('number', {defaultValue: 200}),
+
+  xmlName:          'listViews',
 
   toXml: function(xmlDoc) {
     var self = this;
     
     var promise = new Promise(function (resolve, reject) {
-      var elem = xmlDoc.createElement('listViews');
+      var elem = xmlDoc.createElement(self.get('xmlName'));
       self.decorateXml(elem);
 
       var clickListener = self.get('clickListener');

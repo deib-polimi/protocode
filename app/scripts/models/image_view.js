@@ -4,6 +4,8 @@ App.ImageView = App.UiControl.extend({
   width:    DS.attr('number', {defaultValue: 300}),
   height:   DS.attr('number', {defaultValue: 200}),
 
+  xmlName:        'imageViews',
+
   didCreate: function() {
     this._super();
     
@@ -14,7 +16,7 @@ App.ImageView = App.UiControl.extend({
   },
 
   toXml: function(xmlDoc) {
-    var elem = xmlDoc.createElement('imageViews');
+    var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);
 
     var sourceType = this.get('sourceType');

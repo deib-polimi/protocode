@@ -5,8 +5,10 @@ App.Button = App.UiControl.extend({
   width:          DS.attr('number', {defaultValue: 125}),
   height:         DS.attr('number', {defaultValue: 30}),
 
+  xmlName:        'buttons',
+
   toXml: function(xmlDoc) {
-    var button = xmlDoc.createElement('buttons');
+    var button = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(button);
     button.setAttribute('title', this.get('title'));
 

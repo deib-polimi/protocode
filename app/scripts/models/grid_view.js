@@ -4,11 +4,13 @@ App.GridView = App.UiControl.extend({
 
   height:             DS.attr('number', {defaultValue: 200}), 
 
+  xmlName:        'gridViews',
+
   toXml: function(xmlDoc) {
     var self = this;
     
     var promise = new Promise(function (resolve, reject) {
-      var elem = xmlDoc.createElement('gridViews');
+      var elem = xmlDoc.createElement(self.get('xmlName'));
       self.decorateXml(elem);
 
       var clickListener = self.get('clickListener');

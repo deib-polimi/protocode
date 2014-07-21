@@ -5,8 +5,10 @@ App.Label = App.UiControl.extend({
   width:    DS.attr('number', {defaultValue: 125}),
   height:   DS.attr('number', {defaultValue: 30}),
 
+  xmlName:  'textViews',
+
   toXml: function(xmlDoc) {
-    var label = xmlDoc.createElement('textViews');
+    var label = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(label);
     label.setAttribute('content', this.get('title'));
     return label;

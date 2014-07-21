@@ -316,32 +316,45 @@ App.UiControl = DS.Model.extend({
     //xmlElem.setAttribute('parentContainer', this.get('parentContainer.name'));
 
     if (this.get('alignTop')) {
-      xmlElem.setAttribute('alignTop', this.get('alignTop.name'));
+      xmlElem.setAttribute('alignTop', this.get('alignTop').getRefPath(''));
     }
     if (this.get('alignBottom')) {
-      xmlElem.setAttribute('alignBottom', this.get('alignBottom.name'));
+      xmlElem.setAttribute('alignBottom', this.get('alignBottom').getRefPath(''));
     }
     if (this.get('alignStart')) {
-      xmlElem.setAttribute('alignStart', this.get('alignStart.name'));
+      xmlElem.setAttribute('alignStart', this.get('alignStart').getRefPath(''));
     }
     if (this.get('alignEnd')) {
-      xmlElem.setAttribute('alignEnd', this.get('alignEnd.name'));
+      xmlElem.setAttribute('alignEnd', this.get('alignEnd').getRefPath(''));
     }
 
     if (this.get('above')) {
-      xmlElem.setAttribute('above', this.get('above.name'));
+      xmlElem.setAttribute('above', this.get('above').getRefPath(''));
     }
     if (this.get('below')) {
-      xmlElem.setAttribute('below', this.get('below.name'));
+      xmlElem.setAttribute('below', this.get('below').getRefPath(''));
     }
     if (this.get('toStartOf')) {
-      xmlElem.setAttribute('toStartOf', this.get('toStartOf.name'));
+      xmlElem.setAttribute('toStartOf', this.get('toStartOf').getRefPath(''));
     }
     if (this.get('toEndOf')) {
-      xmlElem.setAttribute('toEndOf', this.get('toEndOf.name'));
+      xmlElem.setAttribute('toEndOf', this.get('toEndOf').getRefPath(''));
     }
 
     return xmlElem;
+  },
+
+  getRefPath: function(path) {
+    var updatedPath = '/@' + this.get('xmlName') + '[id=\'' + this.get('name') + '\']';
+
+    if (this.get('parentContainer') != null) {
+      updatedPath = this.get('parentContainer').getRefPath(updatedPath);
+    }
+    else {
+      updatedPath = this.get('viewController').getRefPath(updatedPath);
+    }
+
+    return updatedPath;
   }
 
 });
