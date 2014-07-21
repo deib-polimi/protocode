@@ -10,6 +10,11 @@ App.EditorRoute = Ember.Route.extend({
           navigations: this.store.find('navigation'),
           clickListeners: this.store.find('clickListener'),
           sourceTypes: this.store.find('sourceType'),
+          menu: this.store.find('menu').then(function (menus) {
+            menus.map(function (menu) {
+              return menu.get('menuItems');
+            })
+          }),
         });
     },
     setupController: function(controller, model) {

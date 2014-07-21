@@ -126,7 +126,7 @@ App.UiControl = DS.Model.extend({
         // Check tab bar for menu in iOS
         if (this.get('viewController.application.device.platform') == 'ios' &&
           this.get('viewController.application.menu.menuItems.length') > 0) {
-          return this.get('viewController.application.device.viewBottom') - 49;
+          return this.get('viewController.application.device.viewBottom') - 48;
         }
 
         return this.get('viewController.application.device.viewBottom');
