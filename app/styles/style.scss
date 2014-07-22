@@ -178,7 +178,8 @@ html, body {
 /********************************** iOS **********************************/
 
 .control-button.ios {
-  color: $ios-primary-color;
+  color: $ios-button-view-color;
+  font-weight: bold;
 }
 
 .control-button.ios a {
@@ -240,8 +241,9 @@ html, body {
 }
 
 .ios .control-list-view-cell {
-  height: 40px;
+  height: 44px;
   padding: 5px 0;
+  font-size: 20px;
   line-height: 30px;
   margin-left: 14px;
   left: 0;
