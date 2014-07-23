@@ -141,6 +141,18 @@ html, body {
   justify-content: center;
 }
 
+.control-label.right {
+  justify-content: flex-end;
+}
+
+.control-label.center {
+  justify-content: center;
+}
+
+.control-label.left {
+  justify-content: flex-start;
+}
+
 .control-list-view {
   background-color: #fff;
 }

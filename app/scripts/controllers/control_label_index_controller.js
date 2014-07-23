@@ -1,3 +1,3 @@
-App.ControlLabelIndexController = App.UiControlController.extend({
+App.ControlLabelIndexController = App.UiControlController.extend(App.TextAlignable, {
   
 });

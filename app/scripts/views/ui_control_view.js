@@ -2,11 +2,7 @@ App.UiControlView = Ember.View.extend(App.UiMoveable, {
   templateName: 'views/ui_control_view',
   classNames: ['ui-control'],
   classNameBindings: [
-    'active'
-    /*'alignParentTop',
-    'alignParentBottom',
-    'alignParentStart',
-    'alignParentEnd'*/],
+    'active'],
   attributeBindings: ['style'],
 
   device: Ember.computed.alias('controller.controllers.editor.device'),

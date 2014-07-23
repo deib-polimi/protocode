@@ -2,6 +2,8 @@ App.Label = App.UiControl.extend({
   name:     DS.attr('string', {defaultValue: 'DummyLabel'}),
   title:    DS.attr('string', {defaultValue: 'Dummy Label'}),
 
+  textAlign: DS.attr('string', {defaultValue: 'left'}),
+
   width:    DS.attr('number', {defaultValue: 125}),
   height:   DS.attr('number', {defaultValue: 30}),
 

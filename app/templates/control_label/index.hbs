@@ -15,6 +15,21 @@
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
             {{input-text label="Title" value=title action='acceptChanges'}}
+            <div class="form-group">
+              <label>Text align</label>
+              <br>
+              <div class="btn-group">
+                <label {{bind-attr class=":btn :btn-default textAlignLeft:active"}}>
+                  {{input type="checkbox" checked=textAlignLeft class="hidden"}} <i class="fa fa-align-left"></i>
+                </label>
+                <label {{bind-attr class=":btn :btn-default textAlignCenter:active"}}>
+                  {{input type="checkbox" checked=textAlignCenter class="hidden"}} <i class="fa fa-align-center"></i>
+                </label>
+                <label {{bind-attr class=":btn :btn-default textAlignRight:active"}}>
+                  {{input type="checkbox" checked=textAlignRight class="hidden"}} <i class="fa fa-align-right"></i>
+                </label>
+              </div>
+            </div>
           </div>
           <div class="tab-pane fade" id="position">
             {{partial "partials/ui_control_position"}}
