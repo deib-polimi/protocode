@@ -178,7 +178,7 @@ html, body {
 /********************************** iOS **********************************/
 
 .control-button.ios {
-  color: $ios-button-view-color;
+  color: $ios-primary-color;
   font-weight: bold;
 }
 
@@ -269,7 +269,7 @@ html, body {
   justify-content: space-around;
   align-content: center;
   align-items: flex-end;
-  background-color: #f8f8f8;
+  background-color: #dddddd;
   width: 100%;
   height: 48px;
   border-top: solid 1px #b2b2b2;
