@@ -341,6 +341,10 @@ App.UiControl = DS.Model.extend({
       xmlElem.setAttribute('toEndOf', this.get('toEndOf').getRefPath(''));
     }
 
+    if (this.get('viewController')) {
+      xmlElem.setAttribute('viewController', this.get('viewController').getRefPath(''));
+    }
+
     return xmlElem;
   },
 
