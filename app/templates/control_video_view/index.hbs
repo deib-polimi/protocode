@@ -14,9 +14,7 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
-            {{input-text label="Hardware file" value=sourceType.hardwareFile action='acceptChanges'}}
-            {{input-text label="Local file" value=sourceType.localFile action='acceptChanges'}}
-            {{input-text label="Remote file" value=sourceType.remoteFile action='acceptChanges'}}
+            {{partial "partials/input_source_type"}}
           </div>
           <div class="tab-pane fade" id="position">
             {{partial "partials/ui_control_position"}}

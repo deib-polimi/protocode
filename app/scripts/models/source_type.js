@@ -2,14 +2,15 @@ App.SourceType = DS.Model.extend({
   hardwareFile: DS.attr('string'),
   localFile: DS.attr('string'),
   remoteFile: DS.attr('string'),
-  //parentControl: DS.belongsTo('uiControl', {inverse: 'sourceType', polymorphic: true}),
+
+  type: DS.attr('string'),
+  fileUri: DS.attr('string'),
 
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('sourceType');
     
-    elem.setAttribute('hardwareFile', this.get('hardwareFile'));
-    elem.setAttribute('localFile', this.get('localFile'));
-    elem.setAttribute('remoteFile', this.get('remoteFile'));
+    elem.setAttribute('sourceType', this.get('type'));
+    elem.setAttribute('fileUri', this.get('fileUri'));
     
     return elem;
   }
