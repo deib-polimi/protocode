@@ -13,6 +13,7 @@ App.Label = App.UiControl.extend({
     var label = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(label);
     label.setAttribute('content', this.get('title'));
+    label.setAttribute('textAlign', this.get('textAlign'));
     return label;
   }
 });
