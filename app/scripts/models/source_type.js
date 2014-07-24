@@ -1,9 +1,9 @@
 App.SourceType = DS.Model.extend({
-  hardwareFile: DS.attr('string'),
+  /*hardwareFile: DS.attr('string'),
   localFile: DS.attr('string'),
-  remoteFile: DS.attr('string'),
+  remoteFile: DS.attr('string'),*/
 
-  type: DS.attr('string'),
+  type: DS.attr('string', {defaultValue: 'hardwareFile'}),
   fileUri: DS.attr('string'),
 
   toXml: function(xmlDoc) {
