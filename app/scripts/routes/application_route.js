@@ -62,7 +62,7 @@ App.ApplicationRoute = Ember.Route.extend({
         label: 'iPhone 5s',
         platform: 'ios',
         viewTop: 62,
-        viewBottom: 520,
+        viewBottom: 568,
         screenWidth: 320,
         screenHeight: 568,
         cssWidth: 312,

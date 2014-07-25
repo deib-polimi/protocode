@@ -4,7 +4,7 @@ App.VideoView = App.UiControl.extend({
   width:    DS.attr('number', {defaultValue: 300}),
   height:   DS.attr('number', {defaultValue: 200}),
 
-  xmlName:  'videoViews',
+  xmlName:  'videoView',
 
   didCreate: function() {
     this._super();
@@ -22,10 +22,29 @@ App.VideoView = App.UiControl.extend({
     var sourceType = this.get('sourceType');
 
     if (sourceType != null) {
-      elem.appendChild(sourceType.toXml(xmlDoc));
+      var sourceTypeAttrs = sourceType.toXml(xmlDoc).attributes;
+
+      for (var i = 0; i < sourceTypeAttrs.length; i++) {
+        var attr = sourceTypeAttrs[i];
+        elem.setAttribute(attr.name, attr.value);
+      };
     }
     
     return elem;
+  },
+
+  // Override because there's only one videoView
+  getRefPath: function(path) {
+    var updatedPath = '/@' + this.get('xmlName');
+
+    if (this.get('parentContainer') != null) {
+      updatedPath = this.get('parentContainer').getRefPath(updatedPath);
+    }
+    else {
+      updatedPath = this.get('viewController').getRefPath(updatedPath);
+    }
+
+    return updatedPath;
   }
 });
 

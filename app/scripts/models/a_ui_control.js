@@ -146,7 +146,8 @@ App.UiControl = DS.Model.extend({
     'outerHeight',
     'parentContainer.height',
     'above.top',
-    'viewController.application.device.viewBottom'),
+    'viewController.application.device.viewBottom',
+    'viewController.application.menu.menuItems.length'),
 
   start: function() {
     if (this.get('alignStart')) {

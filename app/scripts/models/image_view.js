@@ -22,7 +22,13 @@ App.ImageView = App.UiControl.extend({
     var sourceType = this.get('sourceType');
 
     if (sourceType != null) {
-      elem.appendChild(sourceType.toXml(xmlDoc));
+      console.log(sourceType.toXml(xmlDoc).attributes);
+      var sourceTypeAttrs = sourceType.toXml(xmlDoc).attributes;
+
+      for (var i = 0; i < sourceTypeAttrs.length; i++) {
+        var attr = sourceTypeAttrs[i];
+        elem.setAttribute(attr.name, attr.value);
+      };
     }
     
     return elem;

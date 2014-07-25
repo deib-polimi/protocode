@@ -10,7 +10,7 @@ App.WebView = App.UiControl.extend({
     var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);
 
-    elem.setAttribute('htmlFileName', this.get('htmlFileName'));
+    elem.setAttribute('HTMLFileName', this.get('htmlFileName'));
     
     return elem;
   }
