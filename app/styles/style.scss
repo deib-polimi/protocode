@@ -133,6 +133,15 @@ html, body {
   border-radius: 3px;
 }
 
+.control-audio-player-view .control-content {
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 
 .control-button, .control-label, .control-web-view, .control-image-view, .control-video-view {
   display: flex;
@@ -188,16 +197,6 @@ html, body {
 }
 
 /********************************** iOS **********************************/
-
-.ios .control-audio-player-view .control-content {
-  display: flex;
-  flex-flow: row no-wrap;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 
 .ios .control-button {
   color: $ios-primary-color;
@@ -479,7 +478,11 @@ html, body {
   font: 14px "Roboto", ".Helvetica NeueUI", "Helvetica Neue", sans-serif;
 }
 
-.control-button.android {
+.android .control-audio-player-view .control-content .control-button {
+  padding: 5px;
+}
+
+.android .control-button {
   background-color: #cecece;
   border-bottom: solid 1px #979797;
   border-top: solid 1px #dfdfdf;
