@@ -10,9 +10,23 @@ App.PhotocameraController = App.UiControl.extend({
     var imageView = this.get('imageView');
 
     if (imageView != null) {
-      elem.appendChild(imageView.toXml(xmlDoc));
+      elem.setAttribute('imageViewId', imageView.get('name'));
     }
     
     return elem;
+  },
+
+  // Override because there's only one PhotocameraController
+  getRefPath: function(path) {
+    var updatedPath = '/@' + this.get('xmlName');
+
+    if (this.get('parentContainer') != null) {
+      updatedPath = this.get('parentContainer').getRefPath(updatedPath);
+    }
+    else {
+      updatedPath = this.get('viewController').getRefPath(updatedPath);
+    }
+
+    return updatedPath;
   }
 });

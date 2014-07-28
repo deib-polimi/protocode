@@ -4,6 +4,8 @@ App.AudioPlayer = App.UiControl.extend({
   width:              DS.attr('number', {defaultValue: 200}),
   height:             DS.attr('number', {defaultValue: 44}),
 
+  xmlName:  'audioPlayer',
+
   didCreate: function() {
     this._super();
     
@@ -30,7 +32,7 @@ App.AudioPlayer = App.UiControl.extend({
     return elem;
   },
 
-  // Override because there's only one videoView
+  // Override because there's only one AudioPlayer
   getRefPath: function(path) {
     var updatedPath = '/@' + this.get('xmlName');
 
