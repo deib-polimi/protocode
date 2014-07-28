@@ -1,2 +1,18 @@
-<div class="control-content">AudioPlayer</div>
+<div class="control-content">
+  <div id="play-button" class="ember-view control-button">
+    <div class="control-content">
+      Play
+    </div>
+  </div>
+  <div id="pause-button" class="ember-view control-button">
+    <div class="control-content">
+      Pause
+    </div>
+  </div>
+  <div id="stop-button" class="ember-view control-button">
+    <div class="control-content">
+      Stop
+    </div>
+  </div>
+</div>
 {{#link-to "controlAudioPlayer" this tagName="div" class="inner-control"}}{{/link-to}}
