@@ -11,7 +11,7 @@ App.EditText = App.UiControl.extend({
     var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);
     
-    elem.setAttribute('title', this.get('title'));
+    elem.setAttribute('initialContent', this.get('title'));
     elem.setAttribute('placeholder', this.get('placeholder'));
     
     return elem;
