@@ -1,7 +1,12 @@
 <div class="col-md-3">
   <div class="panel panel-info">
       <div class="panel-heading">
-          <h3 class="panel-title"><i class="fa fa-bars"></i> Edit menu</h3>
+          <h3 class="panel-title">
+            {{#link-to 'viewController' class="btn btn-default btn-sm"}}
+              <i class="fa fa-mail-reply"></i>
+            {{/link-to}} 
+            <i class="fa fa-bars"></i> Edit menu
+          </h3>
       </div>
       <ul class="list-group" id="collapse-views" class="collapse in">
         {{#each item in menuItems}}
