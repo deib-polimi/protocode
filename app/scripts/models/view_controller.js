@@ -19,6 +19,14 @@ App.ViewController = DS.Model.extend({
       viewController.setAttribute('name', self.get('name'));
       viewController.setAttribute('launcher', self.get('launcher'));
 
+      self.get('alertDialogs').map(function (alertDialog) {
+        viewController.appendChild(alertDialog.toXml(xmlDoc));
+      });
+
+      self.get('progressDialogs').map(function (progressDialog) {
+        viewController.appendChild(progressDialog.toXml(xmlDoc));
+      });
+
       self.get('uiControls').then(function (uiControls) {
 
         Promise.all(uiControls.map(function (uiControl) {

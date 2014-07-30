@@ -5,7 +5,7 @@ App.ProgressDialog = App.Dialog.extend({
   xmlName:    'progressDialogs',
 
   toXml: function(xmlDoc) {
-    var elem = this._super();
+    var elem = this._super(xmlDoc);
 
     elem.setAttribute('spinner', this.get('spinner'));
     
