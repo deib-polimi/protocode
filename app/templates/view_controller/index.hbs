@@ -7,9 +7,9 @@
         {{partial "partials/first_commands"}}
         <ul class="nav nav-tabs">
           <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
-          <li><a href="#alert-dialogs" data-toggle="tab"><i class="fa fa-bell"> {{alertDialogs.length}}</i></a></li>
-          <li><a href="#progress-dialogs" data-toggle="tab"><i class="fa fa-spinner"></i></a></li>
-          <li><a href="#hierarchy" data-toggle="tab"><i class="fa fa-sitemap"></i></a></li>
+          <li><a href="#alert-dialogs" data-toggle="tab"><i class="fa fa-bell"></i> {{alertDialogs.length}}</a></li>
+          <li><a href="#progress-dialogs" data-toggle="tab"><i class="fa fa-spinner"></i> {{progressDialogs.length}}</a></li>
+          <li><a href="#hierarchy" data-toggle="tab"><i class="fa fa-sitemap"></i> {{uiControls.length}}</a></li>
         </ul>
 
         <div class="tab-content">
@@ -34,7 +34,17 @@
             </ul>
           </div>
           <div class="tab-pane fade" id="progress-dialogs">
-            progress
+            <br>
+            <button type="button" class="btn btn-default btn-block" {{action "createProgressDialog"}}>
+              <i class="fa fa-plus"></i> Add progress dialog
+            </button>
+            <ul class="list-group">
+              {{#each item in progressDialogs}}
+                <li class="list-group-item">
+                  {{#link-to "progressDialog" item}}{{item.name}}{{/link-to}}
+                </li>
+              {{/each}}
+            </ul>
           </div>
           <div class="tab-pane fade" id="hierarchy">
             <div class="tree">

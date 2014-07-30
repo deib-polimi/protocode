@@ -40,6 +40,8 @@ App.Router.map(function () {
         });
         this.resource('alertDialog', {path: '/alertDialog/:alert_dialog_id'}, function () {
         });
+        this.resource('progressDialog', {path: '/progressDialog/:progress_dialog_id'}, function () {
+        });
       });
   	});
 

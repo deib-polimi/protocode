@@ -12,6 +12,17 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
       viewController.save();
     },
 
+    createProgressDialog: function(value) {
+      var viewController = this.get('model');
+
+      var progressDialog = this.store.createRecord('progressDialog', {
+        viewController: viewController
+      });
+
+      progressDialog.save();
+      viewController.save();
+    },
+
     deleteViewController: function() {
       if (confirm('Are you sure to delete?')) {
         var viewController = this.get('model');

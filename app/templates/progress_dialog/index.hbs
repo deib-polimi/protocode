@@ -1,0 +1,37 @@
+<div class="col-md-3">
+  <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{#link-to 'viewController' viewController class="btn btn-default btn-sm"}}
+            <i class="fa fa-mail-reply"></i>
+          {{/link-to}} 
+          {{name}}
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{partial "partials/first_commands"}}
+
+        <ul class="nav nav-tabs spacer">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+            {{input-text label="Name" value=name action='acceptChanges'}}
+            {{input-text label="Title" value=title action='acceptChanges'}}
+            {{input-text label="Message" value=message action='acceptChanges'}}
+            <label {{bind-attr class=":btn :btn-default :btn-block spinner:active"}}>
+              {{input type="checkbox" checked=spinner class="hidden"}} <i class="fa fa-spinner"></i> With spinner
+            </label>
+          </div>
+        </div>
+        
+      </div>
+      <div class="panel-footer">
+         <div class="btn-group">
+            <button type="button" class="btn btn-default" {{action "delete"}}>
+              <i class="fa fa-trash-o"></i> 
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
