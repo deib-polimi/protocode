@@ -10,8 +10,8 @@ App.ImageView = App.UiControl.extend({
     this._super();
     
     var sourceType = this.store.createRecord('sourceType');
-    sourceType.save();
     this.set('sourceType', sourceType);
+    sourceType.save();
     this.save();
   },
 

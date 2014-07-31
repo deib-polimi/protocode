@@ -1,7 +1,7 @@
 App.ControlVideocameraControllerIndexRoute = Ember.Route.extend({
     setupController: function(controller, model) {
       this._super(controller, model);
-      //TODO: queries are not supported in Fixtures
-      controller.set('videoViews', this.store.find('videoView'));
+
+      controller.set('videoViews', this.store.findQuery('videoView', {viewController: model.get('viewController.id')}));
     }
 });

@@ -10,6 +10,8 @@ App.ApplicationRoute = Ember.Route.extend({
 
       var models = [
         'application',
+        'alertDialog',
+        'asyncTask',
         'audioPlayer',
         'audioRecorder',
         'button',
@@ -28,6 +30,7 @@ App.ApplicationRoute = Ember.Route.extend({
         'navigation',
         'photocameraController',
         'platform',
+        'progressDialog',
         'sourceType',
         'uiControlTemplate',
         'videoView',
