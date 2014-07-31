@@ -9,6 +9,8 @@ App.ViewController = DS.Model.extend({
   alertDialogs:     DS.hasMany('alertDialog', {inverse: 'viewController'}),
   progressDialogs:  DS.hasMany('progressDialog', {inverse: 'viewController'}),
 
+  asyncTasks:       DS.hasMany('asyncTask', {inverse: 'viewController'}),
+
   xmlName:        'viewControllers',
 
   toXml: function(xmlDoc) {

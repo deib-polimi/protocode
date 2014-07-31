@@ -38,6 +38,8 @@ App.Router.map(function () {
         });
         this.resource('appMenuItem', {path: '/menuItem/:menu_item_id'}, function () {
         });
+        this.resource('asyncTask', {path: '/asyncTask/:async_task_id'}, function () {
+        });
         this.resource('alertDialog', {path: '/alertDialog/:alert_dialog_id'}, function () {
         });
         this.resource('progressDialog', {path: '/progressDialog/:progress_dialog_id'}, function () {

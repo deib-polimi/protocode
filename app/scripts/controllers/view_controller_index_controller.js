@@ -1,6 +1,17 @@
 App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, {
 
   actions: {
+    createAsyncTask: function(value) {
+      var viewController = this.get('model');
+
+      var asyncTask = this.store.createRecord('asyncTask', {
+        viewController: viewController
+      });
+
+      asyncTask.save();
+      viewController.save();
+    },
+
     createAlertDialog: function(value) {
       var viewController = this.get('model');
 

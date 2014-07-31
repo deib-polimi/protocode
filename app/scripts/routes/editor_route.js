@@ -10,6 +10,7 @@ App.EditorRoute = Ember.Route.extend({
           navigations: this.store.find('navigation'),
           clickListeners: this.store.find('clickListener'),
           sourceTypes: this.store.find('sourceType'),
+          asyncTasks: this.store.find('asyncTask'),
           alertDialogs: this.store.find('alertDialog'),
           progressDialogs: this.store.find('progressDialog'),
           menu: this.store.find('menu').then(function (menus) {

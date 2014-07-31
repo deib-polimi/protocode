@@ -7,9 +7,9 @@
         {{partial "partials/first_commands"}}
         <ul class="nav nav-tabs">
           <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-pencil"></i></a></li>
-          <li><a href="#alert-dialogs" data-toggle="tab"><i class="fa fa-bell"></i> {{alertDialogs.length}}</a></li>
-          <li><a href="#progress-dialogs" data-toggle="tab"><i class="fa fa-spinner"></i> {{progressDialogs.length}}</a></li>
-          <li><a href="#hierarchy" data-toggle="tab"><i class="fa fa-sitemap"></i> {{uiControls.length}}</a></li>
+          <li><a href="#alert-dialogs" data-toggle="tab" title="Alert dialogs"><i class="fa fa-bell"></i> {{alertDialogs.length}}</a></li>
+          <li><a href="#progress-dialogs" data-toggle="tab" title="Progress dialogs"><i class="fa fa-spinner"></i> {{progressDialogs.length}}</a></li>
+          <li><a href="#async-task-tab" data-toggle="tab" title="Async tasks"><i class="fa fa-history"></i> {{asyncTasks.length}}</a></li>
         </ul>
 
         <div class="tab-content">
@@ -18,10 +18,20 @@
             <label {{bind-attr class=":btn :btn-default :btn-block launcher:active"}}>
               {{input type="checkbox" checked=launcher class="hidden"}} <i class="fa fa-home"></i> Set launcher
             </label>
+            <br>
+            <label><i class="fa fa-sitemap"></i> UiControls</label>
+            <div class="tree">
+              <ul>
+                <li><span><i class="fa fa-mobile"></i> {{name}}</span></li>
+                <ul>
+                  {{partial "partials/tree_container"}}
+                </ul>
+              </ul>
+            </div>
           </div>
 
           <div class="tab-pane fade" id="alert-dialogs">
-            <br>
+            <h4>Alert dialogs</h4>
             <button type="button" class="btn btn-default btn-block" {{action "createAlertDialog"}}>
               <i class="fa fa-plus"></i> Add alert dialog
             </button>
@@ -34,7 +44,7 @@
             </ul>
           </div>
           <div class="tab-pane fade" id="progress-dialogs">
-            <br>
+            <h4>Progress dialogs</h4>
             <button type="button" class="btn btn-default btn-block" {{action "createProgressDialog"}}>
               <i class="fa fa-plus"></i> Add progress dialog
             </button>
@@ -46,15 +56,18 @@
               {{/each}}
             </ul>
           </div>
-          <div class="tab-pane fade" id="hierarchy">
-            <div class="tree">
-              <ul>
-                <li><span><i class="fa fa-mobile"></i> {{name}}</span></li>
-                <ul>
-                  {{partial "partials/tree_container"}}
-                </ul>
-              </ul>
-            </div>
+          <div class="tab-pane fade" id="async-task-tab">
+            <h4>Async tasks</h4>
+            <button type="button" class="btn btn-default btn-block" {{action "createAsyncTask"}}>
+              <i class="fa fa-plus"></i> Add async task
+            </button>
+            <ul class="list-group">
+              {{#each item in asyncTasks}}
+                <li class="list-group-item">
+                  {{#link-to "asyncTask" item}}{{item.name}}{{/link-to}}
+                </li>
+              {{/each}}
+            </ul>
           </div>
         </div>
 	    </div>
