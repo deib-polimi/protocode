@@ -29,6 +29,10 @@ App.ViewController = DS.Model.extend({
         viewController.appendChild(progressDialog.toXml(xmlDoc));
       });
 
+      self.get('asyncTasks').map(function (asyncTask) {
+        viewController.appendChild(asyncTask.toXml(xmlDoc));
+      });
+
       self.get('uiControls').then(function (uiControls) {
 
         Promise.all(uiControls.map(function (uiControl) {

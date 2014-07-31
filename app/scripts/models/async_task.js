@@ -9,7 +9,7 @@ App.AsyncTask = DS.Model.extend({
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement(this.get('xmlName'));
 
-    elem.setAttribute('id', this.get('name'));
+    elem.setAttribute('name', this.get('name'));
     
     return elem;
   },

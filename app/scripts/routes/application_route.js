@@ -1,8 +1,5 @@
 App.ApplicationRoute = Ember.Route.extend({
-  // admittedly, this should be in IndexRoute and not in the
-  // top level ApplicationRoute; we're in transition... :-)
   model: function () {
-    //return 0;
     return this.store.findAll('viewController');
   },
 
@@ -96,11 +93,11 @@ App.ApplicationRoute = Ember.Route.extend({
       }).save();
 
 
-      this.store.createRecord('uiControlTemplate', {
+      /*this.store.createRecord('uiControlTemplate', {
         label: 'Container View',
         nameImg: 'container.png',
         type: 'container'
-      }).save();
+      }).save();*/
       this.store.createRecord('uiControlTemplate', {
         label: 'Button',
         nameImg: 'button.png',
