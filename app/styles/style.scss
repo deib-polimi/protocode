@@ -271,7 +271,9 @@ html, body {
   right: 0;
   width: auto;
   border-bottom: solid 1px $ios-list-view-cell-border-color;
-  font-size: $ios-list-view-cell-border-font-size;
+  font-size: $ios-list-view-cell-font-size;
+  color: #000;
+  line-height: 34px;
 }
 
 .ios .control-grid-view-cell {
