@@ -14,7 +14,7 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
-            {{input-select label="Video View" content=videoViews optionLabelPath="content.name" optionValuePath="content" selection=videoView prompt="Select video view"}}
+            {{input-select label="Video View" content=allowedVideoViews optionLabelPath="content.name" optionValuePath="content" selection=videoView prompt="Select video view"}}
           </div>
           <div class="tab-pane fade" id="position">
             {{partial "partials/ui_control_position"}}

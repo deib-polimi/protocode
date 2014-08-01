@@ -14,7 +14,7 @@
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
             {{input-text label="Name" value=name action='acceptChanges'}}
-            {{input-select label="Audio Player" content=audioPlayers optionLabelPath="content.name" optionValuePath="content" selection=audioPlayer prompt="Select audio player"}}
+            {{input-select label="Audio Player" content=allowedAudioPlayers optionLabelPath="content.name" optionValuePath="content" selection=audioPlayer prompt="Select audio player"}}
           </div>
           <div class="tab-pane fade" id="position">
             {{partial "partials/ui_control_position"}}
