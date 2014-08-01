@@ -4,22 +4,6 @@ App.UiMoveable = Ember.Mixin.create({
 
   offsetMouseX: 0,
   offsetMouseY: 0,
-  
-  mouseMove: function(event) {
-    if (this.get('isMoving')) {
-      var element = this.get('element');
-      var parentOffset = $(this.get('parentView.element')).offset();
-      var posX = (event.pageX - parentOffset.left - this.get('offsetMouseX')) / this.get('controller.zoomLevel') * this.get('device.screenWidth') / this.get('device.cssWidth');
-      var posY = (event.pageY - parentOffset.top - this.get('offsetMouseY')) / this.get('controller.zoomLevel') * this.get('device.screenHeight') / this.get('device.cssHeight');
-
-      if (this.get('context.parentContainer') == null) {
-        posY -= this.get('device.viewTop');
-      }
-
-      this.set('context.posX', posX);
-      this.set('context.posY', posY);
-    }
-  },
 
   mouseDown: function(event) {
     event.preventDefault();
@@ -28,6 +12,23 @@ App.UiMoveable = Ember.Mixin.create({
     var elementOffset = $(this.get('element')).offset();
     this.set('offsetMouseX', (event.pageX - elementOffset.left));
     this.set('offsetMouseY', (event.pageY - elementOffset.top));
+
+    var self = this;
+
+    $('.device-screen-view').on('mousemove', function(event) {
+      var element = self.get('element');
+      var parentOffset = $(self.get('parentView.element')).offset();
+      var posX = (event.pageX - parentOffset.left - self.get('offsetMouseX')) / self.get('controller.zoomLevel') * self.get('device.screenWidth') / self.get('device.cssWidth');
+      var posY = (event.pageY - parentOffset.top - self.get('offsetMouseY')) / self.get('controller.zoomLevel') * self.get('device.screenHeight') / self.get('device.cssHeight');
+
+      if (self.get('context.parentContainer') == null) {
+        posY -= self.get('device.viewTop');
+      }
+
+      self.set('context.posX', posX);
+      self.set('context.posY', posY);
+    });
+
     return false;
   },
 
@@ -35,5 +36,6 @@ App.UiMoveable = Ember.Mixin.create({
     event.preventDefault();
     this.set('isMoving', false);
     this.get('context').save();
+    $('.device-screen-view').off('mousemove');
   }
 });
