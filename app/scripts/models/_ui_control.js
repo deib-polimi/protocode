@@ -272,7 +272,6 @@ App.UiControl = DS.Model.extend({
   didCreate: function() {
     this.set('name', this.get('id').replace(/[0-9]/g, '') + this.constructor.toString().split(".")[1]);
     
-    
     var self = this;
     if (this.get('parentContainer')) {
       var uiControls = this.get('parentContainer.uiControls');
@@ -285,6 +284,8 @@ App.UiControl = DS.Model.extend({
         uiControls.pushObject(self);
         viewController.save();
       });
+
+    this.save();
       
     }
   },
