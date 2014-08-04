@@ -83,8 +83,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
         model.save();
       }
       else {
-        console.log('AHHHHH');
-        return previousValue;
+        alert('Found circularity in constraints. Please restore previous value.');
       }
     }
 
