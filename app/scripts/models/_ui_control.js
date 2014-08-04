@@ -30,7 +30,6 @@ App.UiControl = DS.Model.extend({
   alignStart: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
   alignEnd: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
 
-
   above: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
   below: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
   toStartOf: DS.belongsTo('uiControl', {polymorphic: true, inverse: null}),
