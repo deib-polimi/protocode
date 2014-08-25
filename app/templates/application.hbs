@@ -12,13 +12,18 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li>{{#link-to 'viewControllers'}}Editor{{/link-to}}</li>
+                    {{#if model}}
+                        <li>{{#link-to 'viewControllers'}}Editor{{/link-to}}</li>
+                    {{/if}}
                     <li>{{#link-to 'about'}}About{{/link-to}}</li>
 
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                    <li><a {{action 'deleteApp'}}>Delete App</a></li>
-                    <li><a {{action 'createApp'}}>Create App</a></li>
+                    {{#if model}}
+                        <li><a {{action 'deleteApp'}}>Delete App</a></li>
+                    {{else}}
+                        <li><a {{action 'createApp'}}>Create App</a></li>
+                    {{/if}}
 
                 </ul>
             </div>

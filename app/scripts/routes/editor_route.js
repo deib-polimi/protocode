@@ -13,6 +13,7 @@ App.EditorRoute = Ember.Route.extend({
           asyncTasks: this.store.find('asyncTask'),
           alertDialogs: this.store.find('alertDialog'),
           progressDialogs: this.store.find('progressDialog'),
+          viewControllers: this.store.find('viewController'),
           menu: this.store.find('menu').then(function (menus) {
             menus.map(function (menu) {
               return menu.get('menuItems');

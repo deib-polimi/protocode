@@ -1,6 +1,6 @@
 App.ApplicationRoute = Ember.Route.extend({
   model: function () {
-    return this.store.findAll('viewController');
+    return this.store.findAll('application');
   },
 
   actions: {
@@ -51,6 +51,8 @@ App.ApplicationRoute = Ember.Route.extend({
           });
         });
       });
+
+      this.transitionTo('/');
 
     },
 
