@@ -1,6 +1,5 @@
 App.Application = DS.Model.extend({
   name: DS.attr('string', {defaultValue: 'newApp'}),
-  device: DS.belongsTo('device'),
   menu: DS.belongsTo('menu'),
   viewControllers: DS.hasMany('viewController', {inverse: 'application'}),
 
