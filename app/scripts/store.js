@@ -21,7 +21,6 @@ App.ApplicationSerializer = DS.LSSerializer.extend({
     else {
       json[key + "Type"] = belongsTo;
     }
-    console.log(json);
   },
 
   serializeHasMany: function(record, json, relationship) {
@@ -44,7 +43,6 @@ App.ApplicationSerializer = DS.LSSerializer.extend({
       }
       
     }
-    console.log(json);
   }
 });
 App.ApplicationAdapter = DS.LSAdapter.extend({

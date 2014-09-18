@@ -7,7 +7,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.alignTop'),
   alignBottom: function(key, value, previousValue) {
     // setter
     if (arguments.length > 1) {
@@ -16,7 +16,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.alignBottom'),
   alignStart: function(key, value, previousValue) {
     // setter
     if (arguments.length > 1) {
@@ -25,7 +25,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.alignStart'),
   alignEnd: function(key, value, previousValue) {
     // setter
     if (arguments.length > 1) {
@@ -34,7 +34,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.alignEnd'),
 
   above: function(key, value, previousValue) {
     // setter
@@ -44,7 +44,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.above'),
   below: function(key, value, previousValue) {
     // setter
     if (arguments.length > 1) {
@@ -53,7 +53,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.below'),
   toStartOf: function(key, value, previousValue) {
     // setter
     if (arguments.length > 1) {
@@ -62,7 +62,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.toStartOf'),
   toEndOf: function(key, value, previousValue) {
     // setter
     if (arguments.length > 1) {
@@ -71,7 +71,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
 
     // getter
     return this.handleConstraint(key);
-  }.property(),
+  }.property('model.toEndOf'),
 
   handleConstraint: function(key, value, previousValue) {
     var model = this.get('model');
