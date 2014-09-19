@@ -15,7 +15,7 @@ App.WithSourceType = Ember.Mixin.create({
     // getter
     return this.get('model.sourceType.type');
 
-  }.property(),
+  }.property('model.sourceType.type'),
 
   actions: {
     acceptChanges: function() {
