@@ -320,7 +320,7 @@ App.UiControl = DS.Model.extend({
       });
     }
     else {
-      self._super();
+      this._super();
     }
   },
 

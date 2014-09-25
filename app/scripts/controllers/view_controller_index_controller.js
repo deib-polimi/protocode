@@ -37,13 +37,23 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
     deleteViewController: function() {
       if (confirm('Are you sure to delete?')) {
         var viewController = this.get('model');
-        var application = viewController.get('application');
 
-        var linkedModels = ['uiControls', 'alertDialogs', 'progressDialogs', 'asyncTasks'];
+        var linkedModels = ['alertDialogs', 'progressDialogs', 'asyncTasks'];
 
-        linkedModels.map(function (model) {
+        var self = this
+
+        viewController.get('uiControls').then(function (uiControls) {
+          uiControls.forEach(function (uiControl) {
+            Ember.run.once(self, function () {
+              uiControl.deleteRecord();
+              uiControl.save();
+            });
+          });
+        });
+
+        linkedModels.forEach(function (model) {
           viewController.get(model).forEach(function (uiControl) {
-            Ember.run.once(this, function () {
+            Ember.run.once(self, function () {
               uiControl.deleteRecord();
               uiControl.save();
             });
@@ -61,8 +71,6 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
 
         viewController.deleteRecord();
         viewController.save();
-
-        application.save();
 
         this.transitionToRoute('/editor/viewControllers');
       }
