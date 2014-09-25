@@ -24,6 +24,8 @@ App.ViewController = DS.Model.extend({
         });
       });
     });
+
+    this._super();
   },
 
   toXml: function(xmlDoc) {

@@ -290,8 +290,10 @@ App.UiControl = DS.Model.extend({
   },
 
   deleteRecord: function() {
+    alert('ciao')
     
     var viewController = this.get('viewController');
+    var self = this;
 
     if (viewController) {
       var constraints = [
@@ -304,7 +306,6 @@ App.UiControl = DS.Model.extend({
         'toStartOf',
         'toEndOf'];
 
-      var self = this;
 
       viewController.get('uiControls').then(function(uiControls) {
         uiControls.forEach(function (uiControl) {
@@ -320,7 +321,7 @@ App.UiControl = DS.Model.extend({
       });
     }
     else {
-      this._super();
+      self._super();
     }
   },
 

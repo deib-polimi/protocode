@@ -10,10 +10,8 @@ App.AppMenuItemIndexController = Ember.ObjectController.extend(
         var menuItemToDelete = this.get('model');
         var menu = menuItemToDelete.get('parentMenu');
         
-        this.get('parentMenu.menuItems').then(function(menuItems) {
-          menuItems.removeObject(menuItemToDelete);
-          menu.save();
-        });
+        this.get('parentMenu.menuItems').removeObject(menuItemToDelete);
+        menu.save();
 
         this._super();
       }

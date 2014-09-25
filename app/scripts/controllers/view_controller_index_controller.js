@@ -38,6 +38,11 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
       if (confirm('Are you sure to delete?')) {
         var viewController = this.get('model');
 
+        var application = viewController.get('application')
+
+        application.get('viewControllers').removeObject(viewController);
+        application.save();
+
         var linkedModels = ['alertDialogs', 'progressDialogs', 'asyncTasks'];
 
         var self = this
