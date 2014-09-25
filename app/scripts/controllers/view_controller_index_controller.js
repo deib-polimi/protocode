@@ -37,9 +37,12 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
     deleteViewController: function() {
       if (confirm('Are you sure to delete?')) {
         var viewController = this.get('model');
+        var application = viewController.get('application');
 
         viewController.deleteRecord();
         viewController.save();
+
+        application.save();
 
         this.transitionToRoute('/editor/viewControllers');
       }
