@@ -289,6 +289,41 @@ App.UiControl = DS.Model.extend({
     }
   },
 
+  deleteRecord: function() {
+    
+    var viewController = this.get('viewController');
+
+    if (viewController) {
+      var constraints = [
+        'alignTop',
+        'alignBottom',
+        'alignStart',
+        'alignEnd',
+        'above',
+        'below',
+        'toStartOf',
+        'toEndOf'];
+
+      var self = this;
+
+      viewController.get('uiControls').then(function(uiControls) {
+        uiControls.forEach(function (uiControl) {
+          constraints.forEach(function (constraint) {
+            if (uiControl.get(constraint) == self) {
+              uiControl.set(constraint, null);
+              uiControl.save();
+            }
+          });
+        });
+
+        self._super();
+      });
+    }
+    else {
+      self._super();
+    }
+  },
+
   decorateXml: function(xmlElem) {
     xmlElem.setAttribute('id', this.get('name'));
 
@@ -374,7 +409,7 @@ App.UiControl = DS.Model.extend({
       'toEndOf'];
 
     var self = this;
-    
+
     return constraints.map(function (constraint) {
       return self.get(constraint);
     }).filter(function (item) {return item != null;});
