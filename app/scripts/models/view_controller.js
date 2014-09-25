@@ -13,6 +13,19 @@ App.ViewController = DS.Model.extend({
 
   xmlName:        'viewControllers',
 
+  deleteRecord: function () {
+    var self = this;
+
+    this.get('uiControls').then(function (uiControls) {
+      uiControls.forEach(function (uiControl) {
+        Ember.run.once(self, function () {
+          uiControl.deleteRecord();
+          uiControl.save();
+        });
+      });
+    });
+  },
+
   toXml: function(xmlDoc) {
     var self = this;
     

@@ -9,42 +9,29 @@ App.ApplicationRoute = Ember.Route.extend({
       var self = this;
 
       var models = [
-        'uiControl',
         'application',
         'alertDialog',
         'asyncTask',
-        'audioPlayer',
-        'audioRecorder',
-        'button',
         'clickListener',
         'container',
         'device',
-        'editText',
-        'gridView',
-        'imageView',
-        'label',
-        'listView',
         'menu',
         'menuItem',
         'navigation',
-        'photocameraController',
         'platform',
         'progressDialog',
         'sourceType',
-        'uiControlTemplate',
-        'videoView',
-        'videocameraController',
-        'viewController',
-        'webView'
+        'uiControlTemplate'
       ];
 
       models.map(function (model) {
-        console.log(model);
-        self.store.findAll(model).then(function (array) {
-          array.forEach(function (data) {
-            Ember.run.once(this, function () {
-              data.deleteRecord();
-              data.save();
+        Ember.run.once(self, function () {
+          self.store.findAll(model).then(function (array) {
+            array.forEach(function (data) {
+              Ember.run.once(self, function () {
+                data.deleteRecord();
+                data.save();
+              });
             });
           });
         });

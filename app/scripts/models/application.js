@@ -3,6 +3,17 @@ App.Application = DS.Model.extend({
   menu: DS.belongsTo('menu'),
   viewControllers: DS.hasMany('viewController', {inverse: 'application'}),
 
+  deleteRecord: function () {
+    this.get('viewControllers').forEach( function (viewController) {
+      Ember.run.once(this, function () {
+        viewController.deleteRecord();
+        viewController.save();
+      });
+    });
+
+    this._super();
+  },
+
   toXml: function() {
     var self = this;
     var promise = new Promise(function(resolve, reject) {
