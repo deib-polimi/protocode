@@ -9,24 +9,17 @@ App.GridView = App.UiControl.extend({
   toXml: function(xmlDoc) {
     var self = this;
     
-    var promise = new Promise(function (resolve, reject) {
-      var elem = xmlDoc.createElement(self.get('xmlName'));
-      self.decorateXml(elem);
+    var elem = xmlDoc.createElement(self.get('xmlName'));
+    self.decorateXml(elem);
 
-      var clickListener = self.get('clickListener');
+    var clickListener = self.get('clickListener');
 
-      if (clickListener != null) {
-          elem.appendChild(clickListener.toXml(xmlDoc));
-      }
+    if (clickListener != null) {
+        elem.appendChild(clickListener.toXml(xmlDoc));
+    }
 
-      self.get('gridViewCells').then(function (listViewCells) {
-        
-        listViewCells.map(function(item) {
-          elem.appendChild(item.toXml(xmlDoc));
-        });
-
-        resolve(elem);
-      });
+    self.get('gridViewCells').map(function(item) {
+      elem.appendChild(item.toXml(xmlDoc));
     });
 
     return promise;

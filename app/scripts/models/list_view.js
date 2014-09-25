@@ -9,7 +9,6 @@ App.ListView = App.UiControl.extend({
   toXml: function(xmlDoc) {
     var self = this;
     
-    var promise = new Promise(function (resolve, reject) {
       var elem = xmlDoc.createElement(self.get('xmlName'));
       self.decorateXml(elem);
 
@@ -19,17 +18,11 @@ App.ListView = App.UiControl.extend({
           elem.appendChild(clickListener.toXml(xmlDoc));
       }
 
-      self.get('listViewCells').then(function (listViewCells) {
-        
-        listViewCells.map(function(item) {
+      self.get('listViewCells').map(function(item) {
           elem.appendChild(item.toXml(xmlDoc));
-        });
-
-        resolve(elem);
       });
-    });
 
-    return promise;
+    return elem;
   }
 });
 /*
