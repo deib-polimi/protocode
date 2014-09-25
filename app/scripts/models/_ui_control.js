@@ -290,8 +290,6 @@ App.UiControl = DS.Model.extend({
   },
 
   deleteRecord: function() {
-    alert('ciao')
-    
     var viewController = this.get('viewController');
     var self = this;
 
@@ -316,13 +314,10 @@ App.UiControl = DS.Model.extend({
             }
           });
         });
-
-        self._super();
       });
     }
-    else {
-      self._super();
-    }
+
+    this._super();
   },
 
   decorateXml: function(xmlElem) {
