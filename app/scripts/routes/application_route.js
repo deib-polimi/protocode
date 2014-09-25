@@ -9,6 +9,7 @@ App.ApplicationRoute = Ember.Route.extend({
       var self = this;
 
       var models = [
+        'uiControl',
         'application',
         'alertDialog',
         'asyncTask',
@@ -36,8 +37,7 @@ App.ApplicationRoute = Ember.Route.extend({
         'videoView',
         'videocameraController',
         'viewController',
-        'webView',
-        'uiControl'
+        'webView'
       ];
 
       models.map(function (model) {

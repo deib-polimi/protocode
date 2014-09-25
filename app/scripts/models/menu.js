@@ -1,5 +1,5 @@
 App.Menu = DS.Model.extend({
-  menuItems: DS.hasMany('menuItem', {async: true, inverse: 'parentMenu'}),
+  menuItems: DS.hasMany('menuItem', {inverse: 'parentMenu'}),
 
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement('menu');

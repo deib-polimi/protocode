@@ -11,14 +11,11 @@ App.EditorRoute = Ember.Route.extend({
           clickListeners: this.store.find('clickListener'),
           sourceTypes: this.store.find('sourceType'),
           asyncTasks: this.store.find('asyncTask'),
+          menuItems: this.store.find('menuItem'),
           alertDialogs: this.store.find('alertDialog'),
           progressDialogs: this.store.find('progressDialog'),
           viewControllers: this.store.find('viewController'),
-          menu: this.store.find('menu').then(function (menus) {
-            menus.map(function (menu) {
-              return menu.get('menuItems');
-            })
-          }),
+          menu: this.store.find('menu'),
         });
     },
     setupController: function(controller, model) {

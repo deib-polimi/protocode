@@ -10,10 +10,6 @@ App.MenuItem = DS.Model.extend({
     
     var self = this;
     
-    this.get('parentMenu.menuItems').then(function (menuItems) {
-      menuItems.pushObject(self);
-    });
-
     this.get('parentMenu').save();
   },
 
