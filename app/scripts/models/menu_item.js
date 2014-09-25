@@ -4,6 +4,17 @@ App.MenuItem = DS.Model.extend({
   parentMenu: DS.belongsTo('menu', {inverse: 'menuItems'}),
   navigation: DS.belongsTo('navigation', {inverse: null}),
 
+  deleteRecord: function() {
+    var navigation = this.get('navigation');
+
+    if (navigation) {
+      navigation.deleteRecord();
+      navigation.save();
+    }
+
+    this._super();
+  },
+
   // Used to reload menuItems
   didCreate: function() {
     this._super();

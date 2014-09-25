@@ -16,6 +16,13 @@ App.ListView = App.UiControl.extend({
       });
     });
 
+    var clickListener = this.get('clickListener');
+
+    if (clickListener) {
+      clickListener.deleteRecord();
+      clickListener.save();
+    }
+
     this._super();
   },
 

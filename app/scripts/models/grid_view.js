@@ -16,6 +16,13 @@ App.GridView = App.UiControl.extend({
       });
     });
 
+    var clickListener = this.get('clickListener');
+    
+    if (clickListener) {
+      clickListener.deleteRecord();
+      clickListener.save();
+    }
+
     this._super();
   },
 

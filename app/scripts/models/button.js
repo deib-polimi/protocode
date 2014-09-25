@@ -7,6 +7,17 @@ App.Button = App.UiControl.extend({
 
   xmlName:        'buttons',
 
+  deleteRecord: function () {
+    var clickListener = this.get('clickListener');
+
+    if (clickListener) {
+      clickListener.deleteRecord();
+      clickListener.save();
+    }
+
+    this._super();
+  },
+
   toXml: function(xmlDoc) {
     var button = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(button);
