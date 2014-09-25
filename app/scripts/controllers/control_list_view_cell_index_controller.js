@@ -4,10 +4,8 @@ App.ControlListViewCellIndexController = Ember.ObjectController.extend(App.Savea
       var cellToDelete = this.get('model');
       var parentView = cellToDelete.get('parentListView');
       
-      parentView.get('listViewCells').then(function(cellItems) {
-        cellItems.removeObject(cellToDelete);
-        parentView.save();
-      });
+      parentView.get('listViewCells').removeObject(cellToDelete);
+      parentView.save();
 
       this._super();
     }
