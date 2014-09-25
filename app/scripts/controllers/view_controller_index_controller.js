@@ -43,8 +43,10 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
 
         linkedModels.map(function (model) {
           viewController.get(model).forEach(function (uiControl) {
-            uiControl.deleteRecord();
-            uiControl.save();
+            Ember.run.once(this, function () {
+              uiControl.deleteRecord();
+              uiControl.save();
+            });
           });
         });
 

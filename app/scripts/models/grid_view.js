@@ -6,6 +6,19 @@ App.GridView = App.UiControl.extend({
 
   xmlName:        'gridViews',
 
+  deleteRecord: function() {
+    var gridViewCells = this.get('gridViewCells');
+
+    gridViewCells.forEach(function (gridViewCell) {
+      Ember.run.once(this, function () {
+        gridViewCell.deleteRecord();
+        gridViewCell.save();
+      });
+    });
+
+    this._super();
+  },
+
   toXml: function(xmlDoc) {
     var self = this;
     

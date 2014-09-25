@@ -6,6 +6,19 @@ App.ListView = App.UiControl.extend({
 
   xmlName:          'listViews',
 
+  deleteRecord: function() {
+    var listViewCells = this.get('listViewCells');
+
+    listViewCells.forEach(function (listViewCell) {
+      Ember.run.once(this, function () {
+        listViewCell.deleteRecord();
+        listViewCell.save();
+      });
+    });
+
+    this._super();
+  },
+
   toXml: function(xmlDoc) {
     var self = this;
     

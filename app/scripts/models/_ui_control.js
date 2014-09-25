@@ -360,6 +360,25 @@ App.UiControl = DS.Model.extend({
     }
 
     return updatedPath;
+  },
+
+  getRelatedUiControls: function() {
+    var constraints = [
+      'alignTop',
+      'alignBottom',
+      'alignStart',
+      'alignEnd',
+      'above',
+      'below',
+      'toStartOf',
+      'toEndOf'];
+
+    var self = this;
+    
+    return constraints.map(function (constraint) {
+      return self.get(constraint);
+    }).filter(function (item) {return item != null;});
+
   }
 
 });

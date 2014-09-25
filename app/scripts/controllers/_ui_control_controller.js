@@ -105,7 +105,7 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
     }
 
     var uiControls = [];
-    var uiControlsToCheck = this.getRelatedUiControls(model).concat(value).uniq();
+    var uiControlsToCheck = model.getRelatedUiControls().concat(value).uniq();
     var self = this;
 
 
@@ -113,28 +113,12 @@ App.UiControlController = Ember.ObjectController.extend(App.Saveable, {
       uiControls = uiControlsToCheck;
 
       uiControlsToCheck = uiControlsToCheck.reduce(function (results, uiControl) {
-        return results.concat(self.getRelatedUiControls(uiControl));
+        return results.concat(uiControl.getRelatedUiControls());
       }, []).uniq();
 
     }
 
     return !uiControlsToCheck.contains(model);
-  },
-
-  getRelatedUiControls: function(model) {
-    var constraints = [
-      'alignTop',
-      'alignBottom',
-      'alignStart',
-      'alignEnd',
-      'above',
-      'below',
-      'toStartOf',
-      'toEndOf'];
-
-    return constraints.map(function (constraint) {
-      return model.get(constraint);
-    }).filter(function (item) {return item != null;});
   },
 
   actions: {
