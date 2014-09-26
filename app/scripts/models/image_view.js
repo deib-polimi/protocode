@@ -15,6 +15,17 @@ App.ImageView = App.UiControl.extend({
     this.save();
   },
 
+  deleteRecord: function() {
+    var sourceType = this.get('sourceType');
+
+    if (sourceType) {
+      sourceType.deleteRecord();
+      sourceType.save();
+    }
+
+    this._super();
+  },
+
   toXml: function(xmlDoc) {
     var elem = xmlDoc.createElement(this.get('xmlName'));
     this.decorateXml(elem);

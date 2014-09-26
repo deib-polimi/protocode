@@ -10,15 +10,11 @@ App.ApplicationRoute = Ember.Route.extend({
 
       var models = [
         'application',
-        'alertDialog',
-        'asyncTask',
         'container',
         'device',
         'menu',
         'menuItem',
         'platform',
-        'progressDialog',
-        'sourceType',
         'uiControlTemplate'
       ];
 

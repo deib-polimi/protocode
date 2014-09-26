@@ -25,6 +25,19 @@ App.ViewController = DS.Model.extend({
       });
     });
 
+    var linkedModels = ['alertDialogs', 'progressDialogs', 'asyncTasks'];
+
+    var self = this
+
+    linkedModels.forEach(function (linkedModel) {
+      self.get(linkedModel).forEach(function (uiControl) {
+        Ember.run.once(self, function () {
+          uiControl.deleteRecord();
+          uiControl.save();
+        });
+      });
+    });
+
     this._super();
   },
 

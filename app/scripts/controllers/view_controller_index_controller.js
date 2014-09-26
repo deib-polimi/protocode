@@ -43,19 +43,6 @@ App.ViewControllerIndexController = Ember.ObjectController.extend(App.Saveable, 
         application.get('viewControllers').removeObject(viewController);
         application.save();
 
-        var linkedModels = ['alertDialogs', 'progressDialogs', 'asyncTasks'];
-
-        var self = this
-
-        linkedModels.forEach(function (model) {
-          viewController.get(model).forEach(function (uiControl) {
-            Ember.run.once(self, function () {
-              uiControl.deleteRecord();
-              uiControl.save();
-            });
-          });
-        });
-
         this.store.find('navigation').then(function (navigations) {
           navigations.forEach(function (navigation) {
             if (navigation.get('destination') == viewController) {
