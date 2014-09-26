@@ -16,6 +16,20 @@ App.EditorRoute = Ember.Route.extend({
           gridViewCells: this.store.find('gridViewCell'),
           alertDialogs: this.store.find('alertDialog'),
           progressDialogs: this.store.find('progressDialog'),
+          // UiControls
+          audioPlayers: this.store.find('audioPlayer'),
+          audioRecorders:  this.store.find('audioRecorder'),
+          buttons:  this.store.find('button'),
+          editTexts:  this.store.find('editText'),
+          gridViews:  this.store.find('gridView'),
+          imageViews:  this.store.find('imageView'),
+          labels:  this.store.find('label'),
+          listViews:  this.store.find('listView'),
+          photocameraControllers:  this.store.find('photocameraController'),
+          videoViews:  this.store.find('videoView'),
+          videocameraControllers:  this.store.find('videocameraController'),
+          webViews:  this.store.find('webView'),
+
           viewControllers: this.store.find('viewController'),
           menu: this.store.find('menu'),
         });
