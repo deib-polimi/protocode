@@ -7,25 +7,28 @@ App.WithSourceType = Ember.Mixin.create({
 
   sourceTypeSelected: function(key, value) {
     // setter
-    if (arguments.length > 1) {
-      this.set('model.sourceType.type', value);
-      this.get('model.sourceType').save();
-    }
+    var sourceType = this.get('model.sourceType');
 
-    // getter
-    return this.get('model.sourceType.type');
+    if (sourceType) {
+      if (arguments.length > 1) {
+        this.set('model.sourceType.type', value);
+        this.get('model.sourceType').save();
+      }
+
+      // getter
+      return this.get('model.sourceType.type');
+    }
+    else {
+      return null;
+    }
 
   }.property('model.sourceType.type'),
 
   actions: {
     acceptChanges: function() {
+      alert('bbb');
       this._super();
       this.get('model.sourceType').save();
-    },
-
-    delete: function() {
-      this.get('model.sourceType').destroyRecord();
-      this._super();
     }
   }
 });
