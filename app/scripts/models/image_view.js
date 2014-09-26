@@ -23,6 +23,23 @@ App.ImageView = App.UiControl.extend({
       sourceType.save();
     }
 
+    var viewController = this.get('viewController');
+
+    var self = this;
+
+    if (viewController) {
+      viewController.get('uiControls').then(function(uiControls) {
+        uiControls.forEach(function (uiControl) {
+          if (uiControl.get('imageView') == self) {
+            uiControl.set('imageView', null);
+            uiControl.save();
+          }
+        });
+      });
+    } 
+      
+      
+
     this._super();
   },
 

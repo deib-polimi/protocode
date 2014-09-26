@@ -23,6 +23,20 @@ App.AudioPlayer = App.UiControl.extend({
       sourceType.save();
     }
 
+    var viewController = this.get('viewController');
+    var self = this;
+
+    if (viewController) {
+      viewController.get('uiControls').then(function(uiControls) {
+        uiControls.forEach(function (uiControl) {
+          if (uiControl.get('audioPlayer') == self) {
+            uiControl.set('audioPlayer', null);
+            uiControl.save();
+          }
+        });
+      });
+    }
+
     this._super();
   },
 
