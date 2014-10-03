@@ -493,19 +493,20 @@ html, body {
   border-radius: 2px;
   box-shadow: 0px 1px 1px 0 #c4c4c4;
   text-align: center;
+  font-size: 18px;
 }
 
 .android .control-label {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .android .control-edit-text {
-  position: relative;
   border-bottom: solid 1px $android-normal-edit-text-color;
   overflow: visible;
+  box-sizing: border-box;
 }
 
-  .android .control-edit-text:after {
+  .android .control-edit-text .inner-control:after {
     content: "";
     position: absolute;
     border-left: solid 1px $android-normal-edit-text-color;
