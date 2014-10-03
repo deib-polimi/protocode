@@ -14,12 +14,12 @@ App.ControlGridViewIndexController = App.UiControlController.extend(App.ClickLis
     },
 
     createGridViewCell: function() {
-      var name = this.get('newNameGridViewCell');
+      var name = this.get('newNameGridViewCell').trim();
 
-      if (!name.trim()) { return; }
+      if (!name) { return; }
 
       var gridViewCell = this.store.createRecord('gridViewCell', {
-        name: name,
+        name: name.replace(/ /g, ''),
         title: name
       });
 

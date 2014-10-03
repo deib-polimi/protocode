@@ -14,12 +14,12 @@ App.ControlListViewIndexController = App.UiControlController.extend(App.ClickLis
     },
 
     createListViewCell: function() {
-      var name = this.get('newNameListViewCell');
+      var name = this.get('newNameListViewCell').trim();
 
-      if (!name.trim()) { return; }
+      if (!name) { return; }
 
       var listViewCell = this.store.createRecord('listViewCell', {
-        name: name,
+        name: name.replace(/ /g, ''),
         title: name
       });
 
