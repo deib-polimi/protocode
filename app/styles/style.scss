@@ -504,6 +504,7 @@ html, body {
   border-bottom: solid 1px $android-normal-edit-text-color;
   overflow: visible;
   box-sizing: border-box;
+  display: flex;
 }
 
   .android .control-edit-text .inner-control:after {
@@ -517,7 +518,7 @@ html, body {
   }
 
 .android .control-edit-text .control-content {
-  padding: 5px 10px;
+  align-self: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
