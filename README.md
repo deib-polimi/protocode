@@ -22,7 +22,7 @@ In order to deploy the web application we need:
 * [Node.js](http://nodejs.org/)
 * [Ruby](https://www.ruby-lang.org/)
 * [Compass](http://compass-style.org/)
-* MobileCodeGenerator: this app is required to generate both iOS and Android project from the model exported by Protocode.
+* MobileCodeGenerator: this app is required to generate both iOS and Android projects from the model exported by Protocode.
 
 ## Installation ##
 
